@@ -1,0 +1,54 @@
+aoc -time time.out -time-passes -regtest_mode -v -g -fpc -fp-relaxed -report linebuffer.cl -o linebuffer.aocx
+aoc: Environment checks are completed successfully.
+aoc: Cached files in /tools/aclboardpkg/.platform/BAK_cache/linux/SJ may be used to reduce compilation time
+You are now compiling the full flow!!
+aoc: Selected default target board pac_a10
+aoc: Running OpenCL parser....
+aoc: OpenCL parser completed successfully.
+aoc: Optimizing and doing static analysis of code...
+aoc: Linking with IP library ...
+Checking if memory usage is larger than 100%
+Compiler Warning: Multiple reads from channel _A_loader_0_channel This may lead to bad QoR
+Compiler Warning: Multiple reads from channel _A_loader_0_channel This may lead to bad QoR
+Compiler Warning: Auto-unrolled loop at /homes/weihao/conv/fccm-ttm-experiments-vlab/linebuffer.cl:159
+Compiler Warning: Pointer to local memory argument with no store to it.
+Compiler Warning: Pointer to local memory argument with no store to it.
+Compiler Warning: Pointer to local memory argument with no store to it.
+
+!===========================================================================
+! The report below may be inaccurate. A more comprehensive           
+! resource usage report can be found at linebuffer/reports/report.html    
+!===========================================================================
+
++--------------------------------------------------------------------+
+; Estimated Resource Usage Summary                                   ;
++----------------------------------------+---------------------------+
+; Resource                               + Usage                     ;
++----------------------------------------+---------------------------+
+; Logic utilization                      ;   39%                     ;
+; ALUTs                                  ;   22%                     ;
+; Dedicated logic registers              ;   18%                     ;
+; Memory blocks                          ;   23%                     ;
+; DSP blocks                             ;    0%                     ;
++----------------------------------------+---------------------------;
+aoc: First stage compilation completed successfully.
+Compiling for FPGA. This process may take a long time, please be patient.
+Error: kernel_system_linebuffer_system: add_fileset_file: No such file /homes/weihao/conv/fccm-ttm-experiments-vlab/linebuffer/build/kernel_hdl/kernel_A_feeder_channel__autorun__run_on_device/kernel_A_feeder_channel__autorun__run_on_device_function_wrapper.vhd
+Error: qsys-generate failed with exit code 3: 1 Error, 0 Warnings
+Error: kernel_system_linebuffer_system: add_fileset_file: No such file /homes/weihao/conv/fccm-ttm-experiments-vlab/linebuffer/build/kernel_hdl/kernel_A_feeder_channel__autorun__run_on_device/kernel_A_feeder_channel__autorun__run_on_device_function_wrapper.vhd
+Error: qsys-generate failed with exit code 3: 1 Error, 0 Warnings
+Error: The system could not be opened: /homes/weihao/conv/fccm-ttm-experiments-vlab/linebuffer/build/ip/kernel_system/kernel_system_avs_kernel_A_loader_channel__run_on_device_cra_cra_ring.ip.  "kernel_system_avs_kernel_A_loader_channel__run_on_device_cra_cra_ring" is not a valid HDL name.
+Error: The system could not be opened: /homes/weihao/conv/fccm-ttm-experiments-vlab/linebuffer/build/ip/kernel_system/kernel_system_avs_kernel_B_loader_channel__run_on_device_cra_cra_ring.ip.  "kernel_system_avs_kernel_B_loader_channel__run_on_device_cra_cra_ring" is not a valid HDL name.
+Error: The system could not be opened: /homes/weihao/conv/fccm-ttm-experiments-vlab/linebuffer/build/ip/kernel_system/kernel_system_avs_kernel_C_1__run_on_device_cra_cra_ring.ip.  "kernel_system_avs_kernel_C_1__run_on_device_cra_cra_ring" is not a valid HDL name.
+Error: avs_kernel_A_loader_channel__run_on_device_cra_cra_ring: avs_kernel_A_loader_channel__run_on_device_cra_cra_ring declares invalid HDL entity name kernel_system_avs_kernel_A_loader_channel__run_on_device_cra_cra_ring.
+Error: avs_kernel_A_loader_channel__run_on_device_cra_cra_ring: avs_kernel_A_loader_channel__run_on_device_cra_cra_ring declares invalid HDL library name kernel_system_avs_kernel_A_loader_channel__run_on_device_cra_cra_ring.
+Error: avs_kernel_B_loader_channel__run_on_device_cra_cra_ring: avs_kernel_B_loader_channel__run_on_device_cra_cra_ring declares invalid HDL entity name kernel_system_avs_kernel_B_loader_channel__run_on_device_cra_cra_ring.
+Error: avs_kernel_B_loader_channel__run_on_device_cra_cra_ring: avs_kernel_B_loader_channel__run_on_device_cra_cra_ring declares invalid HDL library name kernel_system_avs_kernel_B_loader_channel__run_on_device_cra_cra_ring.
+Error: avs_kernel_C_1__run_on_device_cra_cra_ring: avs_kernel_C_1__run_on_device_cra_cra_ring declares invalid HDL entity name kernel_system_avs_kernel_C_1__run_on_device_cra_cra_ring.
+Error: avs_kernel_C_1__run_on_device_cra_cra_ring: avs_kernel_C_1__run_on_device_cra_cra_ring declares invalid HDL library name kernel_system_avs_kernel_C_1__run_on_device_cra_cra_ring.
+Error: Finished elaborating Platform Designer system entity /homes/weihao/conv/fccm-ttm-experiments-vlab/linebuffer/build/kernel_system.qsys
+Error: Quartus Prime IP Generation Tool was unsuccessful. 14 errors, 2 warnings
+Error (23031): Evaluation of Tcl script a10_partial_reconfig/flow.tcl unsuccessful
+Error: Quartus Prime Shell was unsuccessful. 20 errors, 2 warnings
+Error: Compiler Error, not able to generate hardware
+
