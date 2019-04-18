@@ -1,7 +1,7 @@
 import os
 import sys
 
-emul = 0
+emul = 0 
 
 if (emul):
   aoc_opt = "-march=emulator"

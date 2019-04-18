@@ -42,7 +42,7 @@ typedef struct {float data; bool drain_signal; } float_channel_drain_struct_;
 channel float _A_loader_0_channel __attribute__((depth(2))) ;
 // Address spaces for kernel_A_loader_channel__run_on_device
 #define __address_space__A __global
-__kernel void kernel_A_loader_channel__run_on_device(
+__kernel void kernel_A_loader(
  __address_space__A const float *_A,
  __address_space___shared int16* __shared)
 {
@@ -74,7 +74,7 @@ channel float _A_feeder_0_channel __attribute__((depth(2))) ;
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 
 __attribute__((num_compute_units(1,1,1)))
-__kernel void kernel_A_feeder_channel__autorun__run_on_device(
+__kernel void kernel_A_feeder_channel(
 )
 {
  for (int _A_feeder_s0_y_y = 0; _A_feeder_s0_y_y < 0 + 2; _A_feeder_s0_y_y++)
@@ -88,7 +88,7 @@ __kernel void kernel_A_feeder_channel__autorun__run_on_device(
 channel float _B_loader_0_channel __attribute__((depth(2))) ;
 // Address spaces for kernel_B_loader_channel__run_on_device
 #define __address_space__B __global
-__kernel void kernel_B_loader_channel__run_on_device(
+__kernel void kernel_B_loader(
  __address_space__B const float *_B,
  __address_space___shared int16* __shared)
 {
@@ -117,12 +117,12 @@ __kernel void kernel_B_loader_channel__run_on_device(
 } // kernel kernel_B_loader_channel__run_on_device
 #undef __address_space__B
 channel float _B_feeder_0_channel __attribute__((depth(2))) ;
-// Address spaces for kernel_B_feeder_channel__autorun__run_on_device_10
+// Address spaces for kernel_B_feeder_channel_run_on_device_10
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 
 __attribute__((num_compute_units(1,1,1)))
-__kernel void kernel_B_feeder_channel__autorun__run_on_device_10(
+__kernel void kernel_B_feeder_channel(
 )
 {
  for (int _B_feeder_s0_y_y = 0; _B_feeder_s0_y_y < 0 + 2; _B_feeder_s0_y_y++)
@@ -149,7 +149,7 @@ __kernel void kernel_B_feeder_channel__autorun__run_on_device_10(
 } // kernel kernel_B_feeder_channel__autorun__run_on_device_10
 // Address spaces for kernel_C_1__run_on_device
 #define __address_space__C__1 __global
-__kernel void kernel_C_1__run_on_device(
+__kernel void kernel_C_1(
  __address_space__C__1 float *_C__1,
  __address_space___shared int16* __shared)
 {

@@ -40,9 +40,9 @@ const int num_Cargs = 0;
 const int C_args[num_Cargs] = {};
 
 const char* kernel_name[] = {
-"kernel_A_loader_channel__run_on_device",
-"kernel_B_loader_channel__run_on_device",
-"kernel_C_1__run_on_device",
+"kernel_A_loader",
+"kernel_B_loader",
+"kernel_C_1",
 };
 
 double compute_kernel_execution_time(cl_event &event, double &start_d, double &end_d)
