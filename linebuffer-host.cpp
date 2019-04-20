@@ -32,12 +32,12 @@
         exit(1);                                                        \
 }
 
-const int num_Aargs = 0;
-const int A_args[num_Aargs] = {};
-const int num_Bargs = 0;
-const int B_args[num_Bargs] = {};
-const int num_Cargs = 0;
-const int C_args[num_Cargs] = {};
+const int num_Aargs = 7;
+const int A_args[num_Aargs] = {0, 0, J + KX - 1, I, J, 0, 0};
+const int num_Bargs = 5;
+const int B_args[num_Bargs] = {0, 0, KX, 0, 0};
+const int num_Cargs = 5;
+const int C_args[num_Cargs] = {I, J, 0, 0, J};
 
 const char* kernel_name[] = {
 "kernel_A_loader",

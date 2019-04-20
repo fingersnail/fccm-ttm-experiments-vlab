@@ -1,5 +1,4 @@
 /*OpenCL C*/
-//AOCX:/home/weihao/tmp/t301004834.aocx 
 #pragma OPENCL FP_CONTRACT ON
 #pragma OPENCL EXTENSION cl_intel_channels : enable
 float float_from_bits(unsigned int x) {return as_float(x);}
@@ -8,7 +7,6 @@ float neg_inf_f32() { return -INFINITY; }
 float inf_f32() { return INFINITY; }
 
 #include "flat_linebuffer.h"
-#define DPRINTF(...) printf(__VA_ARGS__); for ( int f = 0; f < 64*1024; f++ ) printf("");
 
 #define sqrt_f32 sqrt 
 #define sin_f32 sin 
@@ -52,8 +50,7 @@ __kernel void kernel_A_loader(
  const int _C_extent_1,
  const int _C_min_0,
  const int _C_min_1,
- __address_space__A const float *_A,
- __address_space___shared int16* __shared)
+ __address_space__A const float *_A)
 {
  int _0 = _C_extent_1 + 127;
  int _1 = _0 >> 6;
@@ -97,7 +94,6 @@ __kernel void kernel_A_loader(
      int _23 = _A_min_0 + _22;
      int _24 = _21 - _23;
      float _25 = _A[_24];
-     DPRINTF ("A_loader: write_channel _A_loader_0_channel data: %f\n",_25);
      write_channel_intel(_A_loader_0_channel, _25);
     } // for _A_loader_s0_x_xx
    } // for _A_loader_s0_y_yy
@@ -128,8 +124,7 @@ __kernel void kernel_B_loader(
  const int _B_stride_1,
  const int _C_extent_0,
  const int _C_extent_1,
- __address_space__B const float *_B,
- __address_space___shared int16* __shared)
+ __address_space__B const float *_B)
 {
  int _B_loader_s0_y_yy___yy___xx___win2__y___win2__x__flattened_loop__no_loop_counter;
  int _26 = _C_extent_1 + 127;
@@ -164,7 +159,6 @@ __kernel void kernel_B_loader(
     int _40 = _B_min_0 + _39;
     int _41 = _38 - _40;
     float _42 = _B[_41];
-    DPRINTF ("B_loader: write_channel _B_loader_0_channel data: %f\n",_42);
     write_channel_intel(_B_loader_0_channel, _42);
     // block start
         int _43 = _B_loader_s0_y_yy___yy___xx___win2__y___win2__x__flattened_loop__no_loop_counter + 1;
@@ -208,10 +202,7 @@ __kernel void kernel_B_feeder(
   {
    // block start
    float _51;
-   DPRINTF ("B_feeder: To read_channel _B_loader_0_channel\n");
    _51 = read_channel_intel(_B_loader_0_channel);
-   DPRINTF ("B_feeder: read_channel _B_loader_0_channel data: %f\n",_51);
-   DPRINTF ("B_feeder: write_channel _B_feeder_0_channel data: %f\n",_51);
    write_channel_intel(_B_feeder_0_channel, _51);
    // block start
       int _52 = _B_feeder_s0_y_yy___yy___xx___win2__y___win2__x__flattened_loop__no_loop_counter + 1;
@@ -245,8 +236,7 @@ __kernel void kernel_C_1(
  const int _C_min_0,
  const int _C_min_1,
  const int _C_stride_1,
- __address_space__C float *_C,
- __address_space___shared int16* __shared)
+ __address_space__C float *_C)
 {
  // block start
  int _59 = _C_extent_1 + 1;
@@ -313,13 +303,9 @@ __kernel void kernel_C_1(
     int _89 = _86 - _88;
     float _90 = _C[_89];
     float _91;
-    DPRINTF ("C: To read_channel _A_feeder_0_channel\n");
     _91 = read_channel_intel(_A_feeder_0_channel);
-    DPRINTF ("C: read_channel _A_feeder_0_channel data: %f\n",_91);
     float _92;
-    DPRINTF ("C: To read_channel _B_feeder_0_channel\n");
     _92 = read_channel_intel(_B_feeder_0_channel);
-    DPRINTF ("C: read_channel _B_feeder_0_channel data: %f\n",_92);
     float _93 = _91 * _92;
     float _94 = _90 + _93;
     _C[_89] = _94;
@@ -340,13 +326,9 @@ __kernel void kernel_C_1(
     int _108 = _105 - _107;
     float _109 = _C[_108];
     float _110;
-    DPRINTF ("C: To read_channel _A_feeder_0_channel\n");
     _110 = read_channel_intel(_A_feeder_0_channel);
-    DPRINTF ("C: read_channel _A_feeder_0_channel data: %f\n",_110);
     float _111;
-    DPRINTF ("C: To read_channel _B_feeder_0_channel\n");
     _111 = read_channel_intel(_B_feeder_0_channel);
-    DPRINTF ("C: read_channel _B_feeder_0_channel data: %f\n",_111);
     float _112 = _110 * _111;
     float _113 = _109 + _112;
     _C[_108] = _113;
@@ -367,13 +349,9 @@ __kernel void kernel_C_1(
     int _127 = _124 - _126;
     float _128 = _C[_127];
     float _129;
-    DPRINTF ("C: To read_channel _A_feeder_0_channel\n");
     _129 = read_channel_intel(_A_feeder_0_channel);
-    DPRINTF ("C: read_channel _A_feeder_0_channel data: %f\n",_129);
     float _130;
-    DPRINTF ("C: To read_channel _B_feeder_0_channel\n");
     _130 = read_channel_intel(_B_feeder_0_channel);
-    DPRINTF ("C: read_channel _B_feeder_0_channel data: %f\n",_130);
     float _131 = _129 * _130;
     float _132 = _128 + _131;
     _C[_127] = _132;
