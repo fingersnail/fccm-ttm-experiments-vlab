@@ -42,7 +42,7 @@ const int C_args[num_Cargs] = {I, J, 0, 0, J};
 const char* kernel_name[] = {
 "kernel_A_loader",
 "kernel_B_loader",
-"kernel_C_1",
+"kernel_C",
 };
 
 double compute_kernel_execution_time(cl_event &event, double &start_d, double &end_d)

@@ -1,6 +1,6 @@
 FILE=linebuffer
 
-HOST_MACROS=-DI=16 -DJ=16 -DII=8 -DJJ=8 -DKX=3 -DKY=3 -DSI=1 -DSJ=1
+HOST_MACROS=-DI=128 -DJ=128 -DII=32 -DJJ=32 -DKX=3 -DKY=3 -DSI=1 -DSJ=1
 
 compile-device:
 	aoc -march=emulator -g -v -emulator-channel-depth-model=strict $(DEVICE_MACROS) $(FILE).cl -o $(FILE).aocx

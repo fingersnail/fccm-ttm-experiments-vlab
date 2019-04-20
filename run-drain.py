@@ -11,10 +11,10 @@ else:
 # Note: II has to be 1 else the compute buffer cannot be implemented as rotating register
 
 if (emul):
-  I,J,II,JJ,KX,KY,SI,SJ=256,256,64,64,3,3,1,1
+  I,J,II,JJ,KX,KY,SI,SJ=128,128,32,32,3,3,1,1
 
 else:
-  I,J,II,JJ,KX,KY,SI,SJ=256,256,64,64,3,3,1,1
+  I,J,II,JJ,KX,KY,SI,SJ=128,128,32,32,3,3,1,1
 
 aocx_name = "linebuffer"
 

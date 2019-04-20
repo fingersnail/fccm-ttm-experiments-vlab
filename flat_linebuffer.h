@@ -1,3 +1,9 @@
+#define check_linebuffer(linebuffer, length) \
+    for (int le = 0; le < length; le++) { \
+        printf("%f ", linebuffer[le]); \
+    } \
+    printf("\n");
+
 #define define_flat_linebuffer(\
   type, input_channel, output_channel, IMG_EXTENT_0, IMG_EXTENT_1, IMG_EXTENT_2, IMG_EXTENT_3,\
   STENCIL_EXTENT_0, STENCIL_EXTENT_1, STENCIL_EXTENT_2, STENCIL_EXTENT_3,\
