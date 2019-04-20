@@ -1,0 +1,31 @@
+In file included from /export/quartus_pro/17.1.1/hld/host/include/CL/cl_ext.h:42:0,
+                 from /export/quartus_pro/17.1.1/hld/host/include/CL/opencl.h:45,
+                 from linebuffer-host.cpp:16:
+/export/quartus_pro/17.1.1/hld/host/include/CL/cl_ext_intelfpga.h:442:0: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning( push )
+ ^
+/export/quartus_pro/17.1.1/hld/host/include/CL/cl_ext_intelfpga.h:443:0: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning( disable:4201 )
+ ^
+/export/quartus_pro/17.1.1/hld/host/include/CL/cl_ext_intelfpga.h:459:0: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning( pop )
+ ^
+linebuffer-host.cpp: In function ‘int main()’:
+linebuffer-host.cpp:134:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (int i=0; i<numPlatforms; i++) {
+                     ^
+linebuffer-host.cpp:187:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (i = 0; i < numDevices; i++) {
+                  ^
+linebuffer-host.cpp:22:40: warning: format ‘%i’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+ #define DPRINTF(...) printf(__VA_ARGS__); fflush(stdout);
+                                        ^
+linebuffer-host.cpp:214:3: note: in expansion of macro ‘DPRINTF’
+   DPRINTF("Global Memory Size: %i\n", *((unsigned long*)buffer));
+   ^
+linebuffer-host.cpp:22:40: warning: format ‘%i’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+ #define DPRINTF(...) printf(__VA_ARGS__); fflush(stdout);
+                                        ^
+linebuffer-host.cpp:221:3: note: in expansion of macro ‘DPRINTF’
+   DPRINTF("Global Memory Allocation Size: %i\n\n", *((unsigned long*)buffer));
+   ^
