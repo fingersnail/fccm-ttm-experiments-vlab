@@ -5,10 +5,10 @@ import sys
 emul = 0
 
 if emul:
-  I,J,II,JJ,KX,KY,SI,SJ=16,16,8,8,3,3,1,1
+  I,J,II,JJ,KX,KY,SI,SJ=256,256,64,64,3,3,1,1
 
 else:
-  I,J,II,JJ,KX,KY,SI,SJ=16,16,8,8,3,3,1,1
+  I,J,II,JJ,KX,KY,SI,SJ=256,256,64,64,3,3,1,1
 
 AOCX_FILE = "linebuffer.aocx"
 
