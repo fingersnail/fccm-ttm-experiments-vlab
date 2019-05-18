@@ -345,7 +345,7 @@
                     size_t offset_1 = dim_1 * STRIDE_1; \
                     for (size_t dim_0 = 0; dim_0 < (unsigned) IMG_EXTENT_0; dim_0++) { \
                         size_t offset = (start_address + offset_1) % LINEBUFFER_EXTENT; \
-                        write_channel_intel(output_channel[dim_1][dim_0], linebuffer[e][offset]); \
+                        write_channel_intel(output_channel[0], linebuffer[e][offset]); \
                         offset_1++; \
                     } \
                 } \
