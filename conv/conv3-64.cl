@@ -47,9 +47,8 @@ __kernel void input_feeder() {
     float _input_feeder_ibuffer[KY][KX][NIF];
     int channel_num = yy * POX + xx;
     int input_scatter_channel = channel_num + 1;
-
     int window_size = POX*POY - channel_num;
-    int read_num;
+
     float input;
     while (1) {
         for (int no = 0; no < TILE2; no++) {
@@ -57,15 +56,12 @@ __kernel void input_feeder() {
                 for (int kx = 0; kx < KX; kx++) {
                     for (int ni = 0; ni < NIF; ni++) {
                         if (!no) {
-                            read_num = window_size;
                             for (int n_time = 0; n_time < window_size; n_time++) {
                                 input = read_channel_intel(input_loader_to_feeder[channel_num]);
-                                if (read_num == window_size) {
+                                if (!n_time) {
                                     _input_feeder_ibuffer[ky][kx][ni] = input;
-                                    read_num = 1;
                                 } else {
                                     write_channel_intel(input_loader_to_feeder[input_scatter_channel], input);
-                                    read_num++;
                                 }
                             }
                         }
@@ -120,18 +116,14 @@ __kernel void weight_feeder() {
 
     const int TOTAL2 = KY * KX * NIF;
 
-    int read_num = weight_size;
     while(1) {
-        for (int n_time = 0; n_time < POF - nn; n_time++) {
-            for (int i = 0; i < TOTAL2; i++) {
+        for (int i = 0; i < TOTAL2; i++) {
+        	for (int n_time = 0; n_time < weight_size; n_time++) {
                 weight = read_channel_intel(weight_scattering[nn]);
-                // DPRINTF("Read weight: %f\n", weight);
-                if (read_num == weight_size) {
+                if (!n_time) {
                     write_channel_intel(weight_forwarding[nn][0], weight);
-                    read_num = 1;
                 } else {
                     write_channel_intel(weight_scattering[weight_scattering_channel], weight);
-                    read_num++;
                 }
             }
         }
@@ -140,6 +132,7 @@ __kernel void weight_feeder() {
 
 
 channel float conv_to_result_consumer[POY][POX][POF] __attribute__((depth(2)));
+channel float conv_to_result_collector[POF][POX*POY] __attribute__((depth(2)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POY, POX, POF)))
@@ -151,6 +144,7 @@ __kernel void convolution() {
     int yy = get_compute_id(0);
     int xx = get_compute_id(1);
     int nn = get_compute_id(2);
+
     int input_forward_channel = nn + 1;
     bool do_input_forward = true;
     if (nn == POF - 1){
@@ -164,12 +158,13 @@ __kernel void convolution() {
         do_weight_forward = false;
     }
 
+    int result_size = weight_channel;
+    int result_channel = weight_channel;
+    int result_read_channel = weight_channel - 1;
+
     //DPRINTF("Begin calculation: %d %d %d\n", xx, yy, nn);
-
-    int TOTAL1 = BATCH * TILE0 * TILE1 * TILE2;
     int TOTAL2 = KY * KX * NIF;
-
-    for (int i = 0; i < TOTAL1; i++) {
+    while (1) {
         float _3 = 0;
         for (int j = 0; j < TOTAL2; j++) {
             float _1 = read_channel_intel(input_forwarding[yy][xx][nn]);
@@ -185,33 +180,51 @@ __kernel void convolution() {
             _3 += _1*_2;
         }
         // DPRINTF("The result is: %f\n", _3);
-        write_channel_intel(conv_to_result_consumer[yy][xx][nn], _3);
+        float result;
+        for (int n_time = result_size; n_time >= 0; n_time--) {
+        	if (n_time) {
+                result = read_channel_intel(conv_to_result_collector[nn][result_read_channel]);
+            } else {
+            	result = _3;
+            }
+            write_channel_intel(conv_to_result_collector[nn][result_channel], result);
+        }
     }
 
     //DPRINTF("Calculation finished: %d %d %d\n", xx, yy, nn);
 }
 
 
+channel float collector_to_consumer[POF] __attribute__((depth(2)));
+
+__attribute__((max_global_work_dim(0)))__attribute__((autorun))
+__attribute__((num_compute_units(POF)))
+__kernel void result_collector() {
+    int nn = get_compute_id(0);
+
+    int result_size = POF - nn;
+    int result_gathering_channel = nn+1;
+    int collector_channel = POX*POY - 1;
+
+    float result;
+
+    while(1) {
+        for (int n_time = 0; n_time < result_size; n_time++) {
+            if (!n_time) {
+                result = read_channel_intel(conv_to_result_collector[nn][collector_channel]);
+            } else {
+                result = read_channel_intel(collector_to_consumer[result_gathering_channel]);
+            }
+            write_channel_intel(collector_to_consumer[nn], result);
+        }
+    }
+}
+
+
 __kernel void result_consumer(__global float *output,
                               __address_space___shared int16* __shared) {
-
-    int TILE0 = NOY / POY;
-    int TILE1 = NOX / POX;
-    int TILE2 = NOF / POF;
-
-    int TOTAL = BATCH * TILE0 * TILE1 * TILE2;
-
-    int index = 0;
-    float _1;
+    int TOTAL = BATCH * NOY * NOX * NOF;
     for (int i = 0; i < TOTAL; i++) {
-        for (int nn = 0; nn < POF; nn++) {
-            for (int yy = 0; yy < POY; yy++) {
-                for (int xx = 0; xx < POX; xx++) {
-                    _1 = read_channel_intel(conv_to_result_consumer[yy][xx][nn]);
-                    *(output + index) = _1;
-                    index++;
-                }
-            }
-        }
+        *(output + i) = read_channel_intel(collector_to_consumer[0]);               
     }
 }

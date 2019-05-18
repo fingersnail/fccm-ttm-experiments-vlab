@@ -601,24 +601,26 @@ device_found = 1;
   for (int b = 0; b < BATCH; b++) {
         for (int y = 0; y < TILE_Y; y++) {
             for (int x = 0; x < TILE_X; x++) {
-                for (int no = 0; no < NOF; no++){
-                    for (int yy = 0; yy < POY; yy++) {
-                        for (int xx = 0; xx < POX; xx++) {
+                for (int no = 0; no < TILE_NO; no++) {
+                for (int yy = 0; yy < POY; yy++) {
+                    for (int xx = 0; xx < POX; xx++) {
+                        for (int nn = 0; nn < POF; nn++){
                             float c = 0;
                             for (int ky = 0; ky < KY; ky++) {
                                 for (int kx = 0; kx < KX; kx++) {
                                     for (int ni = 0; ni < NIF; ni++) {
-                                        c += input[b][y*POY + yy + ky][x*POX + xx + kx][ni] * weight[no][ky][kx][ni];
+                                        c += input[b][y*POY + yy + ky][x*POX + xx + kx][ni] * weight[no*POF + nn][ky][kx][ni];
                                     }
                                 }
                             }
                             if (c != result[index]) {
                                 passed = 0;
-                                printf("\n[FAILED]: b:%d y:%d x:%d no:%d result[b][y][x][no]:%f, right answer: %f\n", b, y*POY + yy, x*POX + xx, no, result[index], c);
+                                printf("\n[FAILED]: b:%d y:%d x:%d no:%d result[b][y][x][no]:%f, right answer: %f\n", b, y*POY + yy, x*POX + xx, no*POF + nn, result[index], c);
                             }
                             index++;
                         }
                     }
+                }
                 }
             }
         }
