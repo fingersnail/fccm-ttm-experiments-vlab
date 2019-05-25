@@ -48,23 +48,26 @@ __kernel void input_feeder() {
     int channel_num = yy * POX + xx;
     int input_scatter_channel = channel_num + 1;
     int window_size = POX*POY - channel_num;
-
+    
     float input;
     while (1) {
-        for (int no = 0; no < TILE2; no++) {
+        for (int ky = 0; ky < KY; ky++) {
+            for (int kx = 0; kx < KX; kx++) {
+                for (int ni = 0; ni < NIF; ni++) {
+                    input = read_channel_intel(input_loader_to_feeder[channel_num]);
+                    _input_feeder_ibuffer[ky][kx][ni] = input;
+                    for (int n_time = 1; n_time < window_size; n_time++) {
+                        input = read_channel_intel(input_loader_to_feeder[channel_num]);
+                        write_channel_intel(input_loader_to_feeder[input_scatter_channel], input);
+                    }
+                    write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky][kx][ni]);
+                }
+            }
+        }
+        for (int no = 1; no < TILE2; no++) {
             for (int ky = 0; ky < KY; ky++) {
                 for (int kx = 0; kx < KX; kx++) {
                     for (int ni = 0; ni < NIF; ni++) {
-                        if (!no) {
-                            for (int n_time = 0; n_time < window_size; n_time++) {
-                                input = read_channel_intel(input_loader_to_feeder[channel_num]);
-                                if (!n_time) {
-                                    _input_feeder_ibuffer[ky][kx][ni] = input;
-                                } else {
-                                    write_channel_intel(input_loader_to_feeder[input_scatter_channel], input);
-                                }
-                            }
-                        }
                         write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky][kx][ni]);
                     }
                 }
@@ -72,6 +75,7 @@ __kernel void input_feeder() {
         }
     }
 }
+
 
 
 channel float weight_scattering[POF] __attribute__((depth(2)));
@@ -118,17 +122,16 @@ __kernel void weight_feeder() {
 
     while(1) {
         for (int i = 0; i < TOTAL2; i++) {
-        	for (int n_time = 0; n_time < weight_size; n_time++) {
+            weight = read_channel_intel(weight_scattering[nn]);
+            write_channel_intel(weight_forwarding[nn][0], weight);
+            for (int n_time = 1; n_time < weight_size; n_time++) {
                 weight = read_channel_intel(weight_scattering[nn]);
-                if (!n_time) {
-                    write_channel_intel(weight_forwarding[nn][0], weight);
-                } else {
-                    write_channel_intel(weight_scattering[weight_scattering_channel], weight);
-                }
+                write_channel_intel(weight_scattering[weight_scattering_channel], weight);
             }
         }
-    }
+    }   
 }
+
 
 
 channel float conv_to_result_consumer[POY][POX][POF] __attribute__((depth(2)));
@@ -181,14 +184,12 @@ __kernel void convolution() {
         }
         // DPRINTF("The result is: %f\n", _3);
         float result;
-        for (int n_time = result_size; n_time >= 0; n_time--) {
-        	if (n_time) {
-                result = read_channel_intel(conv_to_result_collector[nn][result_read_channel]);
-            } else {
-            	result = _3;
-            }
+        for (int n_time = result_size; n_time >= 1; n_time--) {
+            result = read_channel_intel(conv_to_result_collector[nn][result_read_channel]);
             write_channel_intel(conv_to_result_collector[nn][result_channel], result);
         }
+        result = _3;
+        write_channel_intel(conv_to_result_collector[nn][result_channel], result);
     }
 
     //DPRINTF("Calculation finished: %d %d %d\n", xx, yy, nn);
@@ -209,12 +210,10 @@ __kernel void result_collector() {
     float result;
 
     while(1) {
-        for (int n_time = 0; n_time < result_size; n_time++) {
-            if (!n_time) {
-                result = read_channel_intel(conv_to_result_collector[nn][collector_channel]);
-            } else {
-                result = read_channel_intel(collector_to_consumer[result_gathering_channel]);
-            }
+        result = read_channel_intel(conv_to_result_collector[nn][collector_channel]);
+        write_channel_intel(collector_to_consumer[nn], result);
+        for (int n_time = 1; n_time < result_size; n_time++) {
+            result = read_channel_intel(collector_to_consumer[result_gathering_channel]);
             write_channel_intel(collector_to_consumer[nn], result);
         }
     }
@@ -225,6 +224,6 @@ __kernel void result_consumer(__global float *output,
                               __address_space___shared int16* __shared) {
     int TOTAL = BATCH * NOY * NOX * NOF;
     for (int i = 0; i < TOTAL; i++) {
-        *(output + i) = read_channel_intel(collector_to_consumer[0]);               
+        *(output + i) = read_channel_intel(collector_to_consumer[0]);              
     }
 }
