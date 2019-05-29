@@ -301,7 +301,7 @@
 
 #define define_unrolled_flat_linebuffer_2d(\
   type, input_channel, output_channel, IMG_EXTENT_0, IMG_EXTENT_1,\
-  STENCIL_EXTENT_0, STENCIL_EXTENT_1, ELE_SIZE) \
+  STENCIL_EXTENT_0, STENCIL_EXTENT_1) \
       \
     /*Calculate input extent*/ \
     const size_t INPUT_EXTENT_0 = STENCIL_EXTENT_0 + IMG_EXTENT_0 - 1; \
@@ -316,55 +316,36 @@
     /* The length calculation is wrong */ \
     const size_t LINEBUFFER_EXTENT = (IMG_EXTENT_0 - 1) * STRIDE_0 + (IMG_EXTENT_1 - 1) * STRIDE_1 + 1; \
     /* allocate the linebuffer */ \
-    type linebuffer[ELE_SIZE][LINEBUFFER_EXTENT]; \
+    type linebuffer[LINEBUFFER_EXTENT]; \
     \
     /* The initialization of linebuffer */ \
     for (size_t a = 0; a < LINEBUFFER_EXTENT; a++) { \
-        for (size_t e = 0; e < ELE_SIZE; e++) { \
-            linebuffer[e][a] = read_channel_intel(input_channel); \
-        } \
+        linebuffer[a] = read_channel_intel(input_channel); \
     } \
     \
     size_t start_address = 0; \
     \
     /*Reverse the stencil loop and the outer loop*/ \
-    size_t this_start_address = 0; \
     for (size_t s_1 = 0; s_1 < STENCIL_EXTENT_1; s_1++) { \
         for (size_t s_0 = 0; s_0 < STENCIL_EXTENT_0; s_0++) { \
             /* Read new data */ \
-            for (size_t a = start_address; a < this_start_address + s_0; a++) { \
+            size_t this_start_address = s_1 * STRIDE_1 + s_0; \
+            for (size_t a = start_address; a < this_start_address; a++) { \
                 size_t address = a % LINEBUFFER_EXTENT; \
-                for (size_t e = 0; e < ELE_SIZE; e++) { \
-                    linebuffer[e][address] = read_channel_intel(input_channel); \
-                } \
+                linebuffer[address] = read_channel_intel(input_channel); \
             } \
-            start_address = this_start_address + s_0; \
+            start_address = this_start_address; \
     \
-            for (size_t e = 0; e < ELE_SIZE; e++) { \
-                size_t offset_1 = start_address; \
-                for (size_t dim_1 = 0; dim_1 < (unsigned) IMG_EXTENT_1; dim_1++) { \
-                    if (offset_1 >= LINEBUFFER_EXTENT) { \
-                        offset_1 -= LINEBUFFER_EXTENT; \
-                    } \
-                    size_t offset_end = offset_1 + IMG_EXTENT_0; \
-                    if (offset_end > LINEBUFFER_EXTENT) { \
-                        for (size_t offset = offset_1; offset < LINEBUFFER_EXTENT; offset++) { \
-                            write_channel_intel(output_channel[0], linebuffer[e][offset]); \
-                        } \
-                        for (size_t offset = 0; offset < offset_end - LINEBUFFER_EXTENT; offset++) { \
-                            write_channel_intel(output_channel[0], linebuffer[e][offset]); \
-                        } \
-                    } else { \
-                        for (size_t offset = offset_1; offset < offset_end; offset++) { \
-                            write_channel_intel(output_channel[0], linebuffer[e][offset]); \
-                        } \
-                    } \
-                    offset_1 += STRIDE_1; \
+            for (size_t dim_1 = 0; dim_1 < (unsigned) IMG_EXTENT_1; dim_1++) { \
+                size_t offset_1 = dim_1 * STRIDE_1; \
+                for (size_t dim_0 = 0; dim_0 < (unsigned) IMG_EXTENT_0; dim_0++) { \
+                    size_t offset = (start_address + offset_1) % LINEBUFFER_EXTENT; \
+                    write_channel_intel(output_channel[0], linebuffer[offset]); \
+                    offset_1++; \
                 } \
             } \
     \
         } \
-        this_start_address += STRIDE_1; \
     \
     }
 

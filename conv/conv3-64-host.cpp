@@ -137,8 +137,8 @@ int main() {
     for (int no = 0; no < TILE_NO; no++) {
         for (int i = 0; i < KY; i++) {
             for (int j = 0; j < KX; j++) {
-                for (int ni = 0; ni < NIF; ni++) {
-                    for (int nn = 0; nn < POF; nn++) {
+                for (int nn = 0; nn < POF; nn++) {
+                    for (int ni = 0; ni < NIF; ni++) {
                         B_serializer[index] = weight[no*POF + nn][i][j][ni];
                         index++;
                     }
