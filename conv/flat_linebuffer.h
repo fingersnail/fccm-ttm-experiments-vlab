@@ -308,44 +308,42 @@
     const size_t INPUT_EXTENT_1 = STENCIL_EXTENT_1 + IMG_EXTENT_1 - 1; \
     \
     /* Calculate Stride */\
-    const size_t STRIDE_0 = 1; \
-    const size_t STRIDE_1 = STRIDE_0 * INPUT_EXTENT_0; \
+    const size_t STRIDE_1 = INPUT_EXTENT_0; \
     \
     /* Calculate linebuffer size */ \
     /* size_t stencil_start = 0, stencil_end = 0; */ \
-    /* The length calculation is wrong */ \
-    const size_t LINEBUFFER_EXTENT = (IMG_EXTENT_0 - 1) * STRIDE_0 + (IMG_EXTENT_1 - 1) * STRIDE_1 + 1; \
+    const size_t LINEBUFFER_EXTENT = (IMG_EXTENT_0 - 1) + (IMG_EXTENT_1 - 1) * STRIDE_1 + 1; \
     /* allocate the linebuffer */ \
     type linebuffer[LINEBUFFER_EXTENT]; \
     \
-    /* The initialization of linebuffer */ \
-    for (size_t a = 0; a < LINEBUFFER_EXTENT; a++) { \
-        linebuffer[a] = read_channel_intel(input_channel); \
-    } \
-    \
-    size_t start_address = 0; \
-    \
     /*Reverse the stencil loop and the outer loop*/ \
+    size_t start_address = 0; \
+    size_t read_length = LINEBUFFER_EXTENT; \
+    size_t read_step = STENCIL_EXTENT_0 - 1; \
     for (size_t s_1 = 0; s_1 < STENCIL_EXTENT_1; s_1++) { \
         for (size_t s_0 = 0; s_0 < STENCIL_EXTENT_0; s_0++) { \
             /* Read new data */ \
-            size_t this_start_address = s_1 * STRIDE_1 + s_0; \
-            for (size_t a = start_address; a < this_start_address; a++) { \
-                size_t address = a % LINEBUFFER_EXTENT; \
-                linebuffer[address] = read_channel_intel(input_channel); \
+            for (size_t a = 0; a < read_length; a++) { \
+                linebuffer[start_address] = read_channel_intel(input_channel); \
+                start_address++; \
+                if (start_address >= LINEBUFFER_EXTENT) \
+                    start_address -= LINEBUFFER_EXTENT; \
             } \
-            start_address = this_start_address; \
     \
+            size_t offset = start_address; \
             for (size_t dim_1 = 0; dim_1 < (unsigned) IMG_EXTENT_1; dim_1++) { \
-                size_t offset_1 = dim_1 * STRIDE_1; \
                 for (size_t dim_0 = 0; dim_0 < (unsigned) IMG_EXTENT_0; dim_0++) { \
-                    size_t offset = (start_address + offset_1) % LINEBUFFER_EXTENT; \
+                    if (offset >= LINEBUFFER_EXTENT) \
+                        offset -= LINEBUFFER_EXTENT; \
                     write_channel_intel(output_channel[0], linebuffer[offset]); \
-                    offset_1++; \
+                    offset++; \
                 } \
+                offset += read_step; \
             } \
     \
+            read_length = 1; \
         } \
+        read_length = IMG_EXTENT_0; \
     \
     }
 

@@ -54,12 +54,13 @@ __kernel void input_feeder() {
 		for (int no = 0; no < TILE2; no++) {
 			for (int ky = 0; ky < KY; ky++) {
 				for (int kx = 0; kx < KX; kx++) {
-					if (!no) {
-						input = read_channel_intel(input_loader_to_feeder[channel_num]);
-						_input_feeder_ibuffer[ky][kx] = input;
-						for (int n_time = 1; n_time < window_size; n_time++) {
+					if (!no) {						
+						for (int n_time = 0; n_time < window_size; n_time++) {
 							input = read_channel_intel(input_loader_to_feeder[channel_num]);
-							write_channel_intel(input_loader_to_feeder[input_scatter_channel], input);
+							if (n_time)
+								write_channel_intel(input_loader_to_feeder[input_scatter_channel], input);
+							else
+								_input_feeder_ibuffer[ky][kx] = input;
 						}
 					}
 					write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky][kx]);
@@ -113,14 +114,12 @@ __kernel void weight_feeder() {
 	const int TOTAL2 = KY * KX;
 
 	while(1) {
-		for (int i = 0; i < TOTAL2; i++) {
-			for (int n_time = 0; n_time < weight_size; n_time++) {
-				weight = read_channel_intel(weight_scattering[nn]);
-				if (n_time) {
-					write_channel_intel(weight_scattering[weight_scattering_channel], weight);
-				} else {
-					write_channel_intel(weight_forwarding[nn][0], weight);
-				}
+		for (int n_time = 0; n_time < weight_size; n_time++) {
+			weight = read_channel_intel(weight_scattering[nn]);
+			if (n_time) {
+				write_channel_intel(weight_scattering[weight_scattering_channel], weight);
+			} else {
+				write_channel_intel(weight_forwarding[nn][0], weight);
 			}
 		}
 	}   
