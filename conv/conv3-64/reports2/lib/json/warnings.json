@@ -1,0 +1,72 @@
+{"rows":[
+{"name":"Multiple reads from channel input_serializer_to_laoder This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_serializer_to_laoder This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_serializer_to_laoder This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_serializer_to_laoder This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][0] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][0] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][0] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][0] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][4] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][4] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][4] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][4] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][8] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][8] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][8] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][8] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][12] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][12] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][12] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][12] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][1] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][1] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][1] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][1] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][5] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][5] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][5] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][5] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][9] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][9] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][9] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][9] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][13] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][13] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][13] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][13] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][2] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][2] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][2] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][2] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][6] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][6] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][6] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][6] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][10] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][10] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][10] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][10] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][14] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][14] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][14] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][14] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][3] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][3] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][3] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][3] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][7] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][7] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][7] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][7] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][11] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][11] This may lead to bad QoR"]}
+,{"name":"Multiple reads from channel input_loader_to_feeder[0][11] This may lead to bad QoR..."
+,"details":["Compiler Warning: Multiple reads from channel input_loader_to_feeder[0][11] This may lead to bad QoR"]}
+,{"name":"Pointer to local memory argument with no store to it...."
+,"details":["Compiler Warning: Pointer to local memory argument with no store to it."]}
+,{"name":"Pointer to local memory argument with no store to it...."
+,"details":["Compiler Warning: Pointer to local memory argument with no store to it."]}
+,{"name":"Pointer to local memory argument with no store to it...."
+,"details":["Compiler Warning: Pointer to local memory argument with no store to it."]}
+]}
