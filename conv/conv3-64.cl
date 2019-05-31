@@ -54,23 +54,20 @@ __kernel void input_feeder() {
 		for (int no = 0; no < TILE2; no++) {
 			for (int ky = 0; ky < KY; ky++) {
 				for (int kx = 0; kx < KX; kx++) {
-					if (no)
-						write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky][kx]);
-					else {
+					if (!no) {
 						input = read_channel_intel(input_loader_to_feeder[channel_num]);
 						_input_feeder_ibuffer[ky][kx] = input;
 						for (int n_time = 1; n_time < window_size; n_time++) {
 							input = read_channel_intel(input_loader_to_feeder[channel_num]);
 							write_channel_intel(input_loader_to_feeder[input_scatter_channel], input);
 						}
-						write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky][kx]);
 					}
+					write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky][kx]);
 				}
 			}
 		}
 	}
 }
-
 
 
 channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(2)));
@@ -118,11 +115,10 @@ __kernel void weight_feeder() {
 	while(1) {
 		for (int i = 0; i < TOTAL2; i++) {
 			for (int n_time = 0; n_time < weight_size; n_time++) {
+				weight = read_channel_intel(weight_scattering[nn]);
 				if (n_time) {
-					weight = read_channel_intel(weight_scattering[nn]);
 					write_channel_intel(weight_scattering[weight_scattering_channel], weight);
 				} else {
-					weight = read_channel_intel(weight_scattering[nn]);
 					write_channel_intel(weight_forwarding[nn][0], weight);
 				}
 			}
@@ -175,6 +171,7 @@ __kernel void convolution() {
 				write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
 			}
 			// DPRINTF("Read: %f %f\n", _1, _2);
+			#pragma unroll
 			for (int k = 0; k < NIF; k++)
 				_3 += _1[k]*_2[k];
 		}
@@ -205,11 +202,10 @@ __kernel void result_drainer() {
 		for (int n_time = result_size; n_time >= 0; n_time--) {
 			if (n_time) {
 				result = read_channel_intel(conv_to_result_collector[nn][result_read_channel]);
-				write_channel_intel(conv_to_result_collector[nn][result_write_channel], result);
 			} else {
 				result = read_channel_intel(conv_to_drainer_channel[yy][xx][nn]);
-				write_channel_intel(conv_to_result_collector[nn][result_write_channel], result);
 			}
+			write_channel_intel(conv_to_result_collector[nn][result_write_channel], result);
 		}
 	}
 }
@@ -232,11 +228,10 @@ __kernel void result_collector() {
 		for (int n_time = 0; n_time < result_size; n_time++) {
 			if (n_time) {
 				result = read_channel_intel(collector_to_consumer[result_gathering_channel]);
-				write_channel_intel(collector_to_consumer[nn], result);
 			} else {
 				result = read_channel_intel(conv_to_result_collector[nn][collector_channel]);
-        	write_channel_intel(collector_to_consumer[nn], result);	
 			}
+			write_channel_intel(collector_to_consumer[nn], result);
 		}
 	}
 }
