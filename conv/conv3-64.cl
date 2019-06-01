@@ -77,24 +77,19 @@ __kernel void weight_loader(__global FLOAT_VEC *weight,
 							__address_space___shared int16* __shared) {
 	const int TILE0 = NOY / POY;
 	const int TILE1 = NOX / POX;
-	const int TILE2 = NOF / POF;
 	
 	const int TOTAL1 = BATCH * TILE0 * TILE1;
-	const int TOTAL2 = TILE2 * KY * KX;
+	const int TOTAL2 = NOF * KY * KX;
 
-	// FLOAT_VEC weight_buffer[TOTAL2 * POF];
+	FLOAT_VEC weight_buffer[TOTAL2];
 
 	for (int i = 0; i < TOTAL1; i++) {
 		// I can insert a buffer at here
-		int index = 0;
 		for (int j = 0; j < TOTAL2; j++) {
-			for (int nn = 0; nn < POF; nn++) {
-				// if (i == 0) {
-					// weight_buffer[index] = *(weight+index);
-				// }
-				write_channel_intel(weight_scattering[0], *(weight+index));
-				index++;
+			if (i == 0) {
+				weight_buffer[j] = *(weight+j);
 			}
+			write_channel_intel(weight_scattering[0], weight_buffer[j]);
 		}
 	}
 }
