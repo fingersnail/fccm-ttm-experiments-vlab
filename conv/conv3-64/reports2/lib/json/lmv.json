@@ -9,87 +9,47 @@
       [
         {
           "type":"inst"
+          , "id":16
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":29
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"linebuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "type":"inst"
           , "id":17
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":29
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"linebuffer"
-              , "Start Cycle":"4"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":19
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":29
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"linebuffer"
-              , "Start Cycle":"4"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":20
           , "name":"Load"
           , "debug":
           [
@@ -108,8 +68,8 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Loads from":"linebuffer"
-              , "Start Cycle":"65"
-              , "Latency":"4"
+              , "Start Cycle":"2"
+              , "Latency":"3"
               , "Reference":
               [
                 {
@@ -129,13 +89,13 @@
         }
         , {
           "type":"memtype"
-          , "id":29
+          , "id":24
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":30
+              , "id":25
               , "name":"linebuffer"
               , "debug":
               [
@@ -150,7 +110,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":31
+                  , "id":26
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -165,17 +125,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":32
+                      , "id":27
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":33
-                      , "name":"W"
-                    }
-                    , {
-                      "type":"port"
-                      , "id":34
+                      , "id":28
                       , "name":"W"
                     }
                   ]
@@ -183,10 +138,10 @@
                   [
                     {
                       "type":"table"
-                      , "Total number of ports per bank":"3"
+                      , "Total number of ports per bank":"2"
                       , "Number of read ports per bank":"1"
-                      , "Number of write ports per bank":"2"
-                      , "Total replication":"7"
+                      , "Number of write ports per bank":"1"
+                      , "Total replication":"6"
                     }
                   ]
                 }
@@ -196,22 +151,12 @@
                 {
                   "type":"table"
                   , "Requested size":"352 bytes"
-                  , "Implemented size":"3584 bytes"
+                  , "Implemented size":"3072 bytes"
                   , "Number of banks":"1"
                   , "Bank width":"128 bits"
                   , "Bank depth":"32 words"
-                  , "Total replication":"7"
-                  , "Additional Information":
-                  [
-                    {
-                      "type":"text"
-                      , "text":"Replicated 7 times to create private copies for simultaneous execution of s in the loop containing accesses to the array"
-                    }
-                    , {
-                      "type":"text"
-                      , "text":"Running memory at 2x clock to support more concurrent ports"
-                    }
-                  ]
+                  , "Total replication":"6"
+                  , "Additional Information":"Replicated 6 times to create private copies for simultaneous execution of ds in the loop containing accesses to the array"
                   , "Reference":
                   [
                     {
@@ -235,60 +180,20 @@
     }
     , {
       "type":"kernel"
-      , "id":35
+      , "id":29
       , "name":"input_feeder_0_0_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":47
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":48
+          , "id":40
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -320,14 +225,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":44
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":60
+          , "id":51
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":61
+              , "id":52
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -342,7 +287,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":62
+                  , "id":53
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -357,12 +302,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":63
+                      , "id":54
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":64
+                      , "id":55
                       , "name":"W"
                     }
                   ]
@@ -412,60 +357,20 @@
     }
     , {
       "type":"kernel"
-      , "id":65
+      , "id":56
       , "name":"input_feeder_1_0_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":78
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":79
+          , "id":67
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -497,14 +402,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":72
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":91
+          , "id":79
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":92
+              , "id":80
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -519,7 +464,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":93
+                  , "id":81
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -534,12 +479,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":94
+                      , "id":82
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":95
+                      , "id":83
                       , "name":"W"
                     }
                   ]
@@ -589,60 +534,20 @@
     }
     , {
       "type":"kernel"
-      , "id":96
+      , "id":84
       , "name":"input_feeder_2_0_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":109
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":110
+          , "id":95
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -674,14 +579,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":100
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":122
+          , "id":107
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":123
+              , "id":108
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -696,7 +641,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":124
+                  , "id":109
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -711,12 +656,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":125
+                      , "id":110
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":126
+                      , "id":111
                       , "name":"W"
                     }
                   ]
@@ -766,60 +711,20 @@
     }
     , {
       "type":"kernel"
-      , "id":127
+      , "id":112
       , "name":"input_feeder_3_0_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":140
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":141
+          , "id":123
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -851,14 +756,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":128
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":153
+          , "id":135
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":154
+              , "id":136
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -873,7 +818,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":155
+                  , "id":137
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -888,12 +833,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":156
+                      , "id":138
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":157
+                      , "id":139
                       , "name":"W"
                     }
                   ]
@@ -943,60 +888,20 @@
     }
     , {
       "type":"kernel"
-      , "id":158
+      , "id":140
       , "name":"input_feeder_0_1_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":170
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":171
+          , "id":151
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -1028,14 +933,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":155
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":183
+          , "id":162
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":184
+              , "id":163
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -1050,7 +995,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":185
+                  , "id":164
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -1065,12 +1010,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":186
+                      , "id":165
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":187
+                      , "id":166
                       , "name":"W"
                     }
                   ]
@@ -1120,60 +1065,20 @@
     }
     , {
       "type":"kernel"
-      , "id":188
+      , "id":167
       , "name":"input_feeder_1_1_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":200
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":201
+          , "id":178
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -1205,14 +1110,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":182
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":213
+          , "id":189
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":214
+              , "id":190
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -1227,7 +1172,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":215
+                  , "id":191
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -1242,12 +1187,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":216
+                      , "id":192
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":217
+                      , "id":193
                       , "name":"W"
                     }
                   ]
@@ -1297,20 +1242,60 @@
     }
     , {
       "type":"kernel"
-      , "id":218
+      , "id":194
       , "name":"input_feeder_2_1_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":230
+          , "id":205
+          , "name":"Load"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":66
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Loads from":"_input_feeder_ibuffer"
+              , "Start Cycle":"0"
+              , "Latency":"3"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "type":"inst"
+          , "id":209
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
+                , "line":63
               }
             ]
           ]
@@ -1342,15 +1327,112 @@
           ]
         }
         , {
+          "type":"memtype"
+          , "id":216
+          , "name":"Local Memory"
+          , "children":
+          [
+            {
+              "type":"memsys"
+              , "id":217
+              , "name":"_input_feeder_ibuffer"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                    , "line":47
+                  }
+                ]
+              ]
+              , "children":
+              [
+                {
+                  "type":"bank"
+                  , "id":218
+                  , "name":"Bank 0"
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                        , "line":47
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "type":"port"
+                      , "id":219
+                      , "name":"R"
+                    }
+                    , {
+                      "type":"port"
+                      , "id":220
+                      , "name":"W"
+                    }
+                  ]
+                  , "details":
+                  [
+                    {
+                      "type":"table"
+                      , "Total number of ports per bank":"2"
+                      , "Number of read ports per bank":"1"
+                      , "Number of write ports per bank":"1"
+                      , "Total replication":"5"
+                    }
+                  ]
+                }
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"144 bytes"
+                  , "Implemented size":"1280 bytes"
+                  , "Number of banks":"1"
+                  , "Bank width":"128 bits"
+                  , "Bank depth":"16 words"
+                  , "Total replication":"5"
+                  , "Additional Information":"Replicated 5 times to create private copies for simultaneous execution of ads in the loop containing accesses to the array"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Local Memory"
+                          , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"kernel"
+      , "id":221
+      , "name":"input_feeder_3_1_0"
+      , "children":
+      [
+        {
           "type":"inst"
-          , "id":231
+          , "id":232
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -1364,6 +1446,46 @@
               , "Loads from":"_input_feeder_ibuffer"
               , "Start Cycle":"0"
               , "Latency":"3"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "type":"inst"
+          , "id":236
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
               , "Reference":
               [
                 {
@@ -1475,59 +1597,19 @@
     , {
       "type":"kernel"
       , "id":248
-      , "name":"input_feeder_3_1_0"
+      , "name":"input_feeder_0_2_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":260
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":261
+          , "id":259
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -1559,14 +1641,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":263
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":273
+          , "id":270
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":274
+              , "id":271
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -1581,7 +1703,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":275
+                  , "id":272
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -1596,12 +1718,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":276
+                      , "id":273
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":277
+                      , "id":274
                       , "name":"W"
                     }
                   ]
@@ -1651,11 +1773,51 @@
     }
     , {
       "type":"kernel"
-      , "id":278
-      , "name":"input_feeder_0_2_0"
+      , "id":275
+      , "name":"input_feeder_1_2_0"
       , "children":
       [
         {
+          "type":"inst"
+          , "id":286
+          , "name":"Load"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":66
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Loads from":"_input_feeder_ibuffer"
+              , "Start Cycle":"0"
+              , "Latency":"3"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"inst"
           , "id":290
           , "name":"Store"
@@ -1664,7 +1826,7 @@
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
+                , "line":63
               }
             ]
           ]
@@ -1696,54 +1858,14 @@
           ]
         }
         , {
-          "type":"inst"
-          , "id":291
-          , "name":"Load"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
-              , "Start Cycle":"0"
-              , "Latency":"3"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
           "type":"memtype"
-          , "id":303
+          , "id":297
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":304
+              , "id":298
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -1758,7 +1880,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":305
+                  , "id":299
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -1773,12 +1895,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":306
+                      , "id":300
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":307
+                      , "id":301
                       , "name":"W"
                     }
                   ]
@@ -1828,237 +1950,20 @@
     }
     , {
       "type":"kernel"
-      , "id":308
-      , "name":"input_feeder_1_2_0"
-      , "children":
-      [
-        {
-          "type":"inst"
-          , "id":320
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":321
-          , "name":"Load"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
-              , "Start Cycle":"0"
-              , "Latency":"3"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"memtype"
-          , "id":333
-          , "name":"Local Memory"
-          , "children":
-          [
-            {
-              "type":"memsys"
-              , "id":334
-              , "name":"_input_feeder_ibuffer"
-              , "debug":
-              [
-                [
-                  {
-                    "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
-                  }
-                ]
-              ]
-              , "children":
-              [
-                {
-                  "type":"bank"
-                  , "id":335
-                  , "name":"Bank 0"
-                  , "debug":
-                  [
-                    [
-                      {
-                        "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
-                      }
-                    ]
-                  ]
-                  , "children":
-                  [
-                    {
-                      "type":"port"
-                      , "id":336
-                      , "name":"R"
-                    }
-                    , {
-                      "type":"port"
-                      , "id":337
-                      , "name":"W"
-                    }
-                  ]
-                  , "details":
-                  [
-                    {
-                      "type":"table"
-                      , "Total number of ports per bank":"2"
-                      , "Number of read ports per bank":"1"
-                      , "Number of write ports per bank":"1"
-                      , "Total replication":"5"
-                    }
-                  ]
-                }
-              ]
-              , "details":
-              [
-                {
-                  "type":"table"
-                  , "Requested size":"144 bytes"
-                  , "Implemented size":"1280 bytes"
-                  , "Number of banks":"1"
-                  , "Bank width":"128 bits"
-                  , "Bank depth":"16 words"
-                  , "Total replication":"5"
-                  , "Additional Information":"Replicated 5 times to create private copies for simultaneous execution of ads in the loop containing accesses to the array"
-                  , "Reference":
-                  [
-                    {
-                      "type":"text"
-                      , "text":"See %L for more information"
-                      , "links":
-                      [
-                        {
-                          "guide":"Best Practices Guide : Local Memory"
-                          , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-    , {
-      "type":"kernel"
-      , "id":338
+      , "id":302
       , "name":"input_feeder_2_2_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":350
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":351
+          , "id":313
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -2090,14 +1995,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":317
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":363
+          , "id":324
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":364
+              , "id":325
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -2112,7 +2057,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":365
+                  , "id":326
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -2127,12 +2072,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":366
+                      , "id":327
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":367
+                      , "id":328
                       , "name":"W"
                     }
                   ]
@@ -2182,60 +2127,20 @@
     }
     , {
       "type":"kernel"
-      , "id":368
+      , "id":329
       , "name":"input_feeder_3_2_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":378
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"12"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":379
+          , "id":340
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -2247,7 +2152,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Loads from":"_input_feeder_ibuffer"
-              , "Start Cycle":"12"
+              , "Start Cycle":"0"
               , "Latency":"3"
               , "Reference":
               [
@@ -2267,14 +2172,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":344
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":387
+          , "id":351
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":388
+              , "id":352
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -2289,7 +2234,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":389
+                  , "id":353
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -2304,12 +2249,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":390
+                      , "id":354
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":391
+                      , "id":355
                       , "name":"W"
                     }
                   ]
@@ -2320,7 +2265,7 @@
                       , "Total number of ports per bank":"2"
                       , "Number of read ports per bank":"1"
                       , "Number of write ports per bank":"1"
-                      , "Total replication":"7"
+                      , "Total replication":"5"
                     }
                   ]
                 }
@@ -2330,12 +2275,12 @@
                 {
                   "type":"table"
                   , "Requested size":"144 bytes"
-                  , "Implemented size":"1792 bytes"
+                  , "Implemented size":"1280 bytes"
                   , "Number of banks":"1"
                   , "Bank width":"128 bits"
                   , "Bank depth":"16 words"
-                  , "Total replication":"7"
-                  , "Additional Information":"Replicated 7 times to create private copies for simultaneous execution of s in the loop containing accesses to the array"
+                  , "Total replication":"5"
+                  , "Additional Information":"Replicated 5 times to create private copies for simultaneous execution of ads in the loop containing accesses to the array"
                   , "Reference":
                   [
                     {
@@ -2359,60 +2304,20 @@
     }
     , {
       "type":"kernel"
-      , "id":392
+      , "id":356
       , "name":"input_feeder_0_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":404
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":405
+          , "id":367
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -2444,14 +2349,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":371
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":416
+          , "id":377
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":417
+              , "id":378
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -2466,7 +2411,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":418
+                  , "id":379
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -2481,12 +2426,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":419
+                      , "id":380
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":420
+                      , "id":381
                       , "name":"W"
                     }
                   ]
@@ -2536,60 +2481,20 @@
     }
     , {
       "type":"kernel"
-      , "id":421
+      , "id":382
       , "name":"input_feeder_1_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":433
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":434
+          , "id":393
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -2621,14 +2526,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":397
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":445
+          , "id":403
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":446
+              , "id":404
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -2643,7 +2588,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":447
+                  , "id":405
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -2658,12 +2603,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":448
+                      , "id":406
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":449
+                      , "id":407
                       , "name":"W"
                     }
                   ]
@@ -2713,60 +2658,20 @@
     }
     , {
       "type":"kernel"
-      , "id":450
+      , "id":408
       , "name":"input_feeder_2_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":462
-          , "name":"Store"
-          , "debug":
-          [
-            [
-              {
-                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
-              }
-            ]
-          ]
-          , "details":
-          [
-            {
-              "type":"table"
-              , "Width":"128 bits"
-              , "Type":"Pipelined"
-              , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
-              , "Reference":
-              [
-                {
-                  "type":"text"
-                  , "text":"See %L for more information"
-                  , "links":
-                  [
-                    {
-                      "guide":"Best Practices Guide : Load-Store Units"
-                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        , {
-          "type":"inst"
-          , "id":463
+          , "id":419
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -2798,14 +2703,54 @@
           ]
         }
         , {
+          "type":"inst"
+          , "id":423
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":63
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"5"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
           "type":"memtype"
-          , "id":474
+          , "id":429
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":475
+              , "id":430
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -2820,7 +2765,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":476
+                  , "id":431
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -2835,12 +2780,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":477
+                      , "id":432
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":478
+                      , "id":433
                       , "name":"W"
                     }
                   ]
@@ -2890,20 +2835,20 @@
     }
     , {
       "type":"kernel"
-      , "id":479
+      , "id":434
       , "name":"input_feeder_3_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":489
+          , "id":444
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":59
+                , "line":63
               }
             ]
           ]
@@ -2936,14 +2881,14 @@
         }
         , {
           "type":"inst"
-          , "id":490
+          , "id":445
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":65
+                , "line":66
               }
             ]
           ]
@@ -2976,13 +2921,13 @@
         }
         , {
           "type":"memtype"
-          , "id":495
+          , "id":450
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":496
+              , "id":451
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
@@ -2997,7 +2942,7 @@
               [
                 {
                   "type":"bank"
-                  , "id":497
+                  , "id":452
                   , "name":"Bank 0"
                   , "debug":
                   [
@@ -3012,12 +2957,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":498
+                      , "id":453
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":499
+                      , "id":454
                       , "name":"W"
                     }
                   ]
@@ -3069,144 +3014,140 @@
   , "links":
   [
     {
-      "from":32
-      , "to":20
+      "from":27
+      , "to":17
     }
     , {
-      "from":17
-      , "to":33
+      "from":16
+      , "to":28
     }
     , {
-      "from":19
-      , "to":34
+      "from":54
+      , "to":40
     }
     , {
-      "from":63
-      , "to":48
+      "from":44
+      , "to":55
     }
     , {
-      "from":47
-      , "to":64
+      "from":82
+      , "to":67
     }
     , {
-      "from":94
-      , "to":79
+      "from":72
+      , "to":83
     }
     , {
-      "from":78
+      "from":110
       , "to":95
     }
     , {
-      "from":125
-      , "to":110
+      "from":100
+      , "to":111
     }
     , {
-      "from":109
-      , "to":126
+      "from":138
+      , "to":123
     }
     , {
-      "from":156
-      , "to":141
+      "from":128
+      , "to":139
     }
     , {
-      "from":140
-      , "to":157
+      "from":165
+      , "to":151
     }
     , {
-      "from":186
-      , "to":171
+      "from":155
+      , "to":166
     }
     , {
-      "from":170
-      , "to":187
+      "from":192
+      , "to":178
     }
     , {
-      "from":216
-      , "to":201
+      "from":182
+      , "to":193
     }
     , {
-      "from":200
-      , "to":217
+      "from":219
+      , "to":205
+    }
+    , {
+      "from":209
+      , "to":220
     }
     , {
       "from":246
-      , "to":231
+      , "to":232
     }
     , {
-      "from":230
+      "from":236
       , "to":247
     }
     , {
-      "from":276
-      , "to":261
+      "from":273
+      , "to":259
     }
     , {
-      "from":260
-      , "to":277
+      "from":263
+      , "to":274
     }
     , {
-      "from":306
-      , "to":291
+      "from":300
+      , "to":286
     }
     , {
       "from":290
-      , "to":307
+      , "to":301
     }
     , {
-      "from":336
-      , "to":321
+      "from":327
+      , "to":313
     }
     , {
-      "from":320
-      , "to":337
+      "from":317
+      , "to":328
     }
     , {
-      "from":366
-      , "to":351
+      "from":354
+      , "to":340
     }
     , {
-      "from":350
+      "from":344
+      , "to":355
+    }
+    , {
+      "from":380
       , "to":367
     }
     , {
-      "from":390
-      , "to":379
+      "from":371
+      , "to":381
     }
     , {
-      "from":378
-      , "to":391
+      "from":406
+      , "to":393
     }
     , {
-      "from":419
-      , "to":405
+      "from":397
+      , "to":407
     }
     , {
-      "from":404
-      , "to":420
+      "from":432
+      , "to":419
     }
     , {
-      "from":448
-      , "to":434
+      "from":423
+      , "to":433
     }
     , {
-      "from":433
-      , "to":449
+      "from":453
+      , "to":445
     }
     , {
-      "from":477
-      , "to":463
-    }
-    , {
-      "from":462
-      , "to":478
-    }
-    , {
-      "from":498
-      , "to":490
-    }
-    , {
-      "from":489
-      , "to":499
+      "from":444
+      , "to":454
     }
   ]
 }

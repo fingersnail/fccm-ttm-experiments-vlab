@@ -47,7 +47,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":135
+              , "line":134
             }
           ]
         ]
@@ -215,7 +215,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":218
+              , "line":217
             }
           ]
         ]
@@ -249,7 +249,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":241
+              , "line":240
             }
           ]
         ]
@@ -295,7 +295,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":191
+              , "line":190
             }
           ]
         ]
@@ -341,7 +341,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":106
+              , "line":107
             }
           ]
         ]
@@ -375,7 +375,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":76
+              , "line":77
             }
           ]
         ]
@@ -398,7 +398,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":135
+              , "line":134
             }
           ]
         ]
@@ -406,7 +406,7 @@
       , {
         "name":"input_feeder (x16)"
         , "data":
-        [34948, 25772, 64, 0]
+        [31105, 23528, 64, 0]
         , "debug":
         [
           [
@@ -420,7 +420,7 @@
       , {
         "name":"input_loader"
         , "data":
-        [17485, 14207, 19, 0]
+        [3181, 2797, 4, 0]
         , "debug":
         [
           [
@@ -434,7 +434,7 @@
       , {
         "name":"input_serializer"
         , "data":
-        [2320, 2313, 13, 0]
+        [2317, 2308, 13, 0]
         , "debug":
         [
           [
@@ -454,7 +454,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":218
+              , "line":217
             }
           ]
         ]
@@ -462,13 +462,13 @@
       , {
         "name":"result_consumer"
         , "data":
-        [2320, 3890, 16, 0]
+        [2318, 3888, 16, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":241
+              , "line":240
             }
           ]
         ]
@@ -482,7 +482,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":191
+              , "line":190
             }
           ]
         ]
@@ -490,13 +490,13 @@
       , {
         "name":"weight_feeder (x4)"
         , "data":
-        [843, 684, 0, 0]
+        [503, 467, 0, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":106
+              , "line":107
             }
           ]
         ]
@@ -504,13 +504,13 @@
       , {
         "name":"weight_loader"
         , "data":
-        [2416, 2697, 13, 0]
+        [2414, 2695, 13, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":76
+              , "line":77
             }
           ]
         ]
@@ -520,14 +520,14 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [132935, 87328, 125, 320]
+        [114441, 73448, 110, 320]
       }
       , {
         "name":"Channel Resources"
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [4283, 74346, 0, 0]
+        [6395, 73210, 0, 0]
       }
       , {
         "name":"Global Interconnect"
@@ -548,9 +548,9 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [259897, 402086, 582, 320]
+        [243515, 387070, 567, 320]
         , "data_percent":
-        [35.0975, 27.1496, 24.9144, 21.0804]
+        [32.8852, 26.1357, 24.2723, 21.0804]
       }
       , {
         "name":"Available"
@@ -580,7 +580,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":94
+              , "line":95
             }
           ]
         ]
