@@ -10,8 +10,7 @@
 
 channel FLOAT_VEC input_serializer_to_laoder __attribute__((depth(2)));
 
-__kernel void input_serializer(__global FLOAT_VEC *input, 
-							   __address_space___shared int16* __shared) {
+__kernel void input_serializer(__global FLOAT_VEC *input) {
 	const int TILE_X = NOX / POX;
 	const int TILE_Y = NOY / POY;
 
@@ -73,8 +72,7 @@ __kernel void input_feeder() {
 
 channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(2)));
 
-__kernel void weight_loader(__global FLOAT_VEC *weight,
-							__address_space___shared int16* __shared) {
+__kernel void weight_loader(__global FLOAT_VEC *weight) {
 	const int TILE0 = NOY / POY;
 	const int TILE1 = NOX / POX;
 	
@@ -231,8 +229,7 @@ __kernel void result_collector() {
 }
 
 
-__kernel void result_consumer(__global float *output,
-							  __address_space___shared int16* __shared) {
+__kernel void result_consumer(__global float *output) {
 	int TOTAL = BATCH * NOY * NOX * NOF;
 	for (int i = 0; i < TOTAL; i++) {
 		*(output + i) = read_channel_intel(collector_to_consumer[0]);			   

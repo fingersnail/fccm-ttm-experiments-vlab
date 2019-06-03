@@ -463,12 +463,12 @@ device_found = 1;
   			(void*)&d_matrix_mul_inputA
                         ); CHECK(status);
     // This is for the shared memory
-    status = clSetKernelArg(
-  			kernel[0],
-  			num_Aargs + 1,
-  			sizeof(cl_mem),
-  			(void*)NULL
-                        ); CHECK(status);
+    // status = clSetKernelArg(
+  		// 	kernel[0],
+  		// 	num_Aargs + 1,
+  		// 	sizeof(cl_mem),
+  		// 	(void*)NULL
+    //                     ); CHECK(status);
     // B
     for (i = 0; i < num_Bargs; i++) {
         status = clSetKernelArg(
@@ -485,12 +485,12 @@ device_found = 1;
   			(void*)&d_matrix_mul_inputB
                         ); CHECK(status);
     // This is for the shared memory
-    status = clSetKernelArg(
-  			kernel[1],
-  			num_Bargs + 1,
-  			sizeof(cl_mem),
-  			(void*)NULL
-                        ); CHECK(status);
+    // status = clSetKernelArg(
+  		// 	kernel[1],
+  		// 	num_Bargs + 1,
+  		// 	sizeof(cl_mem),
+  		// 	(void*)NULL
+    //                     ); CHECK(status);
     // C
     for (i = 0; i < num_Cargs; i++) {
         status = clSetKernelArg(
@@ -507,12 +507,12 @@ device_found = 1;
   			(void*)&d_matrix_mul_outputC
                         ); CHECK(status);
     // This is for the shared memory
-    status = clSetKernelArg(
-  			kernel[2],
-  			num_Cargs + 1,
-  			sizeof(cl_mem),
-  			(void*)NULL
-                        ); CHECK(status);
+    // status = clSetKernelArg(
+  		// 	kernel[2],
+  		// 	num_Cargs + 1,
+  		// 	sizeof(cl_mem),
+  		// 	(void*)NULL
+    //                     ); CHECK(status);
 
 
     //----------------------------------------------
@@ -613,7 +613,7 @@ device_found = 1;
                                     }
                                 }
                             }
-                            if (abs(c - result[index]) > 0.1) {
+                            if (c != result[index]) {
                                 passed = 0;
                                 printf("\n[FAILED]: b:%d y:%d x:%d no:%d result[b][y][x][no]:%f, right answer: %f\n", b, y*POY + yy, x*POX + xx, no*POF + nn, result[index], c);
                             }
