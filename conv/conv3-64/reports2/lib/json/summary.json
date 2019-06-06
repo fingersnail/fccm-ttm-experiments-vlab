@@ -47,7 +47,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":159
+              , "line":158
             }
           ]
         ]
@@ -93,7 +93,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":70
+              , "line":69
             }
           ]
         ]
@@ -215,7 +215,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":242
+              , "line":241
             }
           ]
         ]
@@ -249,7 +249,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":264
+              , "line":263
             }
           ]
         ]
@@ -295,7 +295,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":215
+              , "line":214
             }
           ]
         ]
@@ -341,7 +341,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":132
+              , "line":131
             }
           ]
         ]
@@ -375,7 +375,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":107
+              , "line":106
             }
           ]
         ]
@@ -398,7 +398,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":159
+              , "line":158
             }
           ]
         ]
@@ -406,13 +406,13 @@
       , {
         "name":"input_feeder (x16)"
         , "data":
-        [34862, 32774, 64, 0]
+        [34910, 32870, 64, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":70
+              , "line":69
             }
           ]
         ]
@@ -454,7 +454,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":242
+              , "line":241
             }
           ]
         ]
@@ -468,7 +468,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":264
+              , "line":263
             }
           ]
         ]
@@ -482,7 +482,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":215
+              , "line":214
             }
           ]
         ]
@@ -496,7 +496,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":132
+              , "line":131
             }
           ]
         ]
@@ -510,7 +510,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":107
+              , "line":106
             }
           ]
         ]
@@ -520,7 +520,7 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [205979, 148945, 117, 640]
+        [206027, 149041, 117, 640]
       }
       , {
         "name":"Channel Resources"
@@ -548,9 +548,9 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [340101, 528511, 574, 640]
+        [340149, 528607, 574, 640]
         , "data_percent":
-        [45.9286, 35.6861, 24.5719, 42.1607]
+        [45.935, 35.6926, 24.5719, 42.1607]
       }
       , {
         "name":"Available"
@@ -580,7 +580,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":120
+              , "line":119
             }
           ]
         ]
