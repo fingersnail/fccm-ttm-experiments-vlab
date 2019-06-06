@@ -3,20 +3,20 @@
   [
     {
       "type":"kernel"
-      , "id":2
+      , "id":12
       , "name":"input_loader"
       , "children":
       [
         {
           "type":"inst"
-          , "id":16
+          , "id":25
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":29
+                , "line":41
               }
             ]
           ]
@@ -28,7 +28,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"linebuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"10"
               , "Latency":"1"
               , "Reference":
               [
@@ -49,14 +49,14 @@
         }
         , {
           "type":"inst"
-          , "id":17
+          , "id":26
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":29
+                , "line":53
               }
             ]
           ]
@@ -68,7 +68,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Loads from":"linebuffer"
-              , "Start Cycle":"2"
+              , "Start Cycle":"7"
               , "Latency":"3"
               , "Reference":
               [
@@ -89,20 +89,20 @@
         }
         , {
           "type":"memtype"
-          , "id":24
+          , "id":33
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":25
+              , "id":34
               , "name":"linebuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":29
+                    , "line":34
                   }
                 ]
               ]
@@ -110,14 +110,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":26
+                  , "id":35
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":29
+                        , "line":34
                       }
                     ]
                   ]
@@ -125,12 +125,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":27
+                      , "id":36
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":28
+                      , "id":37
                       , "name":"W"
                     }
                   ]
@@ -141,7 +141,7 @@
                       , "Total number of ports per bank":"2"
                       , "Number of read ports per bank":"1"
                       , "Number of write ports per bank":"1"
-                      , "Total replication":"6"
+                      , "Total replication":"11"
                     }
                   ]
                 }
@@ -151,12 +151,12 @@
                 {
                   "type":"table"
                   , "Requested size":"352 bytes"
-                  , "Implemented size":"3072 bytes"
+                  , "Implemented size":"5632 bytes"
                   , "Number of banks":"1"
                   , "Bank width":"128 bits"
                   , "Bank depth":"32 words"
-                  , "Total replication":"6"
-                  , "Additional Information":"Replicated 6 times to create private copies for simultaneous execution of ds in the loop containing accesses to the array"
+                  , "Total replication":"11"
+                  , "Additional Information":"Replicated 11 times to create private copies for simultaneous execution of  the loop containing accesses to the array"
                   , "Reference":
                   [
                     {
@@ -180,20 +180,20 @@
     }
     , {
       "type":"kernel"
-      , "id":29
-      , "name":"input_feeder_0_0_0"
+      , "id":38
+      , "name":"weight_loader"
       , "children":
       [
         {
           "type":"inst"
-          , "id":40
-          , "name":"Load"
+          , "id":45
+          , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":120
               }
             ]
           ]
@@ -204,9 +204,9 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
-              , "Start Cycle":"0"
-              , "Latency":"3"
+              , "Stores to":"weight_buffer"
+              , "Start Cycle":"13"
+              , "Latency":"1"
               , "Reference":
               [
                 {
@@ -226,14 +226,14 @@
         }
         , {
           "type":"inst"
-          , "id":44
-          , "name":"Store"
+          , "id":46
+          , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":122
               }
             ]
           ]
@@ -244,9 +244,9 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
-              , "Latency":"1"
+              , "Loads from":"weight_buffer"
+              , "Start Cycle":"13"
+              , "Latency":"3"
               , "Reference":
               [
                 {
@@ -273,13 +273,13 @@
             {
               "type":"memsys"
               , "id":52
-              , "name":"_input_feeder_ibuffer"
+              , "name":"weight_buffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":114
                   }
                 ]
               ]
@@ -294,7 +294,7 @@
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":114
                       }
                     ]
                   ]
@@ -318,6 +318,182 @@
                       , "Total number of ports per bank":"2"
                       , "Number of read ports per bank":"1"
                       , "Number of write ports per bank":"1"
+                      , "Total replication":"1"
+                    }
+                  ]
+                }
+              ]
+              , "details":
+              [
+                {
+                  "type":"table"
+                  , "Requested size":"9216 bytes"
+                  , "Implemented size":"16384 bytes"
+                  , "Number of banks":"1"
+                  , "Bank width":"128 bits"
+                  , "Bank depth":"1024 words"
+                  , "Total replication":"1"
+                  , "Reference":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"See %L for more information"
+                      , "links":
+                      [
+                        {
+                          "guide":"Best Practices Guide : Local Memory"
+                          , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "type":"kernel"
+      , "id":65
+      , "name":"input_feeder_0_0_0"
+      , "children":
+      [
+        {
+          "type":"inst"
+          , "id":76
+          , "name":"Load"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":97
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Loads from":"_input_feeder_ibuffer"
+              , "Start Cycle":"0"
+              , "Latency":"3"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "type":"inst"
+          , "id":80
+          , "name":"Store"
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                , "line":94
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Width":"128 bits"
+              , "Type":"Pipelined"
+              , "Stall-free":"Yes"
+              , "Stores to":"_input_feeder_ibuffer"
+              , "Start Cycle":"9"
+              , "Latency":"1"
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information"
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Load-Store Units"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "type":"memtype"
+          , "id":87
+          , "name":"Local Memory"
+          , "children":
+          [
+            {
+              "type":"memsys"
+              , "id":88
+              , "name":"_input_feeder_ibuffer"
+              , "debug":
+              [
+                [
+                  {
+                    "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                    , "line":78
+                  }
+                ]
+              ]
+              , "children":
+              [
+                {
+                  "type":"bank"
+                  , "id":89
+                  , "name":"Bank 0"
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+                        , "line":78
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "type":"port"
+                      , "id":90
+                      , "name":"R"
+                    }
+                    , {
+                      "type":"port"
+                      , "id":91
+                      , "name":"W"
+                    }
+                  ]
+                  , "details":
+                  [
+                    {
+                      "type":"table"
+                      , "Total number of ports per bank":"2"
+                      , "Number of read ports per bank":"1"
+                      , "Number of write ports per bank":"1"
                       , "Total replication":"5"
                     }
                   ]
@@ -357,20 +533,20 @@
     }
     , {
       "type":"kernel"
-      , "id":56
+      , "id":92
       , "name":"input_feeder_1_0_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":67
+          , "id":103
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -403,14 +579,14 @@
         }
         , {
           "type":"inst"
-          , "id":72
+          , "id":108
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -422,7 +598,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -443,20 +619,20 @@
         }
         , {
           "type":"memtype"
-          , "id":79
+          , "id":115
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":80
+              , "id":116
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -464,14 +640,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":81
+                  , "id":117
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -479,12 +655,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":82
+                      , "id":118
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":83
+                      , "id":119
                       , "name":"W"
                     }
                   ]
@@ -534,20 +710,20 @@
     }
     , {
       "type":"kernel"
-      , "id":84
+      , "id":120
       , "name":"input_feeder_2_0_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":95
+          , "id":131
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -580,14 +756,14 @@
         }
         , {
           "type":"inst"
-          , "id":100
+          , "id":136
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -599,7 +775,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -620,20 +796,20 @@
         }
         , {
           "type":"memtype"
-          , "id":107
+          , "id":143
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":108
+              , "id":144
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -641,14 +817,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":109
+                  , "id":145
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -656,12 +832,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":110
+                      , "id":146
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":111
+                      , "id":147
                       , "name":"W"
                     }
                   ]
@@ -711,20 +887,20 @@
     }
     , {
       "type":"kernel"
-      , "id":112
+      , "id":148
       , "name":"input_feeder_3_0_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":123
+          , "id":159
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -757,14 +933,14 @@
         }
         , {
           "type":"inst"
-          , "id":128
+          , "id":164
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -776,7 +952,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -797,20 +973,20 @@
         }
         , {
           "type":"memtype"
-          , "id":135
+          , "id":171
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":136
+              , "id":172
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -818,14 +994,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":137
+                  , "id":173
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -833,12 +1009,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":138
+                      , "id":174
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":139
+                      , "id":175
                       , "name":"W"
                     }
                   ]
@@ -888,20 +1064,20 @@
     }
     , {
       "type":"kernel"
-      , "id":140
+      , "id":176
       , "name":"input_feeder_0_1_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":151
+          , "id":187
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -934,14 +1110,14 @@
         }
         , {
           "type":"inst"
-          , "id":155
+          , "id":191
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -953,7 +1129,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -974,20 +1150,20 @@
         }
         , {
           "type":"memtype"
-          , "id":162
+          , "id":198
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":163
+              , "id":199
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -995,14 +1171,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":164
+                  , "id":200
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -1010,12 +1186,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":165
+                      , "id":201
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":166
+                      , "id":202
                       , "name":"W"
                     }
                   ]
@@ -1065,20 +1241,20 @@
     }
     , {
       "type":"kernel"
-      , "id":167
+      , "id":203
       , "name":"input_feeder_1_1_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":178
+          , "id":214
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -1111,14 +1287,14 @@
         }
         , {
           "type":"inst"
-          , "id":182
+          , "id":218
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -1130,7 +1306,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -1151,20 +1327,20 @@
         }
         , {
           "type":"memtype"
-          , "id":189
+          , "id":225
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":190
+              , "id":226
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -1172,14 +1348,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":191
+                  , "id":227
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -1187,12 +1363,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":192
+                      , "id":228
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":193
+                      , "id":229
                       , "name":"W"
                     }
                   ]
@@ -1242,20 +1418,20 @@
     }
     , {
       "type":"kernel"
-      , "id":194
+      , "id":230
       , "name":"input_feeder_2_1_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":205
+          , "id":241
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -1288,14 +1464,14 @@
         }
         , {
           "type":"inst"
-          , "id":209
+          , "id":245
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -1307,7 +1483,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -1328,20 +1504,20 @@
         }
         , {
           "type":"memtype"
-          , "id":216
+          , "id":252
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":217
+              , "id":253
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -1349,14 +1525,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":218
+                  , "id":254
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -1364,12 +1540,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":219
+                      , "id":255
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":220
+                      , "id":256
                       , "name":"W"
                     }
                   ]
@@ -1419,20 +1595,20 @@
     }
     , {
       "type":"kernel"
-      , "id":221
+      , "id":257
       , "name":"input_feeder_3_1_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":232
+          , "id":268
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -1465,14 +1641,14 @@
         }
         , {
           "type":"inst"
-          , "id":236
+          , "id":272
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -1484,7 +1660,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -1505,20 +1681,20 @@
         }
         , {
           "type":"memtype"
-          , "id":243
+          , "id":279
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":244
+              , "id":280
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -1526,14 +1702,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":245
+                  , "id":281
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -1541,12 +1717,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":246
+                      , "id":282
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":247
+                      , "id":283
                       , "name":"W"
                     }
                   ]
@@ -1596,20 +1772,20 @@
     }
     , {
       "type":"kernel"
-      , "id":248
+      , "id":284
       , "name":"input_feeder_0_2_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":259
+          , "id":295
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -1642,14 +1818,14 @@
         }
         , {
           "type":"inst"
-          , "id":263
+          , "id":299
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -1661,7 +1837,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -1682,20 +1858,20 @@
         }
         , {
           "type":"memtype"
-          , "id":270
+          , "id":306
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":271
+              , "id":307
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -1703,14 +1879,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":272
+                  , "id":308
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -1718,12 +1894,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":273
+                      , "id":309
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":274
+                      , "id":310
                       , "name":"W"
                     }
                   ]
@@ -1773,20 +1949,20 @@
     }
     , {
       "type":"kernel"
-      , "id":275
+      , "id":311
       , "name":"input_feeder_1_2_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":286
+          , "id":322
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -1819,14 +1995,14 @@
         }
         , {
           "type":"inst"
-          , "id":290
+          , "id":326
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -1838,7 +2014,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -1859,20 +2035,20 @@
         }
         , {
           "type":"memtype"
-          , "id":297
+          , "id":333
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":298
+              , "id":334
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -1880,14 +2056,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":299
+                  , "id":335
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -1895,12 +2071,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":300
+                      , "id":336
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":301
+                      , "id":337
                       , "name":"W"
                     }
                   ]
@@ -1950,20 +2126,20 @@
     }
     , {
       "type":"kernel"
-      , "id":302
+      , "id":338
       , "name":"input_feeder_2_2_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":313
+          , "id":349
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -1996,14 +2172,14 @@
         }
         , {
           "type":"inst"
-          , "id":317
+          , "id":353
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -2015,7 +2191,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -2036,20 +2212,20 @@
         }
         , {
           "type":"memtype"
-          , "id":324
+          , "id":360
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":325
+              , "id":361
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -2057,14 +2233,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":326
+                  , "id":362
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -2072,12 +2248,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":327
+                      , "id":363
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":328
+                      , "id":364
                       , "name":"W"
                     }
                   ]
@@ -2127,20 +2303,20 @@
     }
     , {
       "type":"kernel"
-      , "id":329
+      , "id":365
       , "name":"input_feeder_3_2_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":340
+          , "id":376
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -2173,14 +2349,14 @@
         }
         , {
           "type":"inst"
-          , "id":344
+          , "id":380
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -2192,7 +2368,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -2213,20 +2389,20 @@
         }
         , {
           "type":"memtype"
-          , "id":351
+          , "id":387
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":352
+              , "id":388
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -2234,14 +2410,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":353
+                  , "id":389
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -2249,12 +2425,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":354
+                      , "id":390
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":355
+                      , "id":391
                       , "name":"W"
                     }
                   ]
@@ -2304,20 +2480,20 @@
     }
     , {
       "type":"kernel"
-      , "id":356
+      , "id":392
       , "name":"input_feeder_0_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":367
+          , "id":403
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -2350,14 +2526,14 @@
         }
         , {
           "type":"inst"
-          , "id":371
+          , "id":407
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -2369,7 +2545,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -2390,20 +2566,20 @@
         }
         , {
           "type":"memtype"
-          , "id":377
+          , "id":413
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":378
+              , "id":414
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -2411,14 +2587,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":379
+                  , "id":415
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -2426,12 +2602,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":380
+                      , "id":416
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":381
+                      , "id":417
                       , "name":"W"
                     }
                   ]
@@ -2481,20 +2657,20 @@
     }
     , {
       "type":"kernel"
-      , "id":382
+      , "id":418
       , "name":"input_feeder_1_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":393
+          , "id":429
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -2527,14 +2703,14 @@
         }
         , {
           "type":"inst"
-          , "id":397
+          , "id":433
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -2546,7 +2722,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -2567,20 +2743,20 @@
         }
         , {
           "type":"memtype"
-          , "id":403
+          , "id":439
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":404
+              , "id":440
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -2588,14 +2764,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":405
+                  , "id":441
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -2603,12 +2779,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":406
+                      , "id":442
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":407
+                      , "id":443
                       , "name":"W"
                     }
                   ]
@@ -2658,20 +2834,20 @@
     }
     , {
       "type":"kernel"
-      , "id":408
+      , "id":444
       , "name":"input_feeder_2_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":419
+          , "id":455
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -2704,14 +2880,14 @@
         }
         , {
           "type":"inst"
-          , "id":423
+          , "id":459
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -2723,7 +2899,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"9"
               , "Latency":"1"
               , "Reference":
               [
@@ -2744,20 +2920,20 @@
         }
         , {
           "type":"memtype"
-          , "id":429
+          , "id":465
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":430
+              , "id":466
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -2765,14 +2941,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":431
+                  , "id":467
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -2780,12 +2956,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":432
+                      , "id":468
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":433
+                      , "id":469
                       , "name":"W"
                     }
                   ]
@@ -2835,20 +3011,20 @@
     }
     , {
       "type":"kernel"
-      , "id":434
+      , "id":470
       , "name":"input_feeder_3_3_0"
       , "children":
       [
         {
           "type":"inst"
-          , "id":444
+          , "id":480
           , "name":"Store"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":63
+                , "line":94
               }
             ]
           ]
@@ -2860,7 +3036,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
               [
@@ -2881,14 +3057,14 @@
         }
         , {
           "type":"inst"
-          , "id":445
+          , "id":481
           , "name":"Load"
           , "debug":
           [
             [
               {
                 "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                , "line":66
+                , "line":97
               }
             ]
           ]
@@ -2900,7 +3076,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Loads from":"_input_feeder_ibuffer"
-              , "Start Cycle":"5"
+              , "Start Cycle":"8"
               , "Latency":"3"
               , "Reference":
               [
@@ -2921,20 +3097,20 @@
         }
         , {
           "type":"memtype"
-          , "id":450
+          , "id":486
           , "name":"Local Memory"
           , "children":
           [
             {
               "type":"memsys"
-              , "id":451
+              , "id":487
               , "name":"_input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
                     "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                    , "line":47
+                    , "line":78
                   }
                 ]
               ]
@@ -2942,14 +3118,14 @@
               [
                 {
                   "type":"bank"
-                  , "id":452
+                  , "id":488
                   , "name":"Bank 0"
                   , "debug":
                   [
                     [
                       {
                         "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-                        , "line":47
+                        , "line":78
                       }
                     ]
                   ]
@@ -2957,12 +3133,12 @@
                   [
                     {
                       "type":"port"
-                      , "id":453
+                      , "id":489
                       , "name":"R"
                     }
                     , {
                       "type":"port"
-                      , "id":454
+                      , "id":490
                       , "name":"W"
                     }
                   ]
@@ -3014,140 +3190,148 @@
   , "links":
   [
     {
-      "from":27
-      , "to":17
+      "from":36
+      , "to":26
     }
     , {
-      "from":16
-      , "to":28
+      "from":25
+      , "to":37
     }
     , {
       "from":54
-      , "to":40
+      , "to":46
     }
     , {
-      "from":44
+      "from":45
       , "to":55
     }
     , {
-      "from":82
-      , "to":67
+      "from":90
+      , "to":76
     }
     , {
-      "from":72
-      , "to":83
+      "from":80
+      , "to":91
     }
     , {
-      "from":110
-      , "to":95
+      "from":118
+      , "to":103
     }
     , {
-      "from":100
-      , "to":111
+      "from":108
+      , "to":119
     }
     , {
-      "from":138
-      , "to":123
+      "from":146
+      , "to":131
     }
     , {
-      "from":128
-      , "to":139
+      "from":136
+      , "to":147
     }
     , {
-      "from":165
-      , "to":151
+      "from":174
+      , "to":159
     }
     , {
-      "from":155
-      , "to":166
+      "from":164
+      , "to":175
     }
     , {
-      "from":192
-      , "to":178
+      "from":201
+      , "to":187
     }
     , {
-      "from":182
-      , "to":193
+      "from":191
+      , "to":202
     }
     , {
-      "from":219
-      , "to":205
+      "from":228
+      , "to":214
     }
     , {
-      "from":209
-      , "to":220
+      "from":218
+      , "to":229
     }
     , {
-      "from":246
-      , "to":232
+      "from":255
+      , "to":241
     }
     , {
-      "from":236
-      , "to":247
+      "from":245
+      , "to":256
     }
     , {
-      "from":273
-      , "to":259
+      "from":282
+      , "to":268
     }
     , {
-      "from":263
-      , "to":274
+      "from":272
+      , "to":283
     }
     , {
-      "from":300
-      , "to":286
+      "from":309
+      , "to":295
     }
     , {
-      "from":290
-      , "to":301
+      "from":299
+      , "to":310
     }
     , {
-      "from":327
-      , "to":313
+      "from":336
+      , "to":322
     }
     , {
-      "from":317
-      , "to":328
+      "from":326
+      , "to":337
     }
     , {
-      "from":354
-      , "to":340
+      "from":363
+      , "to":349
     }
     , {
-      "from":344
-      , "to":355
+      "from":353
+      , "to":364
+    }
+    , {
+      "from":390
+      , "to":376
     }
     , {
       "from":380
-      , "to":367
+      , "to":391
     }
     , {
-      "from":371
-      , "to":381
+      "from":416
+      , "to":403
     }
     , {
-      "from":406
-      , "to":393
+      "from":407
+      , "to":417
     }
     , {
-      "from":397
-      , "to":407
+      "from":442
+      , "to":429
     }
     , {
-      "from":432
-      , "to":419
+      "from":433
+      , "to":443
     }
     , {
-      "from":423
-      , "to":433
+      "from":468
+      , "to":455
     }
     , {
-      "from":453
-      , "to":445
+      "from":459
+      , "to":469
     }
     , {
-      "from":444
-      , "to":454
+      "from":489
+      , "to":481
+    }
+    , {
+      "from":480
+      , "to":490
     }
   ]
 }

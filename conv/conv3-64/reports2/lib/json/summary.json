@@ -13,7 +13,7 @@
           "Single work-item"
           , "Yes"
           , [1, 1, 1]
-          , 64
+          , 128
         ]
         , "details":
         [
@@ -27,7 +27,7 @@
           }
           , {
             "type":"text"
-            , "text":"The kernel was replicated 64 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+            , "text":"The kernel was replicated 128 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
           }
           , {
             "type":"text"
@@ -47,7 +47,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":134
+              , "line":159
             }
           ]
         ]
@@ -93,7 +93,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":39
+              , "line":70
             }
           ]
         ]
@@ -135,7 +135,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":26
+              , "line":25
             }
           ]
         ]
@@ -169,7 +169,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":14
+              , "line":13
             }
           ]
         ]
@@ -181,7 +181,7 @@
           "Single work-item"
           , "Yes"
           , [1, 1, 1]
-          , 4
+          , 8
         ]
         , "details":
         [
@@ -195,7 +195,7 @@
           }
           , {
             "type":"text"
-            , "text":"The kernel was replicated 4 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+            , "text":"The kernel was replicated 8 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
           }
           , {
             "type":"text"
@@ -215,7 +215,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":217
+              , "line":242
             }
           ]
         ]
@@ -249,7 +249,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":240
+              , "line":264
             }
           ]
         ]
@@ -261,7 +261,7 @@
           "Single work-item"
           , "Yes"
           , [1, 1, 1]
-          , 64
+          , 128
         ]
         , "details":
         [
@@ -275,7 +275,7 @@
           }
           , {
             "type":"text"
-            , "text":"The kernel was replicated 64 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+            , "text":"The kernel was replicated 128 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
           }
           , {
             "type":"text"
@@ -295,7 +295,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":190
+              , "line":215
             }
           ]
         ]
@@ -307,7 +307,7 @@
           "Single work-item"
           , "Yes"
           , [1, 1, 1]
-          , 4
+          , 8
         ]
         , "details":
         [
@@ -321,7 +321,7 @@
           }
           , {
             "type":"text"
-            , "text":"The kernel was replicated 4 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+            , "text":"The kernel was replicated 8 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
           }
           , {
             "type":"text"
@@ -341,7 +341,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":107
+              , "line":132
             }
           ]
         ]
@@ -375,7 +375,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":77
+              , "line":107
             }
           ]
         ]
@@ -390,15 +390,15 @@
     , "children":
     [
       {
-        "name":"convolution (x64)"
+        "name":"convolution (x128)"
         , "data":
-        [60524, 28456, 0, 320]
+        [126480, 57504, 0, 640]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":134
+              , "line":159
             }
           ]
         ]
@@ -406,13 +406,13 @@
       , {
         "name":"input_feeder (x16)"
         , "data":
-        [31105, 23528, 64, 0]
+        [34862, 32774, 64, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":39
+              , "line":70
             }
           ]
         ]
@@ -420,13 +420,13 @@
       , {
         "name":"input_loader"
         , "data":
-        [3181, 2797, 4, 0]
+        [4058, 6083, 4, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":26
+              , "line":25
             }
           ]
         ]
@@ -434,27 +434,27 @@
       , {
         "name":"input_serializer"
         , "data":
-        [2317, 2308, 13, 0]
+        [2323, 2261, 13, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":14
+              , "line":13
             }
           ]
         ]
       }
       , {
-        "name":"result_collector (x4)"
+        "name":"result_collector (x8)"
         , "data":
-        [575, 461, 0, 0]
+        [1681, 2220, 0, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":217
+              , "line":242
             }
           ]
         ]
@@ -462,35 +462,49 @@
       , {
         "name":"result_consumer"
         , "data":
-        [2318, 3888, 16, 0]
+        [2358, 3969, 16, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":240
+              , "line":264
             }
           ]
         ]
       }
       , {
-        "name":"result_drainer (x64)"
+        "name":"result_drainer (x128)"
         , "data":
-        [11504, 8848, 0, 0]
+        [29368, 37856, 0, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":190
+              , "line":215
             }
           ]
         ]
       }
       , {
-        "name":"weight_feeder (x4)"
+        "name":"weight_feeder (x8)"
         , "data":
-        [503, 467, 0, 0]
+        [1513, 2234, 0, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":132
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"weight_loader"
+        , "data":
+        [3336, 4044, 20, 0]
         , "debug":
         [
           [
@@ -502,32 +516,18 @@
         ]
       }
       , {
-        "name":"weight_loader"
-        , "data":
-        [2414, 2695, 13, 0]
-        , "debug":
-        [
-          [
-            {
-              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":77
-            }
-          ]
-        ]
-      }
-      , {
         "name":"Kernel Subtotal"
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [114441, 73448, 110, 320]
+        [205979, 148945, 117, 640]
       }
       , {
         "name":"Channel Resources"
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [6395, 73210, 0, 0]
+        [11443, 139154, 0, 0]
       }
       , {
         "name":"Global Interconnect"
@@ -548,9 +548,9 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [243515, 387070, 567, 320]
+        [340101, 528511, 574, 640]
         , "data_percent":
-        [32.8852, 26.1357, 24.2723, 21.0804]
+        [45.9286, 35.6861, 24.5719, 42.1607]
       }
       , {
         "name":"Available"
@@ -580,7 +580,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":95
+              , "line":120
             }
           ]
         ]
