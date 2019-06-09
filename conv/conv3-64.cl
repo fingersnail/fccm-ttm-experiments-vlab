@@ -8,56 +8,49 @@
 #define __address_space___shared __local
 
 
-channel FLOAT_VEC input_serializer_to_laoder __attribute__((depth(2)));
+channel FLOAT_VEC linebuffer_channel[POY] __attribute__((depth(KX+100)));
 
 __kernel void input_serializer(__global FLOAT_VEC * restrict input) {
 	const int TILE_X = NOX / POX;
 	const int TILE_Y = NOY / POY;
-
+	const int write_channel = POY - 1;
 	const int TOTAL_SIZE = BATCH * TILE_Y*(POY + KY - 1) * TILE_X*(POX + KX - 1);
 	for (int i = 0; i < TOTAL_SIZE; i++) {
-		write_channel_intel(input_serializer_to_laoder, input[i]);
+		write_channel_intel(linebuffer_channel[write_channel], input[i]);
 	}
 }
 
-channel FLOAT_VEC input_loader_to_feeder[POY*POX] __attribute__((depth(2)));
+channel FLOAT_VEC input_loader_to_feeder[POY][POX] __attribute__((depth(2)));
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
+__attribute__((num_compute_units(POY)))
 __kernel void input_loader() {
+	int yy = get_compute_id(0);
+	const int INPUT_EXTENT_0 = KX + POX - 1; 
+   	const int LINEBUFFER_EXTENT = POX + (POY - 1) * INPUT_EXTENT_0;
+
 	while(1) {
-		//DPRINTF("Inserting linebuffer\n");
-		//define_unrolled_flat_linebuffer_2d(FLOAT_VEC, input_serializer_to_laoder, input_loader_to_feeder, POX, POY, KX, KY)
-		//DPRINTF("Linebuffer finished\n");
-    		const int INPUT_EXTENT_0 = KX + POX - 1; 
-   		const int INPUT_EXTENT_1 = KY + POY - 1;
-   		const int STRIDE_1 = INPUT_EXTENT_0;
-   		const int LINEBUFFER_EXTENT = (POX - 1) + (POY - 1) * STRIDE_1 + 1;
-    		FLOAT_VEC linebuffer[LINEBUFFER_EXTENT];
-    		int start_address = 0;
-    		int read_length = LINEBUFFER_EXTENT; 
-    		int read_step = KX - 1; 
-    		for (int s_1 = 0; s_1 < KY; s_1++) { 
-        		for (int s_0 = 0; s_0 < KX; s_0++) { 
-            			for (int a = 0; a < read_length; a++) { 
-                			linebuffer[start_address] = read_channel_intel(input_serializer_to_laoder); 
-                			start_address++; 
-					if (start_address == LINEBUFFER_EXTENT) 
-                    				start_address = 0;
-            			}
-    
-            			int offset = start_address; 
-            			for (int dim_1 = 0; dim_1 < POY; dim_1++) { 
-               				for (int dim_0 = 0; dim_0 < POX; dim_0++) { 
-                    				if (offset >= LINEBUFFER_EXTENT)
-                        				offset -= LINEBUFFER_EXTENT; 
-                    				write_channel_intel(input_loader_to_feeder[0], linebuffer[offset]); 
-                    				offset++; 
-                			} 
-                			offset += read_step; 
-           			}  
-            			read_length = 1; 
+		FLOAT_VEC linebuffer[POX];
+
+		int step = LINEBUFFER_EXTENT;
+
+		for (int s_1 = 0; s_1 < KY; s_1++) { 
+        	for (int s_0 = 0; s_0 < KX; s_0++) {
+        		for (int i = 0; i < step; i++) {
+        			if (yy)
+        				write_channel_intel(linebuffer_channel[yy-1], linebuffer[0]);
+        			#pragma unroll
+					for (int j = 0; j < POX - 1; j++) {
+      					linebuffer[j] = linebuffer[j + 1];
+					}
+					linebuffer[POX - 1] = read_channel_intel(linebuffer_channel[yy]);
         		}
-        		read_length = POX;     
-    		}
+        		for (int dim_0 = 0; dim_0 < POX; dim_0++) {
+        			write_channel_intel(input_loader_to_feeder[yy][0], linebuffer[dim_0]); 
+        		}
+        		step = 1;
+        	}
+        	step = POX;
+        }
 	}
 }
 
@@ -75,20 +68,18 @@ __kernel void input_feeder() {
 	int xx = get_compute_id(1);
 
 	FLOAT_VEC _input_feeder_ibuffer[KY][KX];
-	int channel_num = yy * POX + xx;
-	int input_scatter_channel = channel_num + 1;
-	int window_size = POX*POY - channel_num;
-	
-	FLOAT_VEC input;
+	int input_scatter_channel = xx + 1;
+	int window_size = POX - xx;
+
 	while (1) {
 		for (int no = 0; no < TILE2; no++) {
 			for (int ky = 0; ky < KY; ky++) {
 				for (int kx = 0; kx < KX; kx++) {
-					if (!no) {						
+					if (!no) {
 						for (int n_time = 0; n_time < window_size; n_time++) {
-							input = read_channel_intel(input_loader_to_feeder[channel_num]);
+							FLOAT_VEC input = read_channel_intel(input_loader_to_feeder[yy][xx]);
 							if (n_time)
-								write_channel_intel(input_loader_to_feeder[input_scatter_channel], input);
+								write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
 							else
 								_input_feeder_ibuffer[ky][kx] = input;
 						}
