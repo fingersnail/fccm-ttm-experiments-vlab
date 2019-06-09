@@ -274,7 +274,7 @@
                   , "Width":"128 bits"
                   , "Depth":"2"
                   , "Stall-free":"No"
-                  , "Start Cycle":"10"
+                  , "Start Cycle":"7"
                   , "Latency":"0"
                   , "Reference":
                   [
@@ -314,7 +314,7 @@
                   , "Type":"Pipelined"
                   , "Stall-free":"Yes"
                   , "Stores to":"linebuffer"
-                  , "Start Cycle":"10"
+                  , "Start Cycle":"7"
                   , "Latency":"1"
                   , "Reference":
                   [
@@ -355,7 +355,7 @@
               [
                 {
                   "type":"table"
-                  , "Start Cycle":"11"
+                  , "Start Cycle":"8"
                   , "Latency":"1"
                 }
               ]
@@ -365,12 +365,12 @@
           [
             {
               "type":"table"
-              , "Latency":"11"
-              , "II":"3"
+              , "Latency":"8"
+              , "II":"1"
               , "Subloops":"No"
               , "Pipelined":"Yes"
               , "Fmax Bottlenecks":"No"
-              , "Loop Info":"Loop is pipelined with II of 3. See Loops Analysis for more information."
+              , "Loop Info":""
             }
           ]
         }
@@ -419,7 +419,7 @@
                   , "Type":"Pipelined"
                   , "Stall-free":"Yes"
                   , "Loads from":"linebuffer"
-                  , "Start Cycle":"7"
+                  , "Start Cycle":"4"
                   , "Latency":"3"
                   , "Reference":
                   [
@@ -458,7 +458,7 @@
                   , "Width":"128 bits"
                   , "Depth":"2"
                   , "Stall-free":"No"
-                  , "Start Cycle":"14"
+                  , "Start Cycle":"11"
                   , "Latency":"0"
                   , "Reference":
                   [
@@ -499,7 +499,7 @@
               [
                 {
                   "type":"table"
-                  , "Start Cycle":"14"
+                  , "Start Cycle":"11"
                   , "Latency":"1"
                 }
               ]
@@ -509,12 +509,12 @@
           [
             {
               "type":"table"
-              , "Latency":"14"
-              , "II":"4"
+              , "Latency":"11"
+              , "II":"1"
               , "Subloops":"No"
               , "Pipelined":"Yes"
               , "Fmax Bottlenecks":"No"
-              , "Loop Info":"Loop is pipelined with II of 4. See Loops Analysis for more information."
+              , "Loop Info":""
             }
           ]
         }
@@ -593,12 +593,12 @@
                 {
                   "type":"table"
                   , "Requested size":"352 bytes"
-                  , "Implemented size":"5632 bytes"
+                  , "Implemented size":"3072 bytes"
                   , "Number of banks":"1"
                   , "Bank width":"128 bits"
                   , "Bank depth":"32 words"
-                  , "Total replication":"11"
-                  , "Additional Information":"Replicated 11 times to create private copies for simultaneous execution of  the loop containing accesses to the array"
+                  , "Total replication":"6"
+                  , "Additional Information":"Replicated 6 times to create private copies for simultaneous execution of ds in the loop containing accesses to the array"
                   , "Reference":
                   [
                     {

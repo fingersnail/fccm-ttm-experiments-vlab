@@ -10,7 +10,7 @@
 
 channel FLOAT_VEC input_serializer_to_laoder __attribute__((depth(2)));
 
-__kernel void input_serializer(__global FLOAT_VEC *input) {
+__kernel void input_serializer(__global FLOAT_VEC * restrict input) {
 	const int TILE_X = NOX / POX;
 	const int TILE_Y = NOY / POY;
 
@@ -25,8 +25,39 @@ __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __kernel void input_loader() {
 	while(1) {
 		//DPRINTF("Inserting linebuffer\n");
-		define_unrolled_flat_linebuffer_2d(FLOAT_VEC, input_serializer_to_laoder, input_loader_to_feeder, POX, POY, KX, KY)
+		//define_unrolled_flat_linebuffer_2d(FLOAT_VEC, input_serializer_to_laoder, input_loader_to_feeder, POX, POY, KX, KY)
 		//DPRINTF("Linebuffer finished\n");
+    		const int INPUT_EXTENT_0 = KX + POX - 1; 
+   		const int INPUT_EXTENT_1 = KY + POY - 1;
+   		const int STRIDE_1 = INPUT_EXTENT_0;
+   		const int LINEBUFFER_EXTENT = (POX - 1) + (POY - 1) * STRIDE_1 + 1;
+    		FLOAT_VEC linebuffer[LINEBUFFER_EXTENT];
+    		int start_address = 0;
+    		int read_length = LINEBUFFER_EXTENT; 
+    		int read_step = KX - 1; 
+    		for (int s_1 = 0; s_1 < KY; s_1++) { 
+        		for (int s_0 = 0; s_0 < KX; s_0++) { 
+            			for (int a = 0; a < read_length; a++) { 
+                			linebuffer[start_address] = read_channel_intel(input_serializer_to_laoder); 
+                			start_address++; 
+					if (start_address == LINEBUFFER_EXTENT) 
+                    				start_address = 0;
+            			}
+    
+            			int offset = start_address; 
+            			for (int dim_1 = 0; dim_1 < POY; dim_1++) { 
+               				for (int dim_0 = 0; dim_0 < POX; dim_0++) { 
+                    				if (offset >= LINEBUFFER_EXTENT)
+                        				offset -= LINEBUFFER_EXTENT; 
+                    				write_channel_intel(input_loader_to_feeder[0], linebuffer[offset]); 
+                    				offset++; 
+                			} 
+                			offset += read_step; 
+           			}  
+            			read_length = 1; 
+        		}
+        		read_length = POX;     
+    		}
 	}
 }
 
@@ -72,7 +103,7 @@ __kernel void input_feeder() {
 
 channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(2)));
 
-__kernel void weight_loader(__global FLOAT_VEC *weight) {
+__kernel void weight_loader(__global FLOAT_VEC * restrict weight) {
 	const int TILE0 = NOY / POY;
 	const int TILE1 = NOX / POX;
 	
@@ -229,7 +260,7 @@ __kernel void result_collector() {
 }
 
 
-__kernel void result_consumer(__global float *output) {
+__kernel void result_consumer(__global float * restrict output) {
 	int TOTAL = BATCH * NOY * NOX * NOF;
 	for (int i = 0; i < TOTAL; i++) {
 		*(output + i) = read_channel_intel(collector_to_consumer[0]);			   

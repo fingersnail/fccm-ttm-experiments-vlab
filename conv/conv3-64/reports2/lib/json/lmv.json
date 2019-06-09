@@ -28,7 +28,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Stores to":"linebuffer"
-              , "Start Cycle":"10"
+              , "Start Cycle":"7"
               , "Latency":"1"
               , "Reference":
               [
@@ -68,7 +68,7 @@
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
               , "Loads from":"linebuffer"
-              , "Start Cycle":"7"
+              , "Start Cycle":"4"
               , "Latency":"3"
               , "Reference":
               [
@@ -141,7 +141,7 @@
                       , "Total number of ports per bank":"2"
                       , "Number of read ports per bank":"1"
                       , "Number of write ports per bank":"1"
-                      , "Total replication":"11"
+                      , "Total replication":"6"
                     }
                   ]
                 }
@@ -151,12 +151,12 @@
                 {
                   "type":"table"
                   , "Requested size":"352 bytes"
-                  , "Implemented size":"5632 bytes"
+                  , "Implemented size":"3072 bytes"
                   , "Number of banks":"1"
                   , "Bank width":"128 bits"
                   , "Bank depth":"32 words"
-                  , "Total replication":"11"
-                  , "Additional Information":"Replicated 11 times to create private copies for simultaneous execution of  the loop containing accesses to the array"
+                  , "Total replication":"6"
+                  , "Additional Information":"Replicated 6 times to create private copies for simultaneous execution of ds in the loop containing accesses to the array"
                   , "Reference":
                   [
                     {
