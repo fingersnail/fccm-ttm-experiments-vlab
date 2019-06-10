@@ -8,9 +8,9 @@
 #define __address_space___shared __local
 
 
-channel FLOAT_VEC linebuffer_channel[POY] __attribute__((depth(KX+100)));
+channel FLOAT_VEC linebuffer_channel[POY] __attribute__((depth(KX)));
 
-__kernel void input_serializer(__global FLOAT_VEC * restrict input) {
+__kernel void input_serializer(__global const FLOAT_VEC * restrict input) {
 	const int TILE_X = NOX / POX;
 	const int TILE_Y = NOY / POY;
 	const int write_channel = POY - 1;
@@ -25,7 +25,7 @@ __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POY)))
 __kernel void input_loader() {
 	int yy = get_compute_id(0);
-	const int INPUT_EXTENT_0 = KX + POX - 1; 
+	const int INPUT_EXTENT_0 = KX + POX - 1;
    	const int LINEBUFFER_EXTENT = POX + (POY - 1) * INPUT_EXTENT_0;
 
 	while(1) {
@@ -44,6 +44,7 @@ __kernel void input_loader() {
 					}
 					linebuffer[POX - 1] = read_channel_intel(linebuffer_channel[yy]);
         		}
+        		#pragma unroll
         		for (int dim_0 = 0; dim_0 < POX; dim_0++) {
         			write_channel_intel(input_loader_to_feeder[yy][0], linebuffer[dim_0]); 
         		}
@@ -67,25 +68,23 @@ __kernel void input_feeder() {
 	int yy = get_compute_id(0);
 	int xx = get_compute_id(1);
 
-	FLOAT_VEC _input_feeder_ibuffer[KY][KX];
+	FLOAT_VEC _input_feeder_ibuffer[KY*KX];
 	int input_scatter_channel = xx + 1;
 	int window_size = POX - xx;
 
 	while (1) {
 		for (int no = 0; no < TILE2; no++) {
-			for (int ky = 0; ky < KY; ky++) {
-				for (int kx = 0; kx < KX; kx++) {
+			for (int ky_kx = 0; ky_kx < KY * KX; ky_kx++) {
+				for (int n_time = 0; n_time < window_size; n_time++) {
 					if (!no) {
-						for (int n_time = 0; n_time < window_size; n_time++) {
-							FLOAT_VEC input = read_channel_intel(input_loader_to_feeder[yy][xx]);
-							if (n_time)
-								write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
-							else
-								_input_feeder_ibuffer[ky][kx] = input;
-						}
+						FLOAT_VEC input = read_channel_intel(input_loader_to_feeder[yy][xx]);
+						if (n_time)
+							write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
+						else
+							_input_feeder_ibuffer[ky_kx] = input;
 					}
-					write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky][kx]);
 				}
+				write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky_kx]);
 			}
 		}
 	}
@@ -94,7 +93,7 @@ __kernel void input_feeder() {
 
 channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(2)));
 
-__kernel void weight_loader(__global FLOAT_VEC * restrict weight) {
+__kernel void weight_loader(__global const FLOAT_VEC * restrict weight) {
 	const int TILE0 = NOY / POY;
 	const int TILE1 = NOX / POX;
 	
