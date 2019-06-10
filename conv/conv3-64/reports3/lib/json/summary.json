@@ -47,7 +47,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":129
+              , "line":149
             }
           ]
         ]
@@ -93,7 +93,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":39
+              , "line":62
             }
           ]
         ]
@@ -105,7 +105,7 @@
           "Single work-item"
           , "Yes"
           , [1, 1, 1]
-          , 1
+          , 4
         ]
         , "details":
         [
@@ -116,6 +116,10 @@
           , {
             "type":"text"
             , "text":"Autorun Kernel: This kernel will start running before any other kernel is explicitly launched by the host.  The kernel will be automatically restarted as soon as it finishes."
+          }
+          , {
+            "type":"text"
+            , "text":"The kernel was replicated 4 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
           }
           , {
             "type":"text"
@@ -169,7 +173,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":14
+              , "line":13
             }
           ]
         ]
@@ -215,7 +219,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":212
+              , "line":232
             }
           ]
         ]
@@ -249,7 +253,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":235
+              , "line":254
             }
           ]
         ]
@@ -295,7 +299,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":185
+              , "line":205
             }
           ]
         ]
@@ -341,7 +345,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":102
+              , "line":122
             }
           ]
         ]
@@ -375,7 +379,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":77
+              , "line":97
             }
           ]
         ]
@@ -398,7 +402,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":129
+              , "line":149
             }
           ]
         ]
@@ -406,21 +410,21 @@
       , {
         "name":"input_feeder (x16)"
         , "data":
-        [31073, 23496, 64, 0]
+        [33560, 32232, 64, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":39
+              , "line":62
             }
           ]
         ]
       }
       , {
-        "name":"input_loader"
+        "name":"input_loader (x4)"
         , "data":
-        [3181, 2797, 4, 0]
+        [8125, 9034, 0, 0]
         , "debug":
         [
           [
@@ -434,13 +438,13 @@
       , {
         "name":"input_serializer"
         , "data":
-        [2317, 2308, 13, 0]
+        [2323, 2261, 13, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":14
+              , "line":13
             }
           ]
         ]
@@ -448,13 +452,13 @@
       , {
         "name":"result_collector (x8)"
         , "data":
-        [1303, 1037, 0, 0]
+        [1681, 2220, 0, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":212
+              , "line":232
             }
           ]
         ]
@@ -462,13 +466,13 @@
       , {
         "name":"result_consumer"
         , "data":
-        [2317, 3887, 16, 0]
+        [2358, 3969, 16, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":235
+              , "line":254
             }
           ]
         ]
@@ -476,13 +480,13 @@
       , {
         "name":"result_drainer (x128)"
         , "data":
-        [23008, 17696, 0, 0]
+        [29368, 37856, 0, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":185
+              , "line":205
             }
           ]
         ]
@@ -490,13 +494,13 @@
       , {
         "name":"weight_feeder (x8)"
         , "data":
-        [1135, 1051, 0, 0]
+        [1513, 2234, 0, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":102
+              , "line":122
             }
           ]
         ]
@@ -504,13 +508,13 @@
       , {
         "name":"weight_loader"
         , "data":
-        [2267, 2709, 13, 0]
+        [3336, 4044, 20, 0]
         , "debug":
         [
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":77
+              , "line":97
             }
           ]
         ]
@@ -520,14 +524,14 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [193081, 112485, 110, 640]
+        [208744, 151354, 113, 640]
       }
       , {
         "name":"Channel Resources"
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [10355, 138682, 0, 0]
+        [11628, 140512, 12, 0]
       }
       , {
         "name":"Global Interconnect"
@@ -548,9 +552,9 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [326115, 491579, 567, 640]
+        [343051, 532278, 582, 640]
         , "data_percent":
-        [44.0398, 33.1924, 24.2723, 42.1607]
+        [46.3269, 35.9404, 24.9144, 42.1607]
       }
       , {
         "name":"Available"
@@ -572,7 +576,7 @@
         [
           {
             "type":"text"
-            , "text":"Load with a private 4096 kilobit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+            , "text":"Load with a private 8 megabit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
           }
         ]
         , "debug":
@@ -580,7 +584,7 @@
           [
             {
               "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
-              , "line":92
+              , "line":110
             }
           ]
         ]
