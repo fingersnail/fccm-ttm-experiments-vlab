@@ -10,7 +10,7 @@
 
 channel FLOAT_VEC linebuffer_channel[POY] __attribute__((depth(KX)));
 
-__kernel void input_serializer(__global const FLOAT_VEC * restrict input) {
+__kernel void input_serializer_on_chip(__global const FLOAT_VEC * restrict input) {
 	const int TILE_X = NOX / POX;
 	const int TILE_Y = NOY / POY;
 	const int write_channel = POY - 1;
@@ -27,31 +27,33 @@ __kernel void input_loader() {
 	int yy = get_compute_id(0);
 	const int INPUT_EXTENT_0 = KX + POX - 1;
    	const int LINEBUFFER_EXTENT = POX + (POY - 1) * INPUT_EXTENT_0;
+   	int initial_size =  LINEBUFFER_EXTENT - (KX - 1) * (POY - yy - 1);
 
 	while(1) {
 		FLOAT_VEC linebuffer[POX];
-
-		int step = LINEBUFFER_EXTENT;
-
-		for (int s_1 = 0; s_1 < KY; s_1++) { 
-        	for (int s_0 = 0; s_0 < KX; s_0++) {
-        		for (int i = 0; i < step; i++) {
-        			if (yy)
-        				write_channel_intel(linebuffer_channel[yy-1], linebuffer[0]);
-        			#pragma unroll
-					for (int j = 0; j < POX - 1; j++) {
-      					linebuffer[j] = linebuffer[j + 1];
-					}
-					linebuffer[POX - 1] = read_channel_intel(linebuffer_channel[yy]);
+		for (int s_0 = 0; s_0 < KY; s_0++) { 
+        	for (int s_1 = 0; s_1 < KX; s_1++) {
+        		for (int i = 0; i < LINEBUFFER_EXTENT + POX; i++) {
+        			if ((s_0|s_1) == 0 && i < initial_size || s_0 && s_1 == 0 && i < POX || i == 0) {
+        				if (yy)
+        					write_channel_intel(linebuffer_channel[yy-1], linebuffer[0]);
+        				#pragma unroll
+						for (int j = 0; j < POX - 1; j++) {
+      						linebuffer[j] = linebuffer[j + 1];
+						}
+						linebuffer[POX - 1] = read_channel_intel(linebuffer_channel[yy]);
+        			}
+        			// First read, then write
+        			if (i >= LINEBUFFER_EXTENT) {
+        				int pos = i - LINEBUFFER_EXTENT;
+        				write_channel_intel(input_loader_to_feeder[yy][0], linebuffer[pos]); 
+        			}
         		}
-        		#pragma unroll
-        		for (int dim_0 = 0; dim_0 < POX; dim_0++) {
-        			write_channel_intel(input_loader_to_feeder[yy][0], linebuffer[dim_0]); 
-        		}
-        		step = 1;
+        		// step = 1;     # Stride = 1, so read one number per window
         	}
-        	step = POX;
+        	// step = POX;      # Swtich the line
         }
+        initial_size = LINEBUFFER_EXTENT;
 	}
 }
 
@@ -83,8 +85,9 @@ __kernel void input_feeder() {
 						else
 							_input_feeder_ibuffer[ky_kx] = input;
 					}
+					if (n_time == window_size - 1)
+						write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky_kx]);
 				}
-				write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky_kx]);
 			}
 		}
 	}
@@ -201,7 +204,7 @@ channel float conv_to_result_collector[POF][POX*POY] __attribute__((depth(2)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POY, POX, POF)))
-__kernel void result_drainer() {
+__kernel void result_consumer() {
 	int yy = get_compute_id(0);
 	int xx = get_compute_id(1);
 	int nn = get_compute_id(2);
@@ -250,7 +253,7 @@ __kernel void result_collector() {
 }
 
 
-__kernel void result_consumer(__global float * restrict output) {
+__kernel void result_unloader(__global float * restrict output) {
 	int TOTAL = BATCH * NOY * NOX * NOF;
 	for (int i = 0; i < TOTAL; i++) {
 		*(output + i) = read_channel_intel(collector_to_consumer[0]);			   

@@ -40,9 +40,9 @@ const int num_Cargs = 0;
 const int C_args[num_Cargs] = {};
 
 const char* kernel_name[] = {
-"input_serializer",
+"input_serializer_on_chip",
 "weight_loader",
-"result_consumer",
+"result_unloader",
 };
 
 double compute_kernel_execution_time(cl_event &event, double &start_d, double &end_d)
