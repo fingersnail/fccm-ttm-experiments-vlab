@@ -1,0 +1,594 @@
+{
+  "performanceSummary":
+  {
+    "name":"Kernel Summary"
+    , "columns":
+    ["Kernel Name", "Kernel Type", "Autorun", "Workgroup Size", "# Compute Units"]
+    , "children":
+    [
+      {
+        "name":"convolution"
+        , "data":
+        [
+          "Single work-item"
+          , "Yes"
+          , [1, 1, 1]
+          , 128
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Autorun Kernel: This kernel will start running before any other kernel is explicitly launched by the host.  The kernel will be automatically restarted as soon as it finishes."
+          }
+          , {
+            "type":"text"
+            , "text":"The kernel was replicated 128 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+          }
+          , {
+            "type":"text"
+            , "text":"Max global work dimension: 0"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":149
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"input_feeder"
+        , "data":
+        [
+          "Single work-item"
+          , "Yes"
+          , [1, 1, 1]
+          , 16
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Autorun Kernel: This kernel will start running before any other kernel is explicitly launched by the host.  The kernel will be automatically restarted as soon as it finishes."
+          }
+          , {
+            "type":"text"
+            , "text":"The kernel was replicated 16 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+          }
+          , {
+            "type":"text"
+            , "text":"Max global work dimension: 0"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":62
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"input_loader"
+        , "data":
+        [
+          "Single work-item"
+          , "Yes"
+          , [1, 1, 1]
+          , 4
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Autorun Kernel: This kernel will start running before any other kernel is explicitly launched by the host.  The kernel will be automatically restarted as soon as it finishes."
+          }
+          , {
+            "type":"text"
+            , "text":"The kernel was replicated 4 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+          }
+          , {
+            "type":"text"
+            , "text":"Max global work dimension: 0"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":26
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"input_serializer"
+        , "data":
+        [
+          "Single work-item"
+          , "No"
+          , [1, 1, 1]
+          , 1
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":13
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"result_collector"
+        , "data":
+        [
+          "Single work-item"
+          , "Yes"
+          , [1, 1, 1]
+          , 8
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Autorun Kernel: This kernel will start running before any other kernel is explicitly launched by the host.  The kernel will be automatically restarted as soon as it finishes."
+          }
+          , {
+            "type":"text"
+            , "text":"The kernel was replicated 8 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+          }
+          , {
+            "type":"text"
+            , "text":"Max global work dimension: 0"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":232
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"result_consumer"
+        , "data":
+        [
+          "Single work-item"
+          , "No"
+          , [1, 1, 1]
+          , 1
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":254
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"result_drainer"
+        , "data":
+        [
+          "Single work-item"
+          , "Yes"
+          , [1, 1, 1]
+          , 128
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Autorun Kernel: This kernel will start running before any other kernel is explicitly launched by the host.  The kernel will be automatically restarted as soon as it finishes."
+          }
+          , {
+            "type":"text"
+            , "text":"The kernel was replicated 128 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+          }
+          , {
+            "type":"text"
+            , "text":"Max global work dimension: 0"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":205
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"weight_feeder"
+        , "data":
+        [
+          "Single work-item"
+          , "Yes"
+          , [1, 1, 1]
+          , 8
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Autorun Kernel: This kernel will start running before any other kernel is explicitly launched by the host.  The kernel will be automatically restarted as soon as it finishes."
+          }
+          , {
+            "type":"text"
+            , "text":"The kernel was replicated 8 times due to num_compute_units attribute. Since the kernel is compiled for single work-item execution, all copies will perform identical computations. This may not be what you intended."
+          }
+          , {
+            "type":"text"
+            , "text":"Max global work dimension: 0"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":122
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"weight_loader"
+        , "data":
+        [
+          "Single work-item"
+          , "No"
+          , [1, 1, 1]
+          , 1
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":97
+            }
+          ]
+        ]
+      }
+    ]
+  }
+  , "estimatedResources":
+  {
+    "name":"Estimated Resource Usage"
+    , "columns":
+    ["Kernel Name", "ALUTs ", "FFs  ", "RAMs ", "DSPs "]
+    , "children":
+    [
+      {
+        "name":"convolution (x128)"
+        , "data":
+        [126480, 57504, 0, 640]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":149
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"input_feeder (x16)"
+        , "data":
+        [33560, 32232, 64, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":62
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"input_loader (x4)"
+        , "data":
+        [8125, 9034, 0, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":26
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"input_serializer"
+        , "data":
+        [2323, 2261, 13, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":13
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"result_collector (x8)"
+        , "data":
+        [1681, 2220, 0, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":232
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"result_consumer"
+        , "data":
+        [2358, 3969, 16, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":254
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"result_drainer (x128)"
+        , "data":
+        [29368, 37856, 0, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":205
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"weight_feeder (x8)"
+        , "data":
+        [1513, 2234, 0, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":122
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"weight_loader"
+        , "data":
+        [3336, 4044, 20, 0]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":97
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Kernel Subtotal"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [208744, 151354, 113, 640]
+      }
+      , {
+        "name":"Channel Resources"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [11628, 140512, 12, 0]
+      }
+      , {
+        "name":"Global Interconnect"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [8779, 12545, 78, 0]
+      }
+      , {
+        "name":"Board Interface"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [113900, 227800, 377, 0]
+      }
+      , {
+        "name":"Total"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [343051, 532278, 582, 640]
+        , "data_percent":
+        [46.3269, 35.9404, 24.9144, 42.1607]
+      }
+      , {
+        "name":"Available"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [740500, 1481000, 2336, 1518]
+      }
+    ]
+  }
+  , "compileWarnings":
+  {
+    "name":"Compile Warnings"
+    , "children":
+    [
+      {
+        "name":"Load uses a Semi-streaming LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Load with a private 8 megabit cache. Cache is not shared with any other load. It is flushed on kernel start. Use Dynamic Profiler to verify cache effectiveness. Other kernels should not be updating the data in global memory while this kernel is using it. Cache is created when memory access pattern is data-dependent or appears to be repetitive. Simplify access pattern or mark pointer as 'volatile' to disable generation of this cache."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/homes/weihao/fccm-ttm-experiments-vlab/conv/conv3-64.cl"
+              , "line":110
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}
