@@ -1,0 +1,10 @@
+{"rows":[
+{"name":"Cannot unroll loop for.body28 in input_loader_0_0_0 because channel endpoints woul..."
+,"details":["Compiler Warning: Cannot unroll loop for.body28 in input_loader_0_0_0 because channel endpoints would undergo different amounts of unrolling"]}
+,{"name":"Cannot unroll loop for.body28 in input_loader_1_0_0 because channel endpoints woul..."
+,"details":["Compiler Warning: Cannot unroll loop for.body28 in input_loader_1_0_0 because channel endpoints would undergo different amounts of unrolling"]}
+,{"name":"Cannot unroll loop for.body28 in input_loader_2_0_0 because channel endpoints woul..."
+,"details":["Compiler Warning: Cannot unroll loop for.body28 in input_loader_2_0_0 because channel endpoints would undergo different amounts of unrolling"]}
+,{"name":"Cannot unroll loop for.body28 in input_loader_3_0_0 because channel endpoints woul..."
+,"details":["Compiler Warning: Cannot unroll loop for.body28 in input_loader_3_0_0 because channel endpoints would undergo different amounts of unrolling"]}
+]}
