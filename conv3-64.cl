@@ -58,7 +58,7 @@ __kernel void input_loader() {
 	while(1) {
 		FLOAT_VEC linebuffer[4];
 		for (int s_0 = 0; s_0 < 3; s_0++) { 
-        	for (int s_1_i = 0; s_1_i < 3 * 32; s_1_i++) {
+        	for (int s_1_i = 0; s_1_i < 3 * 32;) {
         		int i = s_1_i & 31;
         		int s_1 = s_1_i >> 5;
 
@@ -76,10 +76,7 @@ __kernel void input_loader() {
        				int pos = i - 22;
        				write_channel_intel(input_loader_to_feeder[yy][0], linebuffer[pos]); 
 	   			}
-        		
-        		if (i == 25) {
-        			s_1_i += 6;
-        		}
+        		s_1_i += (i == 25) ? 7 : 1;
         	}
         }
         initial_size = 22;
@@ -101,7 +98,7 @@ __kernel void input_feeder() {
 	int window_size = 4 - xx; // 4 3 2 1
 
 	while (1) {
-		for (int no_ky_kx_t = 0; no_ky_kx_t < TILE * 4 * 4 * 4; no_ky_kx_t++) {
+		for (int no_ky_kx_t = 0; no_ky_kx_t < TILE * 4 * 4 * 4;) {
 			int ky_kx_t = no_ky_kx_t & 63;
 			int t = ky_kx_t & 3;
 			int ky_kx = ky_kx_t >> 2;
@@ -116,12 +113,9 @@ __kernel void input_feeder() {
 					
 			if (t == window_size - 1) {
 				write_channel_intel(input_forwarding[yy][xx][0], _input_feeder_ibuffer[ky_kx]);
-				no_ky_kx_t += xx ;
 			}
 
-			if (ky_kx_t == 35 - xx) {
-				no_ky_kx_t += 28;
-			}
+			no_ky_kx_t += (t == window_size-1) ? ((ky_kx_t == 35 - xx) ? 29 + xx :  xx + 1) : ((ky_kx_t == 35-xx) ? 29 : 1);
 		}
 	}
 }
