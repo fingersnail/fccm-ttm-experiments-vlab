@@ -2265,21 +2265,6 @@
                         }
                         , {
                           "type":"text"
-                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L, %L)"
-                          , "links":
-                          [
-                            {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"104"
-                            }
-                            , {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"119"
-                            }
-                          ]
-                        }
-                        , {
-                          "type":"text"
                           , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
                           , "links":
                           [
@@ -2297,6 +2282,21 @@
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
                               , "line":"123"
+                            }
+                          ]
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L, %L)"
+                          , "links":
+                          [
+                            {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"104"
+                            }
+                            , {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"119"
                             }
                           ]
                         }
@@ -3039,21 +3039,6 @@
                         }
                         , {
                           "type":"text"
-                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L, %L)"
-                          , "links":
-                          [
-                            {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"104"
-                            }
-                            , {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"119"
-                            }
-                          ]
-                        }
-                        , {
-                          "type":"text"
                           , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
                           , "links":
                           [
@@ -3071,6 +3056,21 @@
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
                               , "line":"123"
+                            }
+                          ]
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L, %L)"
+                          , "links":
+                          [
+                            {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"104"
+                            }
+                            , {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"119"
                             }
                           ]
                         }
@@ -3286,21 +3286,6 @@
                         }
                         , {
                           "type":"text"
-                          , "text":"1.1 clock cycle Select Operation (%L, %L)"
-                          , "links":
-                          [
-                            {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"104"
-                            }
-                            , {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"119"
-                            }
-                          ]
-                        }
-                        , {
-                          "type":"text"
                           , "text":"1.1 clock cycle Select Operation (%L)"
                           , "links":
                           [
@@ -3312,10 +3297,14 @@
                         }
                         , {
                           "type":"text"
-                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
+                          , "text":"1.1 clock cycle Select Operation (%L, %L)"
                           , "links":
                           [
                             {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"104"
+                            }
+                            , {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
                               , "line":"119"
                             }
@@ -3340,6 +3329,17 @@
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
                               , "line":"123"
+                            }
+                          ]
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
+                          , "links":
+                          [
+                            {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"119"
                             }
                           ]
                         }
@@ -3544,17 +3544,6 @@
                         }
                         , {
                           "type":"text"
-                          , "text":"1.1 clock cycle Select Operation (%L)"
-                          , "links":
-                          [
-                            {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"122"
-                            }
-                          ]
-                        }
-                        , {
-                          "type":"text"
                           , "text":"1.1 clock cycle Select Operation (%L, %L)"
                           , "links":
                           [
@@ -3570,12 +3559,12 @@
                         }
                         , {
                           "type":"text"
-                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
+                          , "text":"1.1 clock cycle Select Operation (%L)"
                           , "links":
                           [
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"119"
+                              , "line":"122"
                             }
                           ]
                         }
@@ -3598,6 +3587,17 @@
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
                               , "line":"123"
+                            }
+                          ]
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
+                          , "links":
+                          [
+                            {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"119"
                             }
                           ]
                         }
@@ -3802,17 +3802,6 @@
                         }
                         , {
                           "type":"text"
-                          , "text":"1.1 clock cycle Select Operation (%L)"
-                          , "links":
-                          [
-                            {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"122"
-                            }
-                          ]
-                        }
-                        , {
-                          "type":"text"
                           , "text":"1.1 clock cycle Select Operation (%L, %L)"
                           , "links":
                           [
@@ -3828,12 +3817,23 @@
                         }
                         , {
                           "type":"text"
+                          , "text":"1.1 clock cycle Select Operation (%L)"
+                          , "links":
+                          [
+                            {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"122"
+                            }
+                          ]
+                        }
+                        , {
+                          "type":"text"
                           , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
                           , "links":
                           [
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"119"
+                              , "line":"123"
                             }
                           ]
                         }
@@ -3855,7 +3855,7 @@
                           [
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"123"
+                              , "line":"119"
                             }
                           ]
                         }
@@ -4091,6 +4091,17 @@
                           [
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+                              , "line":"119"
+                            }
+                          ]
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
+                          , "links":
+                          [
+                            {
+                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
                               , "line":"104"
                             }
                           ]
@@ -4103,17 +4114,6 @@
                             {
                               "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
                               , "line":"123"
-                            }
-                          ]
-                        }
-                        , {
-                          "type":"text"
-                          , "text":"0.46 clock cycles 32-bit Integer Add Operation (%L)"
-                          , "links":
-                          [
-                            {
-                              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                              , "line":"119"
                             }
                           ]
                         }
