@@ -289,23 +289,35 @@ __kernel void convolution() {
 
     // float4
     int j = 7;
+    FLOAT_VEC _1;
+    FLOAT_VEC _2;
     float _3 = 0;
+    bool read_success_1 = (bool)(0);
+ 	bool read_success_2 = (bool)(0);
 	while (1) {
-		FLOAT_VEC _1 = read_channel_intel(input_forwarding[yy][xx][nn]);
-		if (do_input_forward) {
-			write_channel_intel(input_forwarding[yy][xx][input_forward_channel], _1);
-		}
+		if (!read_success_1)
+			_1 = read_channel_nb_intel(input_forwarding[yy][xx][nn], &read_success_1);
 
-		FLOAT_VEC _2 = read_channel_intel(weight_forwarding[nn][weight_channel]);
-		if (do_weight_forward) {
-			write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
-		}
+		if (!read_success_2)
+			_2 = read_channel_nb_intel(weight_forwarding[nn][weight_channel], &read_success_2);
+
 		// DPRINTF("Read: %f %f\n", _1, _2);
 
-		#pragma unroll
-		for (int k = 0; k < NIF; k++)
-			_3 += _1[k]*_2[k];
-		j++;
+		if (read_success_1 && read_success_2) {
+			if (do_input_forward)
+				write_channel_intel(input_forwarding[yy][xx][input_forward_channel], _1);
+			if (do_weight_forward)
+				write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
+
+			#pragma unroll
+			for (int k = 0; k < NIF; k++) {
+				_3 += _1[k]*_2[k];
+ 			}
+			j++;
+
+			read_success_1 = (bool)(0);
+ 			read_success_2 = (bool)(0);
+		}
 
 		if (j == 16) {
 			write_channel_intel(conv_to_drainer_channel[yy][xx][nn], _3);
