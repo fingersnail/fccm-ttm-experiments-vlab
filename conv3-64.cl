@@ -7,7 +7,7 @@
 
 #define __address_space___shared __local
 
-channel FLOAT_VEC linebuffer_channel_first __attribute__((depth(30)));
+channel FLOAT_VEC linebuffer_channel_first __attribute__((depth(300)));
 channel FLOAT_VEC linebuffer_channel[3] __attribute__((depth(3)));
 
 __kernel void input_serializer_on_chip(__global const FLOAT_VEC * restrict input) {
@@ -17,7 +17,7 @@ __kernel void input_serializer_on_chip(__global const FLOAT_VEC * restrict input
 	}
 }
 
-channel FLOAT_VEC input_loader_to_feeder[4][4] __attribute__((depth(10)));
+channel FLOAT_VEC input_loader_to_feeder[4][4] __attribute__((depth(100)));
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __kernel void input_loader_first() {
 	while(1) {
@@ -85,7 +85,7 @@ __kernel void input_loader() {
 
 
 typedef struct _kernel_vec {FLOAT_VEC data[3 * 3]; } kernel_vec;
-channel FLOAT_VEC input_forwarding[4][4][POF] __attribute__((depth(20)));
+channel FLOAT_VEC input_forwarding[4][4][POF] __attribute__((depth(200)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(4, 4)))
@@ -162,7 +162,7 @@ __kernel void input_feeder() {
 			
 			if (no_ky_kx_t < 64) { // if(!(no_ky_kx_t)>>6)
 				FLOAT_VEC input = read_channel_intel(input_loader_to_feeder[yy][xx]);
-				if (t)
+				if (t && input_scatter_channel < 4)
 					write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
 				else
 					input_feeder_ibuffer[ky_kx] = input;
@@ -178,7 +178,7 @@ __kernel void input_feeder() {
 }
 
 
-channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(20)));
+channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(200)));
 
 __kernel void weight_loader(__global const FLOAT_VEC * restrict weight) {
 	const int TOTAL1 = BATCH * 32 * 32;
@@ -198,7 +198,7 @@ __kernel void weight_loader(__global const FLOAT_VEC * restrict weight) {
 }
 
 
-channel FLOAT_VEC weight_forwarding[POF][4*4] __attribute__((depth(10)));
+channel FLOAT_VEC weight_forwarding[POF][4*4] __attribute__((depth(100)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POF)))
@@ -206,7 +206,7 @@ __kernel void weight_feeder() {
 	int nn = get_compute_id(0);
 
 	FLOAT_VEC weight = 0;
-	int weight_size = POF - nn;
+	int weight_size = POF; //- nn;
 	int weight_scattering_channel = nn+1;
 
 	const int TOTAL2 = 3 * 3;
@@ -217,13 +217,13 @@ __kernel void weight_feeder() {
 	int first = 1;
 	bool write_success = (bool)(0);
  	bool read_success = (bool)(0);
-	int scatter_loop = 0;
+	int scatter_loop = nn;
 	int feeder_loop = 0;
 
 	while(1) {
-		if (scatter_loop < weight_size) {
+		if (scatter_loop < POF) {
 			weight = read_channel_nb_intel(weight_scattering[nn], &read_success);
-			if ((scatter_loop < 1) && read_success) {
+			if ((scatter_loop < nn + 1) && read_success) {
 				buffer[w] = weight;
        			scatter_loop++;
 			} else if (read_success) {
@@ -240,19 +240,30 @@ __kernel void weight_feeder() {
        			feeder_loop++;
     	}
 
-    	if ((scatter_loop == weight_size) && (feeder_loop == 1)) {
+    	if ((scatter_loop == POF) && (feeder_loop == 1)) {
     		first = (bool)(0);
     		w = !((bool)(w));
     		r = !((bool)(r));
-    		scatter_loop = 0;
+    		scatter_loop = nn;
     		feeder_loop = 0;
     	}
+
+    	/*
+    	for (int n_time = 0; n_time < weight_size; n_time++) {
+			weight = read_channel_intel(weight_scattering[nn]);
+			if (n_time) {
+				write_channel_intel(weight_scattering[weight_scattering_channel], weight);
+			} else {
+				write_channel_intel(weight_forwarding[nn][0], weight);
+			}
+		}
+		*/
 	}   
 }
 
 
 
-channel float conv_to_drainer_channel[4][4][POF] __attribute__((depth(10)));
+channel float conv_to_drainer_channel[4][4][POF] __attribute__((depth(100)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(4, 4, POF)))
@@ -277,33 +288,39 @@ __kernel void convolution() {
 	//DPRINTF("Begin calculation: %d %d %d\n", xx, yy, nn);
 
     // float4
+    int j = 7;
+    float _3 = 0;
 	while (1) {
-		float _3 = 0;
-		for (int j = 0; j < 3 * 3; j++) {
-			FLOAT_VEC _1 = read_channel_intel(input_forwarding[yy][xx][nn]);
-			if (do_input_forward) {
-				write_channel_intel(input_forwarding[yy][xx][input_forward_channel], _1);
-			}
-
-			FLOAT_VEC _2 = read_channel_intel(weight_forwarding[nn][weight_channel]);
-			if (do_weight_forward) {
-				write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
-			}
-			// DPRINTF("Read: %f %f\n", _1, _2);
-			#pragma unroll
-			for (int k = 0; k < NIF; k++)
-				_3 += _1[k]*_2[k];
+		FLOAT_VEC _1 = read_channel_intel(input_forwarding[yy][xx][nn]);
+		if (do_input_forward) {
+			write_channel_intel(input_forwarding[yy][xx][input_forward_channel], _1);
 		}
-		write_channel_intel(conv_to_drainer_channel[yy][xx][nn], _3);
-		// DPRINTF("The result is: %d %d %d %f\n", xx, yy, nn, _3);
+
+		FLOAT_VEC _2 = read_channel_intel(weight_forwarding[nn][weight_channel]);
+		if (do_weight_forward) {
+			write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
+		}
+		// DPRINTF("Read: %f %f\n", _1, _2);
+
+		#pragma unroll
+		for (int k = 0; k < NIF; k++)
+			_3 += _1[k]*_2[k];
+		j++;
+
+		if (j == 16) {
+			write_channel_intel(conv_to_drainer_channel[yy][xx][nn], _3);
+			_3 = 0;
+			j = 0;
+			// DPRINTF("The result is: %d %d %d %f\n", xx, yy, nn, _3);
+		}
 	}
 
 	//DPRINTF("Calculation finished: %d %d %d\n", xx, yy, nn);
 }
 
 
-channel float conv_to_result_consumer[4][4][POF] __attribute__((depth(10)));
-channel float conv_to_result_collector[POF][4*4] __attribute__((depth(10)));
+channel float conv_to_result_consumer[4][4][POF] __attribute__((depth(100)));
+channel float conv_to_result_collector[POF][4*4] __attribute__((depth(100)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(4, 4, POF)))
@@ -332,8 +349,8 @@ __kernel void result_consumer() {
 
 typedef struct _out_vec { float data[POF]; } outvec;
 
-channel outvec C_collector_0_inter_channel __attribute__((depth(16))) ;
-channel outvec C_collector_0_channel[POF - 1] __attribute__((depth(10))) ;
+channel outvec C_collector_0_inter_channel __attribute__((depth(160))) ;
+channel outvec C_collector_0_channel[POF - 1] __attribute__((depth(100))) ;
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POF)))
@@ -364,6 +381,17 @@ __kernel void result_collector() {
      		write_channel_intel(C_collector_0_inter_channel, out);
    		else
      		write_channel_intel(C_collector_0_channel[nn-1], out);
+
+     	/*
+     	for (int n_time = 0; n_time < result_size; n_time++) {
+			if (n_time) {
+				result = read_channel_intel(collector_to_consumer[result_gathering_channel]);
+			} else {
+				result = read_channel_intel(conv_to_result_collector[nn][collector_channel]);
+			}
+			write_channel_intel(collector_to_consumer[nn], result);
+		}
+		*/
 	}
 }
 
