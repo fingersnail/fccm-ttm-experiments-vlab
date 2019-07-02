@@ -46,8 +46,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":175
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":270
             }
           ]
         ]
@@ -92,8 +92,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":91
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":92
             }
           ]
         ]
@@ -138,7 +138,7 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
               , "line":54
             }
           ]
@@ -180,7 +180,7 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
               , "line":22
             }
           ]
@@ -214,7 +214,7 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
               , "line":13
             }
           ]
@@ -260,8 +260,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":253
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":378
             }
           ]
         ]
@@ -306,8 +306,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":226
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":348
             }
           ]
         ]
@@ -340,8 +340,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":275
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":420
             }
           ]
         ]
@@ -386,8 +386,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":148
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":205
             }
           ]
         ]
@@ -420,8 +420,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":126
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":183
             }
           ]
         ]
@@ -438,13 +438,13 @@
       {
         "name":"convolution (x128)"
         , "data":
-        [126480, 57504, 0, 640]
+        [305702, 473331, 0, 640]
         , "debug":
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":175
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":270
             }
           ]
         ]
@@ -457,8 +457,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":91
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":92
             }
           ]
         ]
@@ -471,7 +471,7 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
               , "line":54
             }
           ]
@@ -485,7 +485,7 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
               , "line":22
             }
           ]
@@ -499,7 +499,7 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
               , "line":13
             }
           ]
@@ -508,13 +508,13 @@
       , {
         "name":"result_collector (x8)"
         , "data":
-        [1681, 2220, 0, 0]
+        [271, 264, 0, 0]
         , "debug":
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":253
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":378
             }
           ]
         ]
@@ -527,8 +527,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":226
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":348
             }
           ]
         ]
@@ -536,13 +536,13 @@
       , {
         "name":"result_unloader"
         , "data":
-        [2359, 3970, 16, 0]
+        [2350, 4406, 16, 0]
         , "debug":
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":275
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":420
             }
           ]
         ]
@@ -550,13 +550,13 @@
       , {
         "name":"weight_feeder (x8)"
         , "data":
-        [1513, 2234, 0, 0]
+        [13079, 14538, 0, 0]
         , "debug":
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":148
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":205
             }
           ]
         ]
@@ -569,8 +569,8 @@
         [
           [
             {
-              "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":126
+              "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+              , "line":183
             }
           ]
         ]
@@ -580,14 +580,14 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [200753, 141754, 113, 640]
+        [390122, 568365, 113, 640]
       }
       , {
         "name":"Channel Resources"
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [54884, 162445, 27, 0]
+        [11824, 185201, 1292, 0]
       }
       , {
         "name":"Global Interconnect"
@@ -608,9 +608,9 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [378316, 544611, 597, 640]
+        [524625, 993978, 1862, 640]
         , "data_percent":
-        [51.0893, 36.7732, 25.5565, 42.1607]
+        [70.8474, 67.1153, 79.7089, 42.1607]
       }
       , {
         "name":"Available"

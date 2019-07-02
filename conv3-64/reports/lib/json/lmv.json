@@ -15,8 +15,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":132
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":189
               }
             ]
           ]
@@ -55,8 +55,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":136
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":193
               }
             ]
           ]
@@ -101,8 +101,8 @@
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":129
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":186
                   }
                 ]
               ]
@@ -116,8 +116,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":129
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":186
                       }
                     ]
                   ]
@@ -191,8 +191,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -203,7 +203,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -231,8 +231,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -243,7 +243,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -272,13 +272,13 @@
             {
               "type":"memsys"
               , "id":109
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -292,8 +292,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -367,8 +367,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -379,7 +379,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -407,8 +407,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -419,7 +419,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -448,13 +448,13 @@
             {
               "type":"memsys"
               , "id":128
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -468,8 +468,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -543,8 +543,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -555,7 +555,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -583,8 +583,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -595,7 +595,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -624,13 +624,13 @@
             {
               "type":"memsys"
               , "id":147
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -644,8 +644,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -719,8 +719,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -731,7 +731,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -759,8 +759,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -771,7 +771,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -800,13 +800,13 @@
             {
               "type":"memsys"
               , "id":166
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -820,8 +820,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -895,8 +895,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -907,7 +907,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -935,8 +935,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -947,7 +947,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -976,13 +976,13 @@
             {
               "type":"memsys"
               , "id":185
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -996,8 +996,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -1071,8 +1071,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -1083,7 +1083,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -1111,8 +1111,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -1123,7 +1123,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -1152,13 +1152,13 @@
             {
               "type":"memsys"
               , "id":204
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -1172,8 +1172,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -1247,8 +1247,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -1259,7 +1259,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -1287,8 +1287,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -1299,7 +1299,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -1328,13 +1328,13 @@
             {
               "type":"memsys"
               , "id":223
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -1348,8 +1348,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -1423,8 +1423,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -1435,7 +1435,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -1463,8 +1463,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -1475,7 +1475,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -1504,13 +1504,13 @@
             {
               "type":"memsys"
               , "id":242
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -1524,8 +1524,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -1599,8 +1599,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -1611,7 +1611,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -1639,8 +1639,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -1651,7 +1651,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -1680,13 +1680,13 @@
             {
               "type":"memsys"
               , "id":261
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -1700,8 +1700,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -1775,8 +1775,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -1787,7 +1787,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -1815,8 +1815,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -1827,7 +1827,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -1856,13 +1856,13 @@
             {
               "type":"memsys"
               , "id":280
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -1876,8 +1876,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -1951,8 +1951,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -1963,7 +1963,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -1991,8 +1991,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -2003,7 +2003,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -2032,13 +2032,13 @@
             {
               "type":"memsys"
               , "id":299
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -2052,8 +2052,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -2127,8 +2127,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -2139,7 +2139,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"1"
               , "Reference":
@@ -2167,8 +2167,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -2179,7 +2179,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"9"
               , "Latency":"3"
               , "Reference":
@@ -2208,13 +2208,13 @@
             {
               "type":"memsys"
               , "id":318
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -2228,8 +2228,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -2303,8 +2303,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -2315,7 +2315,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"7"
               , "Latency":"1"
               , "Reference":
@@ -2343,8 +2343,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -2355,7 +2355,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"3"
               , "Reference":
@@ -2384,13 +2384,13 @@
             {
               "type":"memsys"
               , "id":335
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -2404,8 +2404,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -2479,8 +2479,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -2491,7 +2491,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"7"
               , "Latency":"1"
               , "Reference":
@@ -2519,8 +2519,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -2531,7 +2531,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"3"
               , "Reference":
@@ -2560,13 +2560,13 @@
             {
               "type":"memsys"
               , "id":352
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -2580,8 +2580,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -2655,8 +2655,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -2667,7 +2667,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"7"
               , "Latency":"1"
               , "Reference":
@@ -2695,8 +2695,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -2707,7 +2707,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"3"
               , "Reference":
@@ -2736,13 +2736,13 @@
             {
               "type":"memsys"
               , "id":369
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -2756,8 +2756,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
@@ -2831,8 +2831,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":111
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":168
               }
             ]
           ]
@@ -2843,7 +2843,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Stores to":"_input_feeder_ibuffer"
+              , "Stores to":"input_feeder_ibuffer"
               , "Start Cycle":"7"
               , "Latency":"1"
               , "Reference":
@@ -2871,8 +2871,8 @@
           [
             [
               {
-                "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":115
+                "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                , "line":172
               }
             ]
           ]
@@ -2883,7 +2883,7 @@
               , "Width":"128 bits"
               , "Type":"Pipelined"
               , "Stall-free":"Yes"
-              , "Loads from":"_input_feeder_ibuffer"
+              , "Loads from":"input_feeder_ibuffer"
               , "Start Cycle":"8"
               , "Latency":"3"
               , "Reference":
@@ -2912,13 +2912,13 @@
             {
               "type":"memsys"
               , "id":386
-              , "name":"_input_feeder_ibuffer"
+              , "name":"input_feeder_ibuffer"
               , "debug":
               [
                 [
                   {
-                    "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":96
+                    "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                    , "line":97
                   }
                 ]
               ]
@@ -2932,8 +2932,8 @@
                   [
                     [
                       {
-                        "filename":"/homes/weihao/double/fccm-ttm-experiments-vlab/conv3-64.cl"
-                        , "line":96
+                        "filename":"/homes/weihao/triple/fccm-ttm-experiments-vlab/conv3-64.cl"
+                        , "line":97
                       }
                     ]
                   ]
