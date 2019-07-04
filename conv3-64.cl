@@ -8,99 +8,120 @@
 #define __address_space___shared __local
 
 channel FLOAT_VEC linebuffer_channel_first __attribute__((depth(300)));
-channel FLOAT_VEC linebuffer_channel[3] __attribute__((depth(3)));
+channel FLOAT_VEC linebuffer_channel[POY - 1] __attribute__((depth(3))); // This there is wrong?
 
 __kernel void input_serializer_on_chip(__global const FLOAT_VEC * restrict input) {
-	const int TOTAL_SIZE = BATCH * 32 * 6 * 32 * 6;
+	const int TOTAL_SIZE = BATCH * (NOX / POX) * (POX + KX - 1) * (NOY / POY) * (POY + KY - 1);
 	for (int i = 0; i < TOTAL_SIZE; i++) {
 		write_channel_intel(linebuffer_channel_first, input[i]);
 	}
 }
 
-channel FLOAT_VEC input_loader_to_feeder[4][4] __attribute__((depth(100)));
+channel FLOAT_VEC input_loader_to_feeder[POX][POY] __attribute__((depth(100)));
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __kernel void input_loader_first() {
-	while(1) {
-		FLOAT_VEC linebuffer[4];
-		for (int s_0 = 0; s_0 < 3; s_0++) { 
-        	for (int s_1_i = 0; s_1_i < 3 * 32; s_1_i++) {
-        		int i = s_1_i & 31;
-        		int s_1 = s_1_i >> 5;
+	const int INPUT_EXTENT_0 = KX + POX - 1;  // 6
+   	const int LINEBUFFER_EXTENT = POX + (POY - 1) * INPUT_EXTENT_0; //22
 
-        		if ((s_0|s_1) == 0 && i < 22 || s_0 && s_1 == 0 && i < 4 || i == 0) {
-        			write_channel_intel(linebuffer_channel[2], linebuffer[0]);
+	int log_v = 1;
+	int value = 2;
+	while (value < LINEBUFFER_EXTENT + POX) {
+		value = value << 1;
+		log_v++;
+	}
+
+	const int JUMP_POS = LINEBUFFER_EXTENT + POX - 1;  // 25
+	const int JUMP_LENGTH = value - JUMP_POS;
+
+	while(1) {
+		FLOAT_VEC linebuffer[POX];
+		for (int s_0 = 0; s_0 < KY; s_0++) { 
+        	for (int s_1_i = 0; s_1_i < KX * value;) {
+        		int i = s_1_i & (value - 1);
+        		int s_1 = s_1_i >> log_v;
+
+        		if ((s_0|s_1) == 0 && i < LINEBUFFER_EXTENT || s_0 && s_1 == 0 && i < POX || i == 0) {
+        			write_channel_intel(linebuffer_channel[POY - 2], linebuffer[0]);
        				#pragma unroll
-					for (int j = 0; j < 3; j++) {
+					for (int j = 0; j < POX - 1; j++) {
   						linebuffer[j] = linebuffer[j + 1];
 					}
-					linebuffer[3] = read_channel_intel(linebuffer_channel_first);
+					linebuffer[POX - 1] = read_channel_intel(linebuffer_channel_first);
         		}
         		// First read, then write
-       			if (i >= 22) {
-       				int pos = i - 22;
-       				write_channel_intel(input_loader_to_feeder[3][0], linebuffer[pos]); 
+       			if (i >= LINEBUFFER_EXTENT) {
+       				int pos = i - LINEBUFFER_EXTENT;
+       				write_channel_intel(input_loader_to_feeder[POY - 1][0], linebuffer[pos]); 
 	   			}
         		
-        		if (i == 25) {
-        			s_1_i += 6;
-        		}
+        		s_1_i += (i == JUMP_POS) ? JUMP_LENGTH : 1;
         	}
         }
 	}
 }
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
-__attribute__((num_compute_units(3)))
+__attribute__((num_compute_units(POY - 1)))
 __kernel void input_loader() {
 	int yy = get_compute_id(0);
-   	int initial_size =  16 + 2 * yy;
+	const int INPUT_EXTENT_0 = KX + POX - 1;  // 6
+   	const int LINEBUFFER_EXTENT = POX + (POY - 1) * INPUT_EXTENT_0; //22
+   	int initial_size = LINEBUFFER_EXTENT - (KX - 1) * (POY - yy - 1); // 16 + 2 * yy;
+
+	int log_v = 1;
+	int value = 2;
+	while (value < LINEBUFFER_EXTENT + POX) {
+		value = value << 1;
+		log_v++;
+	}
+
+	const int JUMP_POS = LINEBUFFER_EXTENT + POX - 1;  // 25
+	const int JUMP_LENGTH = value - JUMP_POS;
 
 	while(1) {
-		FLOAT_VEC linebuffer[4];
-		for (int s_0 = 0; s_0 < 3; s_0++) { 
-        	for (int s_1_i = 0; s_1_i < 3 * 32;) {
-        		int i = s_1_i & 31;
-        		int s_1 = s_1_i >> 5;
+		FLOAT_VEC linebuffer[POX];
+		for (int s_0 = 0; s_0 < KY; s_0++) { 
+        	for (int s_1_i = 0; s_1_i < KX * value;) {     // 32 -> LINEBUFFER_EXTENT + POX
+        		int i = s_1_i & (value - 1);
+        		int s_1 = s_1_i >> log_v;
 
-        		if ((s_0|s_1) == 0 && i < initial_size || s_0 && s_1 == 0 && i < 4 || i == 0) {
+        		if ((s_0|s_1) == 0 && i < initial_size || s_0 && s_1 == 0 && i < POX || i == 0) {
         			if (yy)
         				write_channel_intel(linebuffer_channel[yy-1], linebuffer[0]);
        				#pragma unroll
-					for (int j = 0; j < 3; j++) {
+					for (int j = 0; j < POX - 1; j++) {
   						linebuffer[j] = linebuffer[j + 1];
 					}
-					linebuffer[3] = read_channel_intel(linebuffer_channel[yy]);
+					linebuffer[POX - 1] = read_channel_intel(linebuffer_channel[yy]);
         		}
         		// First read, then write
-       			if (i >= 22) {
-       				int pos = i - 22;
+       			if (i >= LINEBUFFER_EXTENT) {
+       				int pos = i - LINEBUFFER_EXTENT;
        				write_channel_intel(input_loader_to_feeder[yy][0], linebuffer[pos]); 
 	   			}
-        		s_1_i += (i == 25) ? 7 : 1;
+        		s_1_i += (i == JUMP_POS) ? JUMP_LENGTH : 1;
         	}
         }
-        initial_size = 22;
+        initial_size = LINEBUFFER_EXTENT;
 	}
 }
 
 
-typedef struct _kernel_vec {FLOAT_VEC data[3 * 3]; } kernel_vec;
-channel FLOAT_VEC input_forwarding[4][4][POF] __attribute__((depth(200)));
+channel FLOAT_VEC input_forwarding[POY][POX][POF] __attribute__((depth(200)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
-__attribute__((num_compute_units(4, 4)))
+__attribute__((num_compute_units(POY, POX)))
 __kernel void input_feeder() {
 	int yy = get_compute_id(0);
 	int xx = get_compute_id(1);
 	int TILE = NOF / POF;
 
-	FLOAT_VEC input_feeder_ibuffer[9];
+	FLOAT_VEC input_feeder_ibuffer[KX * KY];
 	int input_scatter_channel = xx + 1;
-	int window_size = 4 - xx; // 4 3 2 1
+	int window_size = POX - xx; // 4 3 2 1
 
 
 	int ky_kx = 0;
-	kernel_vec kernel;
 	bool write_success = (bool)(0);
  	bool read_success = (bool)(0);
 	int scatter_loop = 0;
@@ -155,14 +176,24 @@ __kernel void input_feeder() {
 		}
 		*/
 
-		for (int no_ky_kx_t = 0; no_ky_kx_t < TILE * 4 * 4 * 4;) {
-			int ky_kx_t = no_ky_kx_t & 63;
-			int t = ky_kx_t & 3;
-			int ky_kx = ky_kx_t >> 2;
+		int lox_pox = 0;
+		int pox = POX;
+		while (pox > 1) {
+			pox = pox >> 1;
+			lox_pox++;
+		}
+		const int LOG_POX = lox_pox;
+		const int FLATTEN_SIZE = 16 * POX;     // (KX * KY) -> 16
+		const int JUMP_POS = KX * KY * POX - 1;  // 35
+		const int JUMP_LENGTH = FLATTEN_SIZE - JUMP_POS;
+		for (int no_ky_kx_t = 0; no_ky_kx_t < TILE * FLATTEN_SIZE;) {   
+			int ky_kx_t = no_ky_kx_t & (FLATTEN_SIZE - 1);
+			int t = ky_kx_t & (POX - 1);
+			int ky_kx = ky_kx_t >> LOG_POX;
 			
-			if (no_ky_kx_t < 64) { // if(!(no_ky_kx_t)>>6)
+			if (no_ky_kx_t < FLATTEN_SIZE) { // if(!(no_ky_kx_t)>>6)
 				FLOAT_VEC input = read_channel_intel(input_loader_to_feeder[yy][xx]);
-				if (t && input_scatter_channel < 4)
+				if (t && input_scatter_channel < POX)
 					write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
 				else
 					input_feeder_ibuffer[ky_kx] = input;
@@ -172,7 +203,7 @@ __kernel void input_feeder() {
 				write_channel_intel(input_forwarding[yy][xx][0], input_feeder_ibuffer[ky_kx]);
 			}
 
-			no_ky_kx_t += (t == window_size-1) ? ((ky_kx_t == 35 - xx) ? 29 + xx :  xx + 1) : ((ky_kx_t == 35-xx) ? 29 : 1);
+			no_ky_kx_t += (t == window_size-1) ? ((ky_kx_t == JUMP_POS - xx ) ? JUMP_LENGTH + xx : xx + 1) : ((ky_kx_t == JUMP_POS - xx) ? JUMP_LENGTH : 1);
 		}
 	}
 }
@@ -181,24 +212,26 @@ __kernel void input_feeder() {
 channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(200)));
 
 __kernel void weight_loader(__global const FLOAT_VEC * restrict weight) {
-	const int TOTAL1 = BATCH * 32 * 32;
+	const int TOTAL1 = BATCH * (NOY / POY) * (NOX / POX);
+	const int BUFFER_SIZE = NOF * KX * KY;
 
-	FLOAT_VEC weight_buffer[64 * 3 * 3];
+	FLOAT_VEC weight_buffer[BUFFER_SIZE];
 
-	for (int i = 0; i < 64 * 3 * 3; i++)
+	for (int i = 0; i < BUFFER_SIZE; i++)
 		weight_buffer[i] = *(weight+i);
 
-	for (int i_j = 0; i_j < TOTAL1 * 64 * 16; i_j++) {
-		int j = i_j & 1023;
+	const int FLATTEN_SIZE = NOF * 16;   // (KX * KY) -> 16
+	const int JUMP_POS = NOF * KX * KY - 1;
+	const int JUMP_LENGTH = FLATTEN_SIZE - JUMP_POS;
+	for (int i_j = 0; i_j < TOTAL1 * FLATTEN_SIZE; ) {  
+		int j = i_j & (FLATTEN_SIZE - 1);
 		write_channel_intel(weight_scattering[0], weight_buffer[j]);
-		if (j == 575) {
-			i_j += 448;
-		}
+		i_j += (j == JUMP_POS) ? JUMP_LENGTH : 1;
 	}
 }
 
 
-channel FLOAT_VEC weight_forwarding[POF][4*4] __attribute__((depth(100)));
+channel FLOAT_VEC weight_forwarding[POF][POY*POX] __attribute__((depth(100)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POF)))
@@ -208,8 +241,6 @@ __kernel void weight_feeder() {
 	FLOAT_VEC weight = 0;
 	int weight_size = POF; //- nn;
 	int weight_scattering_channel = nn+1;
-
-	const int TOTAL2 = 3 * 3;
 
 	FLOAT_VEC buffer[2];
 	int w = 0;
@@ -263,59 +294,41 @@ __kernel void weight_feeder() {
 
 
 
-channel float conv_to_drainer_channel[4][4][POF] __attribute__((depth(100)));
+channel float conv_to_drainer_channel[POY][POX][POF] __attribute__((depth(100)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
-__attribute__((num_compute_units(4, 4, POF)))
+__attribute__((num_compute_units(POY, POX, POF)))
 __kernel void convolution() {
-	int yy = get_compute_id(0);
-	int xx = get_compute_id(1);
-	int nn = get_compute_id(2);
-
-	int input_forward_channel = nn + 1;
-	bool do_input_forward = true;
-	if (nn == POF - 1){
-		do_input_forward = false;
-	}
-
-	int weight_channel = yy * 4 + xx;
-	int weight_forward_channel = weight_channel + 1;
-	bool do_weight_forward = true;
-	if (weight_forward_channel == 4 * 4){
-		do_weight_forward = false;
-	}
+	const int yy = get_compute_id(0);
+	const int xx = get_compute_id(1);
+	const int nn = get_compute_id(2);
+	const int input_forward_channel = nn + 1;
+	const int weight_channel = yy * POX + xx;
+	const int weight_forward_channel = weight_channel + 1;
 
 	//DPRINTF("Begin calculation: %d %d %d\n", xx, yy, nn);
 
-    // float4
-    int j = 7;
+    int j = 16 - KX * KY;
     FLOAT_VEC _1;
     FLOAT_VEC _2;
     float _3 = 0;
     bool read_success_1 = (bool)(0);
  	bool read_success_2 = (bool)(0);
- 	bool write_success_1 = (bool)(0);
- 	bool write_success_2 = (bool)(0);
 	while (1) {
 		if (!read_success_1)
 			_1 = read_channel_nb_intel(input_forwarding[yy][xx][nn], &read_success_1);
 
-		if (read_success_1 && !write_success_1 && do_input_forward) {
-			write_channel_intel(input_forwarding[yy][xx][input_forward_channel], _1);
-			write_success_1 = (bool)(1);
-		}
-
 		if (!read_success_2)
 			_2 = read_channel_nb_intel(weight_forwarding[nn][weight_channel], &read_success_2);
-
-		if (read_success_2 && !write_success_2 && do_weight_forward) {
-			write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
-			write_success_2 = (bool)(1);
-		}
 
 		// DPRINTF("Read: %f %f\n", _1, _2);
 
 		if (read_success_1 && read_success_2) {
+			if (input_forward_channel < POF)
+				write_channel_intel(input_forwarding[yy][xx][input_forward_channel], _1);
+			if (weight_forward_channel < POX * POY)
+				write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
+
 			#pragma unroll
 			for (int k = 0; k < NIF; k++) {
 				_3 += _1[k]*_2[k];
@@ -324,14 +337,12 @@ __kernel void convolution() {
 
 			read_success_1 = (bool)(0);
  			read_success_2 = (bool)(0);
- 			bool write_success_1 = (bool)(0);
- 			bool write_success_2 = (bool)(0);
 		}
 
 		if (j == 16) {
 			write_channel_intel(conv_to_drainer_channel[yy][xx][nn], _3);
 			_3 = 0;
-			j = 0;
+			j = 16 - KX * KY;
 			// DPRINTF("The result is: %d %d %d %f\n", xx, yy, nn, _3);
 		}
 	}
@@ -340,19 +351,18 @@ __kernel void convolution() {
 }
 
 
-channel float conv_to_result_consumer[4][4][POF] __attribute__((depth(100)));
-channel float conv_to_result_collector[POF][4*4] __attribute__((depth(100)));
+channel float conv_to_result_collector[POF][POY*POX] __attribute__((depth(100)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
-__attribute__((num_compute_units(4, 4, POF)))
+__attribute__((num_compute_units(POY, POX, POF)))
 __kernel void result_consumer() {
 	int yy = get_compute_id(0);
 	int xx = get_compute_id(1);
 	int nn = get_compute_id(2);
 
-	int result_size = yy * 4 + xx;
-	int result_write_channel = yy * 4 + xx;
-	int result_read_channel = yy * 4 + xx - 1;
+	int result_size = yy * POX + xx;
+	int result_write_channel = yy * POX + xx;
+	int result_read_channel = yy * POX + xx - 1;
 
 	float result;
 	while (1) {
@@ -380,7 +390,7 @@ __kernel void result_collector() {
 
 	int result_size = POF - nn;
 	int result_gathering_channel = nn + 1;
-	int collector_channel = 15;
+	int collector_channel = POX*POY - 1;
 
 	float result;
 
@@ -418,13 +428,13 @@ __kernel void result_collector() {
 
 
 __kernel void result_unloader(__global outvec * restrict output) {
-	int TOTAL = BATCH * 128 * 128 * 64 / POF;
+	int TOTAL = BATCH * NOY * NOX * NOF / POF;
 	for (int i = 0; i < TOTAL; i++) {
 		outvec in;
 		in = read_channel_intel(C_collector_0_inter_channel);
 		output[i] = in;
-		//if (i % 64 == 0) {
-			// DPRINTF("The result is: %d %f\n", i / 64, in.data[0]);
-		// }
+		//if (i % NOF == 0) {
+			//DPRINTF("The result is: %d %f\n", i / NOF, in.data[0]);
+		//}
 	}
 }
