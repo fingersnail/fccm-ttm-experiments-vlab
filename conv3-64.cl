@@ -17,7 +17,8 @@ __kernel void input_serializer_on_chip(__global const FLOAT_VEC * restrict input
 	}
 }
 
-channel FLOAT_VEC input_loader_to_feeder[POX][POY] __attribute__((depth(100)));
+typedef struct _input_vec {FLOAT_VEC data[POX];} input_vec;
+channel input_vec input_loader_to_feeder[POY][POX] __attribute__((depth(100)));
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __kernel void input_loader_first() {
 	const int INPUT_EXTENT_0 = KX + POX - 1;  // 6
@@ -25,36 +26,35 @@ __kernel void input_loader_first() {
 
 	int log_v = 1;
 	int value = 2;
-	while (value < LINEBUFFER_EXTENT + POX) {
+	while (value < LINEBUFFER_EXTENT) {
 		value = value << 1;
 		log_v++;
 	}
 
-	const int JUMP_POS = LINEBUFFER_EXTENT + POX - 1;  // 25
-	const int JUMP_LENGTH = value - JUMP_POS;
+	const int JUMP_LENGTH = value - LINEBUFFER_EXTENT + 1;
 
 	while(1) {
-		FLOAT_VEC linebuffer[POX];
+		input_vec linebuffer;
 		for (int s_0 = 0; s_0 < KY; s_0++) { 
         	for (int s_1_i = 0; s_1_i < KX * value;) {
         		int i = s_1_i & (value - 1);
         		int s_1 = s_1_i >> log_v;
 
-        		if ((s_0|s_1) == 0 && i < LINEBUFFER_EXTENT || s_0 && s_1 == 0 && i < POX || i == 0) {
-        			write_channel_intel(linebuffer_channel[POY - 2], linebuffer[0]);
+        		if ((s_0|s_1) == 0 || s_0 && s_1 == 0 && i < POX || i == 0) {
+        			write_channel_intel(linebuffer_channel[POY - 2], linebuffer.data[0]);
        				#pragma unroll
 					for (int j = 0; j < POX - 1; j++) {
-  						linebuffer[j] = linebuffer[j + 1];
+  						linebuffer.data[j] = linebuffer.data[j + 1];
 					}
-					linebuffer[POX - 1] = read_channel_intel(linebuffer_channel_first);
+					linebuffer.data[POX - 1] = read_channel_intel(linebuffer_channel_first);
         		}
         		// First read, then write
-       			if (i >= LINEBUFFER_EXTENT) {
-       				int pos = i - LINEBUFFER_EXTENT;
-       				write_channel_intel(input_loader_to_feeder[POY - 1][0], linebuffer[pos]); 
+       			if (i == LINEBUFFER_EXTENT - 1) {
+       				//int pos = i - LINEBUFFER_EXTENT;
+       				write_channel_intel(input_loader_to_feeder[POY - 1][0], linebuffer); 
 	   			}
         		
-        		s_1_i += (i == JUMP_POS) ? JUMP_LENGTH : 1;
+        		s_1_i += (i == LINEBUFFER_EXTENT - 1) ? JUMP_LENGTH : 1;
         	}
         }
 	}
@@ -70,16 +70,15 @@ __kernel void input_loader() {
 
 	int log_v = 1;
 	int value = 2;
-	while (value < LINEBUFFER_EXTENT + POX) {
+	while (value < LINEBUFFER_EXTENT) {
 		value = value << 1;
 		log_v++;
 	}
 
-	const int JUMP_POS = LINEBUFFER_EXTENT + POX - 1;  // 25
-	const int JUMP_LENGTH = value - JUMP_POS;
+	const int JUMP_LENGTH = value - LINEBUFFER_EXTENT + 1;
 
 	while(1) {
-		FLOAT_VEC linebuffer[POX];
+		input_vec linebuffer;
 		for (int s_0 = 0; s_0 < KY; s_0++) { 
         	for (int s_1_i = 0; s_1_i < KX * value;) {     // 32 -> LINEBUFFER_EXTENT + POX
         		int i = s_1_i & (value - 1);
@@ -87,19 +86,19 @@ __kernel void input_loader() {
 
         		if ((s_0|s_1) == 0 && i < initial_size || s_0 && s_1 == 0 && i < POX || i == 0) {
         			if (yy)
-        				write_channel_intel(linebuffer_channel[yy-1], linebuffer[0]);
+        				write_channel_intel(linebuffer_channel[yy-1], linebuffer.data[0]);
        				#pragma unroll
 					for (int j = 0; j < POX - 1; j++) {
-  						linebuffer[j] = linebuffer[j + 1];
+  						linebuffer.data[j] = linebuffer.data[j + 1];
 					}
-					linebuffer[POX - 1] = read_channel_intel(linebuffer_channel[yy]);
+					linebuffer.data[POX - 1] = read_channel_intel(linebuffer_channel[yy]);
         		}
         		// First read, then write
-       			if (i >= LINEBUFFER_EXTENT) {
-       				int pos = i - LINEBUFFER_EXTENT;
-       				write_channel_intel(input_loader_to_feeder[yy][0], linebuffer[pos]); 
+       			if (i == LINEBUFFER_EXTENT - 1) {
+       				//int pos = i - LINEBUFFER_EXTENT;
+       				write_channel_intel(input_loader_to_feeder[yy][0], linebuffer); 
 	   			}
-        		s_1_i += (i == JUMP_POS) ? JUMP_LENGTH : 1;
+        		s_1_i += (i == LINEBUFFER_EXTENT - 1) ? JUMP_LENGTH : 1;
         	}
         }
         initial_size = LINEBUFFER_EXTENT;
@@ -118,92 +117,62 @@ __kernel void input_feeder() {
 
 	FLOAT_VEC input_feeder_ibuffer[KX * KY];
 	int input_scatter_channel = xx + 1;
-	int window_size = POX - xx; // 4 3 2 1
+	int window_size = 1; // 4 3 2 1
 
 
 	int ky_kx = 0;
+	int no_ky_kx = 0;
+	int forward_loop = 0;
 	bool write_success = (bool)(0);
  	bool read_success = (bool)(0);
-	int scatter_loop = 0;
-	int feeder_loop = 0;
-	int forward_loop = 0;
 
+	const int FLATTEN_SIZE = 16;     // (KX * KY) -> 16
+	const int JUMP_POS = KX * KY - 1;  // 8
+	const int JUMP_LENGTH = FLATTEN_SIZE - JUMP_POS;
+
+	
 	while (1) {
-		/*
-		if (scatter_loop < weight_size && ky_kx < 9) {
-			input = read_channel_nb_intel(input_loader_to_feeder[yy][xx], &read_success);
-			if ((scatter_loop < 1) && read_success) {
-				input_feeder_ibuffer[ky_kx] = input;
-				ky_kx++;
-       			scatter_loop++;
-			} else if (read_success) {
-				write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
-				scatter_loop++;
+		/* for (int no_ky_kx = 0; no_ky_kx < TILE * FLATTEN_SIZE;) {   
+			int ky_kx = no_ky_kx & (FLATTEN_SIZE - 1);
+			
+			if (no_ky_kx < FLATTEN_SIZE) { // if(!(no_ky_kx)>>5)
+				input_vec input = read_channel_intel(input_loader_to_feeder[yy][xx]);
+				if (input_scatter_channel < POX)
+					write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
+				input_feeder_ibuffer[ky_kx] = input.data[xx];
+			}
+			
+			write_channel_intel(input_forwarding[yy][xx][0], input_feeder_ibuffer[ky_kx]);
+
+			no_ky_kx += (ky_kx == JUMP_POS) ? JUMP_LENGTH : 1;
+		} */
+
+		if (no_ky_kx <= JUMP_POS) {
+			input_vec input = read_channel_nb_intel(input_loader_to_feeder[yy][xx], &read_success);
+			if (read_success) {
+				input_feeder_ibuffer[no_ky_kx] = input.data[xx];
+				no_ky_kx++;
+				if (input_scatter_channel < POX)
+					write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
 			}
 		}
 
-		if (scatter_loop == weight_size && forward_loop < TILE * 9) {
+		if (ky_kx < no_ky_kx) {
 			write_success = write_channel_nb_intel(input_forwarding[yy][xx][0], input_feeder_ibuffer[ky_kx]);
 			if (write_success) {
-				forward_loop++;
-				ky_kx++;
-				if (ky_kx == 9) {
+				if (ky_kx == JUMP_POS) {
 					ky_kx = 0;
+					forward_loop ++;
+				} else {
+					ky_kx++;
 				}
 			}
 		}
 
 		if (forward_loop == TILE) {
 			ky_kx = 0;
-			scatter_loop = 0;
+			no_ky_kx = 0;
 			forward_loop = 0;
-		}
-
-		for (int ky_kx = 0; ky_kx < KY * KX; ky_kx++) {
-			for (int n_time = 0; n_time < window_size; n_time++) {
-				FLOAT_VEC input = read_channel_intel(input_loader_to_feeder[yy][xx]);
-				if (n_time)
-					write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
-				else
-					input_feeder_ibuffer[ky_kx] = input;
-			}
-		}
-
-		for (int no = 0; no < TILE2; no++) {
-			for (int ky_kx = 0; ky_kx < KY * KX; ky_kx++) {
-				write_channel_intel(input_forwarding[yy][xx][0], input_feeder_ibuffer[ky_kx]);
-			}
-		}
-		*/
-
-		int lox_pox = 0;
-		int pox = POX;
-		while (pox > 1) {
-			pox = pox >> 1;
-			lox_pox++;
-		}
-		const int LOG_POX = lox_pox;
-		const int FLATTEN_SIZE = 16 * POX;     // (KX * KY) -> 16
-		const int JUMP_POS = KX * KY * POX - 1;  // 35
-		const int JUMP_LENGTH = FLATTEN_SIZE - JUMP_POS;
-		for (int no_ky_kx_t = 0; no_ky_kx_t < TILE * FLATTEN_SIZE;) {   
-			int ky_kx_t = no_ky_kx_t & (FLATTEN_SIZE - 1);
-			int t = ky_kx_t & (POX - 1);
-			int ky_kx = ky_kx_t >> LOG_POX;
-			
-			if (no_ky_kx_t < FLATTEN_SIZE) { // if(!(no_ky_kx_t)>>6)
-				FLOAT_VEC input = read_channel_intel(input_loader_to_feeder[yy][xx]);
-				if (t && input_scatter_channel < POX)
-					write_channel_intel(input_loader_to_feeder[yy][input_scatter_channel], input);
-				else
-					input_feeder_ibuffer[ky_kx] = input;
-			}
-					
-			if (t == window_size - 1) {
-				write_channel_intel(input_forwarding[yy][xx][0], input_feeder_ibuffer[ky_kx]);
-			}
-
-			no_ky_kx_t += (t == window_size-1) ? ((ky_kx_t == JUMP_POS - xx ) ? JUMP_LENGTH + xx : xx + 1) : ((ky_kx_t == JUMP_POS - xx) ? JUMP_LENGTH : 1);
 		}
 	}
 }
