@@ -8,7 +8,7 @@
 #define __address_space___shared __local
 
 channel FLOAT_VEC linebuffer_channel_first __attribute__((depth(300)));
-channel FLOAT_VEC linebuffer_channel[POY - 1] __attribute__((depth(3))); // This there is wrong?
+channel FLOAT_VEC linebuffer_channel[POY - 1] __attribute__((depth(KX))); // This there is wrong?
 
 __kernel void input_serializer_on_chip(__global const FLOAT_VEC * restrict input) {
 	const int TOTAL_SIZE = BATCH * (NOX / POX) * (POX + KX - 1) * (NOY / POY) * (POY + KY - 1);
@@ -51,7 +51,11 @@ __kernel void input_loader_first() {
         		// First read, then write
        			if (i == LINEBUFFER_EXTENT - 1) {
        				//int pos = i - LINEBUFFER_EXTENT;
-       				write_channel_intel(input_loader_to_feeder[POY - 1][0], linebuffer); 
+       				input_vec input;
+       				#pragma unroll
+       				for (int j = 0; j < POX; j++)
+       					input.data[j] = linebuffer.data[j];
+       				write_channel_intel(input_loader_to_feeder[POY - 1][0], input); 
 	   			}
         		
         		s_1_i += (i == LINEBUFFER_EXTENT - 1) ? JUMP_LENGTH : 1;
@@ -95,8 +99,11 @@ __kernel void input_loader() {
         		}
         		// First read, then write
        			if (i == LINEBUFFER_EXTENT - 1) {
-       				//int pos = i - LINEBUFFER_EXTENT;
-       				write_channel_intel(input_loader_to_feeder[yy][0], linebuffer); 
+       				input_vec input;
+       				#pragma unroll
+       				for (int j = 0; j < POX; j++)
+       					input.data[j] = linebuffer.data[j];
+       				write_channel_intel(input_loader_to_feeder[yy][0], input); 
 	   			}
         		s_1_i += (i == LINEBUFFER_EXTENT - 1) ? JUMP_LENGTH : 1;
         	}
@@ -126,8 +133,8 @@ __kernel void input_feeder() {
 	bool write_success = (bool)(0);
  	bool read_success = (bool)(0);
 
-	const int FLATTEN_SIZE = 16;     // (KX * KY) -> 16
-	const int JUMP_POS = KX * KY - 1;  // 8
+	const int FLATTEN_SIZE = 32;     // (KX * KY) -> 32
+	const int JUMP_POS = KX * KY - 1;  // 24
 	const int JUMP_LENGTH = FLATTEN_SIZE - JUMP_POS;
 
 	
@@ -189,7 +196,7 @@ __kernel void weight_loader(__global const FLOAT_VEC * restrict weight) {
 	for (int i = 0; i < BUFFER_SIZE; i++)
 		weight_buffer[i] = *(weight+i);
 
-	const int FLATTEN_SIZE = NOF * 16;   // (KX * KY) -> 16
+	const int FLATTEN_SIZE = NOF * 32;   // (KX * KY) -> 32
 	const int JUMP_POS = NOF * KX * KY - 1;
 	const int JUMP_LENGTH = FLATTEN_SIZE - JUMP_POS;
 	for (int i_j = 0; i_j < TOTAL1 * FLATTEN_SIZE; ) {  
@@ -277,7 +284,7 @@ __kernel void convolution() {
 
 	//DPRINTF("Begin calculation: %d %d %d\n", xx, yy, nn);
 
-    int j = 16 - KX * KY;
+    int j = 32 - KX * KY;
     FLOAT_VEC _1;
     FLOAT_VEC _2;
     float _3 = 0;
@@ -303,10 +310,11 @@ __kernel void convolution() {
 			for (int k = 0; k < PIF; k++) {
 				_3 += _1[k]*_2[k];
  			}
+ 			/*
  			#pragma unroll
 			for (int k = PIF; k < NIF; k++) {
 				_3 += _1[k]*_2[k];
- 			}
+ 			}*/
 
 			j++;
 
@@ -314,10 +322,10 @@ __kernel void convolution() {
  			read_success_2 = (bool)(0);
 		}
 
-		if (j == 16) {
+		if (j == 32) {
 			write_channel_intel(conv_to_drainer_channel[yy][xx][nn], _3);
 			_3 = 0;
-			j = 16 - KX * KY;
+			j = 32 - KX * KY;
 			// DPRINTF("The result is: %d %d %d %f\n", xx, yy, nn, _3);
 		}
 	}
@@ -341,9 +349,8 @@ __kernel void result_consumer() {
 
 	float result;
 	int t = 0;
-	bool read_success = (bool)(0);
 	while (1) {
-		/*
+				/*
 		if (t < result_size) {
 			result = read_channel_nb_intel(conv_to_result_collector[nn][result_read_channel], &read_success);
 			if (read_success)
@@ -358,7 +365,7 @@ __kernel void result_consumer() {
 			read_success = (bool)(0);
 		}
  		*/ 
- 		
+
 		for (int n_time = result_size; n_time >= 0; n_time--) {
 			if (n_time) {
 				result = read_channel_intel(conv_to_result_collector[nn][result_read_channel]);
@@ -367,7 +374,6 @@ __kernel void result_consumer() {
 			}
 			write_channel_intel(conv_to_result_collector[nn][result_write_channel], result);
 		}
-		
 	}
 }
 
@@ -427,7 +433,7 @@ __kernel void result_unloader(__global outvec * restrict output) {
 		outvec in;
 		in = read_channel_intel(C_collector_0_inter_channel);
 		output[i] = in;
-		//if (i % NOF == 0) {
+		// if (i % NOF == 0) {
 			//DPRINTF("The result is: %d %f\n", i / NOF, in.data[0]);
 		//}
 	}

@@ -11,9 +11,9 @@ else:
 # Note: II has to be 1 else the compute buffer cannot be implemented as rotating register
 
 if (emul):
-  BATCH,NOX,NOY,NIF,NOF,PIF,POX,POY,POF,KX,KY,SX,SY=6,128,128,32,64,16,4,2,4,3,3,1,1
+  BATCH,NOX,NOY,NIF,NOF,PIF,POX,POY,POF,KX,KY,SX,SY=6,128,128,16,64,16,4,2,4,5,5,1,1
 else:
-  BATCH,NOX,NOY,NIF,NOF,PIF,POX,POY,POF,KX,KY,SX,SY=6,128,128,32,64,16,4,2,4,3,3,1,1
+  BATCH,NOX,NOY,NIF,NOF,PIF,POX,POY,POF,KX,KY,SX,SY=6,128,128,16,64,16,4,2,4,5,5,1,1
 
 aocx_name = "conv3-64"
 

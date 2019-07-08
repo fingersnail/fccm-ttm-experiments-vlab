@@ -1,6 +1,6 @@
 FILE=conv3-64
 
-CONV_MACROS=-DFLOAT_VEC=float4 -DBATCH=4 -DNOX=64 -DNOY=64 -DNIF=4 -DNOF=64 -DPOX=2 -DPOY=2 -DPOF=2 -DKX=3 -DKY=3 -DKIF=3 -DSX=1 -DSY=1 -DSIF=3
+CONV_MACROS=-DFLOAT_VEC=float8 -DBATCH=1 -DNOX=64 -DNOY=64 -DNIF=32 -DNOF=64 -DPIF=4 -DPOX=2 -DPOY=2 -DPOF=2 -DKX=5 -DKY=5 -DKIF=3 -DSX=1 -DSY=1 -DSIF=3
 
 compile-device:
 	aoc -march=emulator -g -v $(CONV_MACROS) -emulator-channel-depth-model=strict $(FILE).cl -o $(FILE).aocx
