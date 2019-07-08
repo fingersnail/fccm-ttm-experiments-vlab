@@ -7,17 +7,19 @@
 
 #define __address_space___shared __local
 
-channel FLOAT_VEC linebuffer_channel_first __attribute__((depth(300)));
-channel FLOAT_VEC linebuffer_channel[POY - 1] __attribute__((depth(KX))); // This there is wrong?
+typedef struct _in_channel_vec {FLOAT_VEC vec[2];} in_channel_vec;
 
-__kernel void input_serializer_on_chip(__global const FLOAT_VEC * restrict input) {
+channel in_channel_vec linebuffer_channel_first __attribute__((depth(300)));
+channel in_channel_vec linebuffer_channel[POY - 1] __attribute__((depth(KX))); // This there is wrong?
+
+__kernel void input_serializer_on_chip(__global const in_channel_vec * restrict input) {
 	const int TOTAL_SIZE = BATCH * (NOX / POX) * (POX + KX - 1) * (NOY / POY) * (POY + KY - 1);
 	for (int i = 0; i < TOTAL_SIZE; i++) {
 		write_channel_intel(linebuffer_channel_first, input[i]);
 	}
 }
 
-typedef struct _input_vec {FLOAT_VEC data[POX];} input_vec;
+typedef struct _input_vec {in_channel_vec data[POX];} input_vec;
 channel input_vec input_loader_to_feeder[POY][POX] __attribute__((depth(100)));
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __kernel void input_loader_first() {
@@ -113,7 +115,7 @@ __kernel void input_loader() {
 }
 
 
-channel FLOAT_VEC input_forwarding[POY][POX][POF] __attribute__((depth(200)));
+channel in_channel_vec input_forwarding[POY][POX][POF] __attribute__((depth(200)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POY, POX)))
@@ -122,7 +124,7 @@ __kernel void input_feeder() {
 	int xx = get_compute_id(1);
 	int TILE = NOF / POF;
 
-	FLOAT_VEC input_feeder_ibuffer[KX * KY];
+	in_channel_vec input_feeder_ibuffer[KX * KY];
 	int input_scatter_channel = xx + 1;
 	int window_size = 1; // 4 3 2 1
 
@@ -185,13 +187,13 @@ __kernel void input_feeder() {
 }
 
 
-channel FLOAT_VEC weight_scattering[POF] __attribute__((depth(200)));
+channel in_channel_vec weight_scattering[POF] __attribute__((depth(200)));
 
-__kernel void weight_loader(__global const FLOAT_VEC * restrict weight) {
+__kernel void weight_loader(__global const in_channel_vec * restrict weight) {
 	const int TOTAL1 = BATCH * (NOY / POY) * (NOX / POX);
 	const int BUFFER_SIZE = NOF * KX * KY;
 
-	FLOAT_VEC weight_buffer[BUFFER_SIZE];
+	in_channel_vec weight_buffer[BUFFER_SIZE];
 
 	for (int i = 0; i < BUFFER_SIZE; i++)
 		weight_buffer[i] = *(weight+i);
@@ -207,18 +209,18 @@ __kernel void weight_loader(__global const FLOAT_VEC * restrict weight) {
 }
 
 
-channel FLOAT_VEC weight_forwarding[POF][POY*POX] __attribute__((depth(100)));
+channel in_channel_vec weight_forwarding[POF][POY*POX] __attribute__((depth(100)));
 
 __attribute__((max_global_work_dim(0)))__attribute__((autorun))
 __attribute__((num_compute_units(POF)))
 __kernel void weight_feeder() {
 	int nn = get_compute_id(0);
 
-	FLOAT_VEC weight = 0;
+	in_channel_vec weight;
 	int weight_size = POF; //- nn;
 	int weight_scattering_channel = nn+1;
 
-	FLOAT_VEC buffer[2];
+	in_channel_vec buffer[2];
 	int w = 0;
 	int r = 1;
 	int first = 1;
@@ -285,8 +287,8 @@ __kernel void convolution() {
 	//DPRINTF("Begin calculation: %d %d %d\n", xx, yy, nn);
 
     int j = 32 - KX * KY;
-    FLOAT_VEC _1;
-    FLOAT_VEC _2;
+    in_channel_vec _1;
+    in_channel_vec _2;
     float _3 = 0;
     bool read_success_1 = (bool)(0);
  	bool read_success_2 = (bool)(0);
@@ -308,13 +310,12 @@ __kernel void convolution() {
 			// Two tile for NIF
 			#pragma unroll
 			for (int k = 0; k < PIF; k++) {
-				_3 += _1[k]*_2[k];
+				_3 += _1.vec[0][k]*_2.vec[0][k];
  			}
- 			/*
  			#pragma unroll
-			for (int k = PIF; k < NIF; k++) {
-				_3 += _1[k]*_2[k];
- 			}*/
+			for (int k = 0; k < PIF; k++) {
+				_3 += _1.vec[1][k]*_2.vec[1][k];
+ 			}
 
 			j++;
 
@@ -348,6 +349,7 @@ __kernel void result_consumer() {
 	int result_read_channel = yy * POX + xx - 1;
 
 	float result;
+	bool read_success = (bool)(0);
 	int t = 0;
 	while (1) {
 				/*
@@ -433,7 +435,7 @@ __kernel void result_unloader(__global outvec * restrict output) {
 		outvec in;
 		in = read_channel_intel(C_collector_0_inter_channel);
 		output[i] = in;
-		// if (i % NOF == 0) {
+		//if (i % NOF == 0) {
 			//DPRINTF("The result is: %d %f\n", i / NOF, in.data[0]);
 		//}
 	}
