@@ -298,10 +298,16 @@ __kernel void convolution() {
 			if (weight_forward_channel < POX * POY)
 				write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
 
+			// Two tile for NIF
 			#pragma unroll
-			for (int k = 0; k < NIF; k++) {
+			for (int k = 0; k < PIF; k++) {
 				_3 += _1[k]*_2[k];
  			}
+ 			#pragma unroll
+			for (int k = PIF; k < NIF; k++) {
+				_3 += _1[k]*_2[k];
+ 			}
+
 			j++;
 
 			read_success_1 = (bool)(0);
