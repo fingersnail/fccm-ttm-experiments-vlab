@@ -340,7 +340,25 @@ __kernel void result_consumer() {
 	int result_read_channel = yy * POX + xx - 1;
 
 	float result;
+	int t = 0;
+	bool read_success = (bool)(0);
 	while (1) {
+		/*
+		if (t < result_size) {
+			result = read_channel_nb_intel(conv_to_result_collector[nn][result_read_channel], &read_success);
+			if (read_success)
+				t++;
+		} else {
+			result = read_channel_nb_intel(conv_to_drainer_channel[yy][xx][nn], &read_success);
+			if (read_success)
+				t = 0;
+		}
+		if (read_success) {
+			write_channel_intel(conv_to_result_collector[nn][result_write_channel], result);
+			read_success = (bool)(0);
+		}
+ 		*/ 
+ 		
 		for (int n_time = result_size; n_time >= 0; n_time--) {
 			if (n_time) {
 				result = read_channel_intel(conv_to_result_collector[nn][result_read_channel]);
@@ -349,6 +367,7 @@ __kernel void result_consumer() {
 			}
 			write_channel_intel(conv_to_result_collector[nn][result_write_channel], result);
 		}
+		
 	}
 }
 
