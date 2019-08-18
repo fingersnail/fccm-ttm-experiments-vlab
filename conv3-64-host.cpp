@@ -615,7 +615,7 @@ device_found = 1;
                             }
                             if (abs(c - result[index]) > 0.1) {
                                 passed = 0;
-                                printf("\n[FAILED]: b:%d y:%d x:%d no:%d result[b][y][x][no]:%f, right answer: %f\n", b, y*POY + yy, x*POX + xx, no*POF + nn, result[index], c);
+                                //printf("\n[FAILED]: b:%d y:%d x:%d no:%d result[b][y][x][no]:%f, right answer: %f\n", b, y*POY + yy, x*POX + xx, no*POF + nn, result[index], c);
                             }
                             index++;
                         }
