@@ -84,7 +84,7 @@
         [
           {
             "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-            , "line":202
+            , "line":204
           }
         ]
       ]
@@ -121,19 +121,19 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":204
+                , "line":206
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":204
+                , "line":206
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":208
+                , "line":210
               }
             ]
           ]
@@ -161,7 +161,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"206"
+                      , "line":"208"
                     }
                   ]
                 }
@@ -172,7 +172,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"207"
+                      , "line":"209"
                     }
                   ]
                 }
@@ -1347,7 +1347,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -1383,9 +1383,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -1409,18 +1420,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -1453,7 +1453,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -1522,7 +1522,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -1558,11 +1558,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -1573,7 +1573,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -1595,7 +1595,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -1628,7 +1628,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -1697,7 +1697,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -1733,11 +1733,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -1748,7 +1748,18 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -1760,17 +1771,6 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
                     }
                   ]
                 }
@@ -1803,7 +1803,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -1872,7 +1872,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -1908,9 +1908,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -1934,18 +1945,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -1978,7 +1978,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -2047,7 +2047,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -2083,33 +2083,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -2121,6 +2099,28 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -2153,7 +2153,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -2222,7 +2222,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -2258,9 +2258,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -2284,18 +2295,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -2328,7 +2328,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -2397,7 +2397,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -2433,33 +2433,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -2471,6 +2449,28 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -2503,7 +2503,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -2572,7 +2572,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -2608,33 +2608,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -2646,6 +2624,28 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -2678,7 +2678,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -2747,7 +2747,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -2783,11 +2783,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -2809,7 +2809,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -2820,7 +2820,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -2853,7 +2853,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -2922,7 +2922,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -2958,11 +2958,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -2984,7 +2984,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -2995,7 +2995,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -3028,7 +3028,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -3097,7 +3097,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -3133,9 +3133,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -3159,18 +3170,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -3203,7 +3203,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -3272,7 +3272,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -3308,11 +3308,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -3334,7 +3334,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -3345,7 +3345,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -3378,7 +3378,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -3447,7 +3447,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -3483,11 +3483,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -3498,7 +3498,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -3520,7 +3520,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -3553,7 +3553,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -3622,7 +3622,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -3658,11 +3658,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -3684,7 +3684,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -3695,7 +3695,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -3728,7 +3728,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -3797,7 +3797,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -3833,11 +3833,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -3859,7 +3859,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -3870,7 +3870,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -3903,7 +3903,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -3972,7 +3972,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -4008,9 +4008,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -4034,18 +4045,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -4078,7 +4078,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -4147,7 +4147,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -4183,22 +4183,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -4210,6 +4199,17 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -4253,7 +4253,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -4322,7 +4322,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -4358,9 +4358,31 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -4374,28 +4396,6 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
                     }
                   ]
                 }
@@ -4428,7 +4428,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -4497,7 +4497,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -4533,9 +4533,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -4559,18 +4570,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -4603,7 +4603,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -4672,7 +4672,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -4708,11 +4708,22 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -4735,17 +4746,6 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
                     }
                   ]
                 }
@@ -4778,7 +4778,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -4847,7 +4847,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -4883,22 +4883,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -4910,6 +4899,17 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -4953,7 +4953,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -5022,7 +5022,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -5058,11 +5058,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -5073,7 +5073,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -5095,7 +5095,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -5128,7 +5128,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -5197,7 +5197,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -5233,9 +5233,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -5259,18 +5270,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -5303,7 +5303,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -5372,7 +5372,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -5408,11 +5408,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -5445,7 +5445,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -5478,7 +5478,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -5547,7 +5547,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -5583,11 +5583,33 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -5599,28 +5621,6 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
                     }
                   ]
                 }
@@ -5653,7 +5653,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -5722,7 +5722,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -5758,9 +5758,31 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -5774,28 +5796,6 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
                     }
                   ]
                 }
@@ -5828,7 +5828,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -5897,7 +5897,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -5933,11 +5933,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -5948,18 +5948,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -5971,6 +5960,17 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -6003,7 +6003,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -6072,7 +6072,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -6108,11 +6108,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -6123,7 +6123,18 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -6135,17 +6146,6 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
                     }
                   ]
                 }
@@ -6178,7 +6178,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -6247,7 +6247,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -6283,9 +6283,20 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -6309,18 +6320,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -6353,7 +6353,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -6422,7 +6422,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -6458,33 +6458,11 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"106"
                     }
                   ]
                 }
@@ -6496,6 +6474,28 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"105"
                     }
                   ]
                 }
@@ -6528,7 +6528,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -6597,7 +6597,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -6633,9 +6633,31 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"105"
                     }
                     , {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"106"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
+                      , "line":"108"
+                    }
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
                       , "line":"105"
                     }
@@ -6649,28 +6671,6 @@
                     {
                       "filename":"Unknown location"
                       , "line":"0"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
                     }
                   ]
                 }
@@ -6703,7 +6703,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -6772,7 +6772,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":113
+                , "line":115
               }
             ]
           ]
@@ -6803,16 +6803,23 @@
               [
                 {
                   "type":"text"
-                  , "text":"14 clock cycles Hardened Floating-point Dot Product of Size 8 Operation (%L, %L)"
+                  , "text":"14 clock cycles Hardened Floating-point Dot Product of Size 8 Operation (%L)"
                   , "links":
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"106"
                     }
-                    , {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
+                  ]
+                }
+                , {
+                  "type":"text"
+                  , "text":"1.3 clock cycle Select Operation (%L)"
+                  , "links":
+                  [
+                    {
+                      "filename":"Unknown location"
+                      , "line":"0"
                     }
                   ]
                 }
@@ -6834,18 +6841,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"105"
-                    }
-                  ]
-                }
-                , {
-                  "type":"text"
-                  , "text":"1.3 clock cycle Select Operation (%L)"
-                  , "links":
-                  [
-                    {
-                      "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"104"
+                      , "line":"108"
                     }
                   ]
                 }
@@ -6878,7 +6874,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":104
+                    , "line":105
                   }
                 ]
               ]
@@ -6947,7 +6943,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -6975,7 +6971,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7034,7 +7030,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7062,7 +7058,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7121,7 +7117,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7149,7 +7145,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7208,7 +7204,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7236,7 +7232,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7295,7 +7291,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7323,7 +7319,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7382,7 +7378,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7410,7 +7406,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7469,7 +7465,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7497,7 +7493,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7556,7 +7552,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7584,7 +7580,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7643,7 +7639,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7671,7 +7667,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7730,7 +7726,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7758,7 +7754,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7817,7 +7813,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7845,7 +7841,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7904,7 +7900,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -7932,7 +7928,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -7991,7 +7987,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8019,7 +8015,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8078,7 +8074,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8106,7 +8102,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8165,7 +8161,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8193,7 +8189,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8252,7 +8248,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8280,7 +8276,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8339,7 +8335,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8367,7 +8363,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8426,7 +8422,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8454,7 +8450,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8513,7 +8509,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8541,7 +8537,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8600,7 +8596,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8628,7 +8624,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8687,7 +8683,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8715,7 +8711,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8774,7 +8770,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8802,7 +8798,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8861,7 +8857,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8889,7 +8885,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -8948,7 +8944,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -8976,7 +8972,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9035,7 +9031,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9063,7 +9059,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9122,7 +9118,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9150,7 +9146,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9209,7 +9205,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9237,7 +9233,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9296,7 +9292,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9324,7 +9320,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9383,7 +9379,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9411,7 +9407,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9470,7 +9466,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9498,7 +9494,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9557,7 +9553,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9585,7 +9581,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9644,7 +9640,7 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":160
+                , "line":162
               }
             ]
           ]
@@ -9672,7 +9668,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"146"
+                      , "line":"148"
                     }
                   ]
                 }
@@ -9731,25 +9727,25 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":190
+                , "line":192
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":194
+                , "line":196
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":195
+                , "line":197
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":198
+                , "line":200
               }
             ]
           ]
@@ -9777,7 +9773,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"181"
+                      , "line":"183"
                     }
                   ]
                 }
@@ -9788,7 +9784,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"185"
+                      , "line":"187"
                     }
                   ]
                 }
@@ -9799,7 +9795,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"195"
+                      , "line":"197"
                     }
                   ]
                 }
@@ -9858,19 +9854,19 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":190
+                , "line":192
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":194
+                , "line":196
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":198
+                , "line":200
               }
             ]
           ]
@@ -9898,7 +9894,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"181"
+                      , "line":"183"
                     }
                   ]
                 }
@@ -9909,7 +9905,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"185"
+                      , "line":"187"
                     }
                   ]
                 }
@@ -9920,7 +9916,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"197"
+                      , "line":"199"
                     }
                   ]
                 }
@@ -9979,13 +9975,13 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":194
+                , "line":196
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":198
+                , "line":200
               }
             ]
           ]
@@ -10013,7 +10009,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"181"
+                      , "line":"183"
                     }
                   ]
                 }
@@ -10024,7 +10020,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"185"
+                      , "line":"187"
                     }
                   ]
                 }
@@ -10035,7 +10031,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"197"
+                      , "line":"199"
                     }
                   ]
                 }
@@ -10053,7 +10049,7 @@
                 [
                   {
                     "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                    , "line":190
+                    , "line":192
                   }
                 ]
               ]
@@ -10122,13 +10118,13 @@
             [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":194
+                , "line":196
               }
             ]
             , [
               {
                 "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                , "line":198
+                , "line":200
               }
             ]
           ]
@@ -10156,7 +10152,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"181"
+                      , "line":"183"
                     }
                   ]
                 }
@@ -10167,7 +10163,7 @@
                   [
                     {
                       "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-                      , "line":"197"
+                      , "line":"199"
                     }
                   ]
                 }
