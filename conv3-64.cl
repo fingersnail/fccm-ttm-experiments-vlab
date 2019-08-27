@@ -100,10 +100,15 @@ __kernel void convolution() {
                 write_channel_intel(weight_forwarding[nn][weight_forward_channel], _2);
 
             // Two tile for NIF
+            float sum = 0;
             #pragma unroll
             for (int k = 0; k < NIF; k++) {
-                buffer[w] += _1[k]*_2[k];
+                sum += _1[k]*_2[k];
             }
+            #pragma unroll
+	    for (int i=0; i < 2; i++) {
+		buffer[i] += (w == i ? sum : 0);
+	    }
              
             j++;
 

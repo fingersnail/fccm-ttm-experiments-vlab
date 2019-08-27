@@ -173,7 +173,7 @@
           [
             {
               "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":173
+              , "line":176
             }
           ]
         ]
@@ -219,7 +219,7 @@
           [
             {
               "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":125
+              , "line":128
             }
           ]
         ]
@@ -253,7 +253,7 @@
           [
             {
               "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":204
+              , "line":207
             }
           ]
         ]
@@ -350,7 +350,7 @@
       {
         "name":"convolution (x32)"
         , "data":
-        [154627, 116798, 0, 256]
+        [114843, 169820, 0, 320]
         , "debug":
         [
           [
@@ -398,7 +398,7 @@
           [
             {
               "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":173
+              , "line":176
             }
           ]
         ]
@@ -412,7 +412,7 @@
           [
             {
               "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":125
+              , "line":128
             }
           ]
         ]
@@ -426,7 +426,7 @@
           [
             {
               "filename":"/homes/weihao/five/fccm-ttm-experiments-vlab/conv3-64.cl"
-              , "line":204
+              , "line":207
             }
           ]
         ]
@@ -464,7 +464,7 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [169211, 129055, 16, 256]
+        [129427, 182077, 16, 320]
       }
       , {
         "name":"Channel Resources"
@@ -492,9 +492,9 @@
         , "classes":
         ["summary-highlight", "nohover"]
         , "data":
-        [285972, 433067, 946, 256]
+        [246188, 486089, 946, 320]
         , "data_percent":
-        [38.6188, 29.2415, 40.4966, 16.8643]
+        [33.2462, 32.8217, 40.4966, 21.0804]
       }
       , {
         "name":"Available"
