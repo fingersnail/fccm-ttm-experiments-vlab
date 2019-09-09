@@ -4,5 +4,5 @@
 {"name":"AOC Version","data":["17.1.1 Build 273"]},
 {"name":"Quartus Version","data":["17.1.1 Build 273"]},
 {"name":"Command","data":["aoc -time time.out -time-passes -regtest_mode -v -g -fpc -fp-relaxed -report -DFLOAT_VEC=float8 -DBATCH=6 -DNOX=128 -DNOY=128 -DNIF=8 -DNOF=64 -DPIF=8 -DPOX=4 -DPOY=2 -DPOF=4 -DKX=3 -DKY=3 -DSX=1 -DSY=1 conv3-64.cl -o conv3-64.aocx"]},
-{"name":"Reports Generated At", "data":["Wed Aug 14 22:11:22 2019"]}
+{"name":"Reports Generated At", "data":["Mon Sep  9 06:44:32 2019"]}
 ]}
